@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     /* width: 1000px; */
-    height: 80px;
+    height: 90px;
     /* border: 1px solid tomato; */
     border-radius: 25px;
     background-color: white;
@@ -145,86 +145,89 @@
     width: 120px;
     /* height: 150px; */
     flex-shrink: 0;
+    z-index: 10;
+}
+.sec01-main > .main-mid > ul > li > img {
+    z-index: 0;
 }
 .sec01-main > .main-mid > ul > li > span {
     font-family: SUITE-Regular;
     font-size: 1.8rem;
 }
-.sec01-main > .main-mid > ul > li::before {
+.sec01-main > .main-mid > ul > li.area::before {
     content: '';
     display: block;
     height: 120px;
     margin-bottom: 5px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(1)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(1)::before {
     background: url('../assets/icon_area.gif') no-repeat;
 }
-.sec01-main > .main-mid > ul > li:nth-child(2)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(2)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -120px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(3)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(3)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -240px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(4)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(4)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -360px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(5)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(5)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -480px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(6)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(6)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -600px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(7)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(7)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -720px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(8)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(8)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1920px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(9)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(9)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -840px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(10)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(10)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -960px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(11)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(11)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1080px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(12)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(12)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1200px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(13)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(13)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1320px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(14)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(14)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1440px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(15)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(15)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1560px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(16)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(16)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1680px;
 }
-.sec01-main > .main-mid > ul > li:nth-child(17)::before {
+.sec01-main > .main-mid > ul > li.area:nth-child(17)::before {
     background: url('../assets/icon_area.gif') no-repeat;
     background-position: 0 -1800px;
 }
-
-.sec01-main > .main-mid > ul > li.sel::after {
+.sec01-main > .main-mid > ul > .sel::after {
     content: '';
     display: inline-block;
     width: 120px;
