@@ -146,6 +146,7 @@
     /* height: 150px; */
     flex-shrink: 0;
     z-index: 10;
+    text-align: center;
 }
 .sec01-main > .main-mid > ul > li > img {
     z-index: 0;

@@ -9,6 +9,11 @@ function Sec01 () {
     const ulRef = useRef(null);
     const [area, setArea] = useState('서울');
     const [areaDetail, setAreaDetail] = useState('인기 여행지');
+    // 드래그 시작 시 첫 위치 기억 변수.
+    const [posX, setPosX] = useState(0);
+
+    // 슬라이드 위치 변수.
+    const [left, setLeft] = useState(0);
 
     // 탭 클릭 시 sel 추가.
     const tapClick = (n) => {
@@ -24,13 +29,9 @@ function Sec01 () {
         setTab(prev => n);
         setArea(prev => text);
         setAreaDetail(prev => detail);
+        setLeft(prev => 0);
     }
 
-    // 드래그 시작 시 첫 위치 기억 변수.
-    const [posX, setPosX] = useState(0);
-
-    // 슬라이드 위치 변수.
-    const [left, setLeft] = useState(0);
 
     // 드래그 시작하면
     const dragStartHandler = e => {
