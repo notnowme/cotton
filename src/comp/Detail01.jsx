@@ -1,9 +1,10 @@
 import '../css/detail01.css';
 import test from '../assets/csvjson.json';
+import Card from './Detail01/Card';
 const Detail = () => {
     return (
         <section id='detail01'>
-            <div className="detail-nav">
+            {/* <div className="detail-nav">
                 <p>
                    <span>카테고리</span> 
                 </p>
@@ -25,14 +26,15 @@ const Detail = () => {
                         <span>자연</span>
                     </li>
                     <li>
-                        <i className="fa-solid fa-plane-departure"></i>
-                        <span>여행</span>
+                     <i className="fa-solid fa-store"></i>
+                        <span>쇼핑</span>
                     </li>
                 </ul>
             </div>
             <div className="detail-main">
-
-            </div>
+                <Card />
+            </div> */}
+            <Card />
         </section>
     )
 };
