@@ -2,13 +2,15 @@
     position: relative;
     display: flex;
     width: 1400px;
-    height: 800px;
     /* border: 1px solid gray; */
     margin-top: 50px;
+    margin-bottom: 50px;
+    transform: rotate(0);
 }
 
 .detail-left {
-    position: fixed;
+    position: absolute;
+    top: 0px;
     width: 200px;
     margin-right: 40px;
 }
@@ -58,7 +60,17 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 90px;
+}
+.detail-right > .right-banner {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.detail-right > .right-banner > img {
+    width: 100%;
+    object-fit: cover;
 }
 .detail-right > .right-top {
     position: relative;
@@ -79,6 +91,11 @@
     border-radius: 7px;
     background-color: #F6F7F8;
 }
+
+.detail-right > .right-top > .search.focus {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .detail-right > .right-top > .search > i {
     margin-left: 15px;
     font-size: 1.6rem;
@@ -97,8 +114,67 @@
 .detail-right > .right-bottom {
     position: relative;
     width: 100%;
-    height: 60px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid gray;
+
+    padding: 15px;
+    flex-wrap: wrap;
+}
+.right-bottom > .detail-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    /* height: 400px; */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.detail-item > .item-img {
+    width: 100%;
+    /* height: 300px; */
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.detail-item > .item-img > img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.detail-item > .item-desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 7px;
+    padding: 10px;
+}
+.detail-item > .item-desc > button {
+    outline: none;
+    border: none;
+    font-size: 1.8rem;
+    padding: 7px 20px;
+    border-radius: 7px;
+    font-family: SUITE-Regular;
+    color: white;
+    background-color: tomato;
+    cursor: pointer;
+
+}
+.detail-item > .item-desc > .text {
+    display: flex;
+    flex-direction: column;
+    font-family: SUITE-Regular;
+}
+.detail-item > .item-desc > .text > span:first-child {
+    font-size: 1.6rem;
+    margin-bottom: 3px;
+}
+.detail-item > .item-desc > .text > span:last-child {
+    font-size: 1.8rem;
 }

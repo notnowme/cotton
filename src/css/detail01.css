@@ -119,7 +119,7 @@
     animation-name: fade-in;
     animation-duration: 2s;
 }
-.detail-item {
+.detail-main > .detail-item {
     position: relative;
     display: flex;
     flex-direction: column;

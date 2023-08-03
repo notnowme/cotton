@@ -12,6 +12,9 @@
   font-style: normal;
 }
 
+body {
+  /* background-color: #ededed; */
+}
 ul,ol,li {
   list-style: none;
 }
