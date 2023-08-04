@@ -1,24 +1,49 @@
 import '../../css/nav.css';
 import IMG from '../../assets/logo.png';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 const Nav = () => {
+    const location = useLocation();
+    const [scroll, setScroll] = useState();
+    const [view, setView] = useState(false);
+    const scrollHandle = () => {
+        let scrollY = window.scrollY;
+
+        (700 < scrollY ? setView(true) : setView(false));
+    };
+    useEffect(()=>{
+        window.addEventListener('scroll', scrollHandle);
+        return () => {
+            window.removeEventListener('scroll',scrollHandle);
+            setView(false);
+        }
+    },[])
     return (
-        <nav id='navbar'>
+        <nav id='navbar' className={view || location.pathname !== '/' ? 'scroll' : ''}>
             <div className="logo">
-                <img src={IMG} />
+                {/* <img src={IMG} /> */}
             </div>
             <div className="nav-right">
                 <ul>
-                    <li className='sel'>
-                        <span>홈</span>
+                    <li className={location.pathname === '/' ? 'sel' : ''}>
+                        <Link to='/'>
+                            <span>홈</span>
+                        </Link>
+                    </li>
+                    <li className={location.pathname === '/list' ? 'sel' : ''}>
+                        <Link to='/list'>
+                            <span>지역</span>
+                        </Link>
                     </li>
                     <li>
-                        <span>지역</span>
+                        <Link to='/'>
+                            <span>상세</span>
+                        </Link>
                     </li>
                     <li>
-                        <span>상세</span>
-                    </li>
-                    <li>
-                        <span>로그인</span>
+                        <Link to='/'>
+                            <span>로그인</span>
+                        </Link>
                     </li>
                 </ul>
                 <div className="login">
@@ -26,7 +51,7 @@ const Nav = () => {
                         <i className="fa-solid fa-user"></i>
                     </button>
                     <span>
-                        다꼬리 님 환영 못합니다.
+                        다꼬리 님 환영합니다.
                     </span>
                 </div>
             </div>

@@ -1,15 +1,16 @@
-const View = () => {
+const View = ({index, data}) => {
+    console.log(data);
     return (
-        <div className="view">
+        <div className="view" key={index}>
             <div className="img">
-
+                <img src={data.firstimage} />
             </div>
             <div className="desc">
                 <p>
-                    서울숲
+                    {data.title}
                     <i className="fa-regular fa-heart"></i>
                 </p>
-                <span>서울 성동구</span>
+                <span>{data.addr1}</span>
             </div>
         </div>
     )

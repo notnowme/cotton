@@ -10,6 +10,7 @@ const Card = () => {
     const [scrollY, setScrollY] = useState(0);
     const [scrollActive, setScrollActive] = useState(false);
     const leftRef = useRef(null);
+    const [menuNum, setMenuNum] = useState(0);
     const focusHandle = () => {
         if(focus) {
             setFocus(false);
@@ -17,15 +18,19 @@ const Card = () => {
             setFocus(true);
         }
     }
+    const menuClick = (num) => {
+        setMenuNum(prev => num);
+    };
     const test = () => {
         const a = leftRef.getBoundingRect();
         console.log(a);
     }
-    const sendTest = async () => {
-        const b = await fetch('http://192.168.20.8:4000/');
-    }
     return (
         <section id="detail04">
+            <div className="detail04-top">
+
+            </div>
+            <div className="detail04-btm">
             <div className="detail-left"
                 onClick={test}
                 ref={leftRef}
@@ -34,23 +39,33 @@ const Card = () => {
                     <li>
                         <span className='first'>카테고리</span>
                     </li>
-                    <li className='sel'>
+                    <li className={menuNum === 0 ? 'sel' : ''}
+                        onClick={()=>menuClick(0)}
+                    >
                         <i className="fa-solid fa-tree"></i>
                         <span>자연</span>
                     </li>
-                    <li>
+                    <li className={menuNum === 1 ? 'sel' : ''}
+                        onClick={()=>menuClick(1)}
+                    >
                         <i className="fa-regular fa-futbol"></i>
                         <span>활동</span>
                     </li>
-                    <li>
+                    <li className={menuNum === 2 ? 'sel' : ''}
+                        onClick={()=>menuClick(2)}
+                    >
                         <i className="fa-solid fa-question"></i>
                         <span>몰루</span>
                     </li>
-                    <li>
+                    <li className={menuNum === 3 ? 'sel' : ''}
+                        onClick={()=>menuClick(3)}
+                    >
                         <i className="fa-solid fa-question"></i>
                         <span>몰루2</span>
                     </li>
-                    <li>
+                    <li className={menuNum === 4 ? 'sel' : ''}
+                        onClick={()=>menuClick(4)}
+                    >
                         <i className="fa-solid fa-question"></i>
                         <span>몰루3</span>
                     </li>
@@ -170,6 +185,7 @@ const Card = () => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     )

@@ -10,24 +10,24 @@ import '../css/style.css';
 // import required modules
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
-import beach_firework from '../../../cotton/src/assets/beach_firework.mp4'
-import mountainVideo from '../../../cotton/src/assets/mountain.mp4'
-import beachVideo from '../../../cotton/src/assets/beach.mp4'
-import surfingVideo from '../../../cotton/src/assets/surfing.mp4'
+import beach_firework from '../assets/beach_firework.mp4'
+import mountainVideo from '../assets/mountain.mp4'
+import beachVideo from '../assets/beach.mp4'
+import surfingVideo from '../assets/surfing.mp4'
 
 export default function App() {
   return (
     <>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={0}
         centeredSlides={true}
         autoplay={{
           delay: 2800,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"

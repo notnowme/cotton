@@ -1,5 +1,7 @@
 #navbar {
-    width: 100%;
+    position: fixed;
+    top: 0;
+    width: 98%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 
@@ -7,6 +9,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
+    z-index: 11;
+    background: none;
+    transition: all 200ms;
+    color: white;
+}
+
+#navbar.scroll {
+    background-color: #f6f5f2;
+    color: black;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
@@ -63,20 +74,31 @@
     margin: 0 10px;
     cursor: pointer;
 }
+
 .nav-right > ul > li:hover {
     color: tomato;
 }
 .nav-right > ul > li.sel::after {
     position: absolute;
     content: '';
-    width: 100%;
+    width: 50px;
     height: 5px;
     background-color: tomato;
     bottom: -3px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 7px;
 }
-.nav-right > ul > li > span {
+.nav-right > ul > li > a > span {
     font-family: SUITE-Regular;
     font-size: 1.8rem;
+}
+#navbar > .nav-right > ul > li > a > span {
+    color: white;
+}
+#navbar.scroll > .nav-right > ul > li > a > span {
+    color: black;
+}
+.nav-right > ul > li > a > span:hover {
+    color: tomato;
 }

@@ -5,6 +5,26 @@
   font-size: 67.5%;
 }
 
+/* Scrollbar */
+
+/* ::-webkit-scrollbar {
+  overflow-x: hidden;
+} */
+/* ::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background: #dddddd;
+  border-left: 9px solid white;
+  border-right: 9px solid white;
+}
+::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  border-radius: 10px;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+} */
+
 @font-face {
   font-family: 'SUITE-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
@@ -13,12 +33,14 @@
 }
 
 body {
-  /* background-color: #ededed; */
+  /* background-color: #F6F4EB; */
 }
 ul,ol,li {
   list-style: none;
 }
-
+a {
+  text-decoration: none;
+}
 #root {
   display: flex;
   justify-content: center;
