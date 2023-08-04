@@ -15,37 +15,53 @@
     margin: 0;
     padding: 0;
   } */
-  
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-  
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .mySwiper {
-    width: 500px;
-    height: 500px;
-    border: 1px solid tomato;
-  }
-  .test {
-    width: 100%;
-    height: 100%;
-    background-color: tomato;
-  }
+
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  background: lightgray;
+
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-button-prev {
+  margin-left: 240px;
+  color: #fff;
+}
+
+.swiper-button-next {
+  margin-right: 240px;
+  color: #fff;
+}
+
+.swiper-pagination {
+  bottom: 60px;
+  margin-bottom: 50px;
+}

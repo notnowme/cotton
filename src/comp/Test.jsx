@@ -8,31 +8,44 @@ import 'swiper/css/navigation';
 import '../css/style.css';
 
 // import required modules
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
+import beach_firework from '../../../cotton/src/assets/beach_firework.mp4'
+import mountainVideo from '../../../cotton/src/assets/mountain.mp4'
+import beachVideo from '../../../cotton/src/assets/beach.mp4'
+import surfingVideo from '../../../cotton/src/assets/surfing.mp4'
 
 export default function App() {
   return (
     <>
       <Swiper
-        navigation={true}
-        loop={true}
-        modules={[Navigation, Autoplay]}
+        spaceBetween={30}
+        centeredSlides={true}
         autoplay={{
-          delay: 5000,
+          delay: 2800,
           disableOnInteraction: false,
         }}
-        // slidesPerView={1}
-        // spaceBetween={30}
-        className="mySwiper">
-        <SwiperSlide><div className="test"></div></SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+        speed={1000}
+        loop={true}
+      >
+        <SwiperSlide>
+            <video src={surfingVideo} muted loop autoPlay className="slide-video"></video>
+        </SwiperSlide>
+        <SwiperSlide>
+            <video src={mountainVideo} muted loop autoPlay className="slide-video"></video>
+        </SwiperSlide>
+        <SwiperSlide>
+            <video src={beachVideo} muted loop autoPlay className="slide-video"></video>
+        </SwiperSlide>
+        <SwiperSlide>
+            <video src={beach_firework} muted loop autoPlay className="slide-video"></video>
+        </SwiperSlide>
       </Swiper>
     </>
   );
