@@ -35,8 +35,8 @@ const Nav = () => {
                             <span>지역</span>
                         </Link>
                     </li>
-                    <li>
-                        <Link to='/'>
+                    <li className={location.pathname === '/content' ? 'sel' : ''}>
+                        <Link to='/content'>
                             <span>상세</span>
                         </Link>
                     </li>

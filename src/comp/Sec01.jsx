@@ -6,6 +6,7 @@ import MainMid from './Sec01/Main-mid';
 import BtmView from './Sec01/BtmView';
 import Sec01Ads from './Sec01/Sec01Ads';
 import MainTop from './MainTop';
+import Content01 from './Test/Content01';
 function Sec01 () {
     const testArr = [{"addr1":"서울특별시 서초구 원터길","addr2":"경기도 성남시ㆍ과천시ㆍ의왕시","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":125452,"contenttypeid":12,"createdtime":20040200000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/41/2023841_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/41/2023841_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":127.0543676,"mapy":37.44168677,"mlevel":6,"modifiedtime":20220200000000,"sigungucode":15,"tel":"","title":"청계산","zipcode":"6806"},{"addr1":"서울특별시 종로구 인왕산로1길 29","addr2":"(사직동)","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126479,"contenttypeid":12,"createdtime":20031000000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/62/1894462_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/62/1894462_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":126.9640832,"mapy":37.57356706,"mlevel":6,"modifiedtime":20220300000000,"sigungucode":23,"tel":"","title":"인왕산","zipcode":"3028"},{"addr1":"서울특별시 관악구 관악로","addr2":"(신림동)","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126480,"contenttypeid":12,"createdtime":20040100000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/30/1857230_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/30/1857230_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":126.9540988,"mapy":37.44840364,"mlevel":6,"modifiedtime":20221000000000,"sigungucode":5,"tel":"","title":"관악산","zipcode":"8826"},{"addr1":"서울특별시 도봉구 도봉동","addr2":"","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126481,"contenttypeid":12,"createdtime":20030900000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/65/1894465_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/65/1894465_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":127.0184192,"mapy":37.69698701,"mlevel":6,"modifiedtime":20220400000000,"sigungucode":10,"tel":"","title":"도봉산","zipcode":"1318"}];
     const [tab, setTab] = useState(0);
@@ -101,6 +102,7 @@ function Sec01 () {
     return (
         <section id='sec01'>
             <MainTop />
+            {/* <Content01 /> */}
         <div className="sec01-container">
             <div className='sec01-top'>
                 <Sec01_Top

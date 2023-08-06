@@ -1,7 +1,12 @@
+import TAPE from '../../assets/tape.png';
+
 const View = ({index, data}) => {
     console.log(data);
     return (
         <div className="view" key={index}>
+            {/* <div className="tape">
+                <img src={TAPE} />
+            </div> */}
             <div className="img">
                 <img src={data.firstimage} />
             </div>
