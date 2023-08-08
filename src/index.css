@@ -25,15 +25,22 @@
   border-right: 5px solid white;
 } */
 
-@font-face {
+/* @font-face {
   font-family: 'SUITE-Regular';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: '메인폰트';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 body {
-  /* background-color: #F6F4EB; */
+  background-color: #fafafa;
 }
 ul,ol,li {
   list-style: none;
@@ -42,7 +49,35 @@ a {
   text-decoration: none;
 }
 #root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+video {
+  width: 100%;
+}
+pre {
+  white-space: pre-wrap;
+}
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 11;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.footer {
+  margin-top: 50px;
+  width: 100%;
+  height: 200px;
+  background-color: #FFF;
 }

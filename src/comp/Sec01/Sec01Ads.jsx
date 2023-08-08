@@ -1,5 +1,5 @@
 import '../../css/Sec01Ads.css';
-import IMG from '../../assets/ads_main.jpg'
+import IMG from '../../assets/area_main.jpg'
 import area01 from '../../assets/area01.png'
 import area02 from '../../assets/area02.png'
 import area03 from '../../assets/area03.jpg'

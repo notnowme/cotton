@@ -8,7 +8,6 @@ const Nav = () => {
     const [view, setView] = useState(false);
     const scrollHandle = () => {
         let scrollY = window.scrollY;
-
         (700 < scrollY ? setView(true) : setView(false));
     };
     useEffect(()=>{
@@ -19,7 +18,7 @@ const Nav = () => {
         }
     },[])
     return (
-        <nav id='navbar' className={view || location.pathname !== '/' ? 'scroll' : ''}>
+        <nav id='navbar' className={view || location.pathname !== '/' ? 'scroll' : 'scroll'}>
             <div className="logo">
                 {/* <img src={IMG} /> */}
             </div>
@@ -35,8 +34,8 @@ const Nav = () => {
                             <span>지역</span>
                         </Link>
                     </li>
-                    <li>
-                        <Link to='/'>
+                    <li className={location.pathname === '/content' ? 'sel' : ''}>
+                        <Link to='/content'>
                             <span>상세</span>
                         </Link>
                     </li>

@@ -1,9 +1,9 @@
 #navbar {
     position: fixed;
     top: 0;
-    width: 98%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    width: 100%;
+    /* border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
 
     display: flex;
     justify-content: space-between;
@@ -16,7 +16,7 @@
 }
 
 #navbar.scroll {
-    background-color: #f6f5f2;
+    background-color: white;
     color: black;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
@@ -81,10 +81,10 @@
 .nav-right > ul > li.sel::after {
     position: absolute;
     content: '';
-    width: 50px;
+    width: 45px;
     height: 5px;
-    background-color: tomato;
-    bottom: -3px;
+    background-color: #78C1F3;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 7px;
@@ -99,6 +99,9 @@
 #navbar.scroll > .nav-right > ul > li > a > span {
     color: black;
 }
-.nav-right > ul > li > a > span:hover {
-    color: tomato;
+#navbar > .nav-right > ul > li:hover > a > span {
+    color: #a9e4ff;
+}
+#navbar.scroll > .nav-right > ul > li:hover > a > span {
+    color: #78C1F3;
 }
