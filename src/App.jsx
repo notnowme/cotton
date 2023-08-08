@@ -1,12 +1,15 @@
-import './App.css'
-import Router from './Router'
+import "./App.css";
+import Choice from "./comp/Choice";
+// import Router from "./Router";
 
 function App() {
   return (
     <>
-      <Router />
+      {/* <Router /> */}
+      {/* <Detail2Choice /> */}
+      <Choice />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

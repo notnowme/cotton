@@ -1,0 +1,27 @@
+export const MAIN_DATA = [
+  {
+    id: 1,
+    text: "시작하기",
+    name: "startPrefer",
+  },
+  {
+    id: 2,
+    text: "여행 기간",
+    name: "period",
+  },
+  {
+    id: 3,
+    text: "인원 수",
+    name: "personNum",
+  },
+  {
+    id: 4,
+    text: "대분류",
+    name: "detail",
+  },
+  {
+    id: 5,
+    text: "중분류",
+    name: "detail2",
+  },
+];

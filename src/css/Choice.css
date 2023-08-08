@@ -1,0 +1,106 @@
+.choiceTitleBox {
+    margin-top: 8%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.choiceBox {
+    border: 3px solid lightcoral;
+    margin-top: 30px;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.choiceQues {
+    font-size: 20px;
+    text-align: center;
+}
+
+.btnBox {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.choiceBtn {
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+
+    &+& {
+        margin-left: 10px;
+    }
+}
+
+.periodBtn {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+
+}
+
+.periodBtnBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+
+    &+& {
+        margin-left: 30px;
+    }
+}
+
+.periodBtnBox p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.periodBtnBox div~div {
+    margin-left: 30px;
+}
+
+.personBtn {
+    width: 80px;
+    height: 80px;
+}
+
+.detailChoiceBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px;
+
+}
+
+.detailBtn {
+    width: 70px;
+    height: 70px;
+}
+
+
+.detailChoiceBox p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.natureBox {
+    display: flex;
+}
+
+.natureImg {
+    width: 80px;
+    height: 80px;
+    flex-direction: row;
+}
+
+.detail2ChoiceBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 40px;
+}
