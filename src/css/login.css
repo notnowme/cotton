@@ -1,0 +1,155 @@
+#login-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    border-radius: 7px;
+}
+#login-container > .login {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#login-container > .login > h1 {
+    align-self: flex-start;
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+}
+#login-container > .login > form {
+    width: 100%;
+    height: 100%;
+    font-family: 메인폰트;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+#login-container > .login > form > .input-filed {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+#login-container > .login > form > .input-filed > span {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+#login-container > .login > form > .input-filed > input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 1.6rem;
+}
+#login-container > .login > form > button {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    height: 50px;
+    font-size: 2rem;
+    font-family: 메인폰트;
+}
+
+#login-container > .sign {
+    position: absolute;
+    top: 0;
+    right: -570px;
+    width: 100%;
+    height: 100%;
+    padding: 40px 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: tomato;
+    z-index: 12;
+    transition: all 200ms;
+}
+#login-container > .sign::after {
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    content: '||';
+    color: white;
+    font-size: 3rem;
+    font-weight: 100;
+    opacity: 0.5;
+}
+#login-container > .sign:hover {
+    right: -560px;
+}
+#login-container > .sign.show::after {
+    opacity: 0;
+}
+#login-container > .sign.show {
+    right: -50px;
+}
+#login-container > .sign.show > i {
+    top: 30px;
+    right: 80px;
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    z-index: 15;
+}
+#login-container > .sign > h1 {
+    align-self: flex-start;
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    margin-left: -10px;
+}
+#login-container > .sign > form {
+    width: 100%;
+    height: 100%;
+    font-family: 메인폰트;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -40px;
+}
+#login-container > .sign > form > .input-filed {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+#login-container > .sign > form > .input-filed > span {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+#login-container > .sign > form > .input-filed > input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 1.6rem;
+}
+#login-container > .sign > form > button {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    height: 50px;
+    font-size: 2rem;
+    font-family: 메인폰트;
+}

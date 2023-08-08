@@ -7,7 +7,6 @@ import BtmView from './Sec01/BtmView';
 import Sec01Ads from './Sec01/Sec01Ads';
 import MainTop from './MainTop';
 import Content01 from './Test/Content01';
-import axios from 'axios';
 function Sec01 () {
     const [tab, setTab] = useState(0);
     const ulRef = useRef(null);

@@ -6,6 +6,7 @@ import Content from "./comp/Detail02/Content";
 import Mypage from "./comp/Mypage/Mypage";
 import Feed from "./comp/Feed/Feed";
 import Index from "./comp/Index";
+import Login from "./comp/Login/Login";
 
 const Router = () => {
     return (
@@ -17,6 +18,7 @@ const Router = () => {
                 <Route path='/content' element={<Content />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/feed' element={<Feed />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
             <div className="footer">
                 
