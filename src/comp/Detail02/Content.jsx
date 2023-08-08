@@ -1,6 +1,21 @@
+import { useEffect, useState } from 'react';
 import '../../css/content.css';
 
 const Content = () => {
+    const [scroll, setScroll] = useState();
+    const [view, setView] = useState(false);
+    const scrollMenuHandle = () => {
+        let scrollY = window.scrollY;
+        (390 < scrollY ? setView(true) : setView(false));
+    };
+    useEffect(()=>{
+        window.addEventListener('scroll', scrollMenuHandle);
+        return () => {
+            window.removeEventListener('scroll',scrollMenuHandle);
+            setView(false);
+        }
+    },[])
+
     return (
         <div id="content">
             <div className="content-top">
@@ -23,7 +38,7 @@ const Content = () => {
                     </div>
                 </div>
             </div>
-            <div className="content-nav">
+            <div className={view ? "content-nav scroll" : 'content-nav'}>
                 <ul>
                     <li>
                         <span>사진 보기</span>
@@ -120,31 +135,32 @@ const Content = () => {
                         <div className="cmt-item">
                             <div className="line"></div>
                             <div className="name">
-                                <span>꼬리선이 진화하면 다꼬리</span>
+                                <span>꼬리선</span>
                             </div>
                             <div className="reply">
                                 <p>
                                 눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에 전나무향? 이 물씬 났어요 힐링으로 최고!
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
-                                글자 많은 것도 확인...
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
+                                글자 많은 것도 확인
 
                                 </p>
                             </div>

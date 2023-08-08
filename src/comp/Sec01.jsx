@@ -7,8 +7,8 @@ import BtmView from './Sec01/BtmView';
 import Sec01Ads from './Sec01/Sec01Ads';
 import MainTop from './MainTop';
 import Content01 from './Test/Content01';
+import axios from 'axios';
 function Sec01 () {
-    const testArr = [{"addr1":"서울특별시 서초구 원터길","addr2":"경기도 성남시ㆍ과천시ㆍ의왕시","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":125452,"contenttypeid":12,"createdtime":20040200000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/41/2023841_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/41/2023841_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":127.0543676,"mapy":37.44168677,"mlevel":6,"modifiedtime":20220200000000,"sigungucode":15,"tel":"","title":"청계산","zipcode":"6806"},{"addr1":"서울특별시 종로구 인왕산로1길 29","addr2":"(사직동)","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126479,"contenttypeid":12,"createdtime":20031000000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/62/1894462_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/62/1894462_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":126.9640832,"mapy":37.57356706,"mlevel":6,"modifiedtime":20220300000000,"sigungucode":23,"tel":"","title":"인왕산","zipcode":"3028"},{"addr1":"서울특별시 관악구 관악로","addr2":"(신림동)","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126480,"contenttypeid":12,"createdtime":20040100000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/30/1857230_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/30/1857230_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":126.9540988,"mapy":37.44840364,"mlevel":6,"modifiedtime":20221000000000,"sigungucode":5,"tel":"","title":"관악산","zipcode":"8826"},{"addr1":"서울특별시 도봉구 도봉동","addr2":"","areacode":1,"booktour":"0","cat1":"자연","cat2":"자연관광지","cat3":"산","contentid":126481,"contenttypeid":12,"createdtime":20030900000000,"firstimage":"http://tong.visitkorea.or.kr/cms/resource/65/1894465_image2_1.jpg","firstimage2":"http://tong.visitkorea.or.kr/cms/resource/65/1894465_image3_1.jpg","cpyrhtDivCd":"Type3","mapx":127.0184192,"mapy":37.69698701,"mlevel":6,"modifiedtime":20220400000000,"sigungucode":10,"tel":"","title":"도봉산","zipcode":"1318"}];
     const [tab, setTab] = useState(0);
     const ulRef = useRef(null);
     const [area, setArea] = useState('서울');
@@ -85,11 +85,88 @@ function Sec01 () {
             setArea(prev => e.target.innerText);
         }
     }
-    const test = async() => {
-        const a = await fetch('http://gjaischool-a.ddns.net:8447/proxy/3001/areas?info=1');
-        const b = a.json();
-        console.log(b);
-    }
+    const [areaData, setAreaData] = useState([]);
+    const getAreaData = async(n, code) => {
+        const getData = await fetch(`http://121.66.158.211:3001/${code}?info=${n}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        );
+        const data = await getData.json();
+        setAreaData(data);
+    };
+    useEffect(()=>{
+        // 처음 접속했을 때 서울을 기본값으로 보여주기.
+        getAreaData(1, 'areas');
+
+        return () => {
+            // 클린업해둬?
+            setAreaData([]);
+        }
+    },[]);
+
+    useEffect(()=>{
+        // tab 바뀌는 것에 의존해서 서울 기본 값 혹은 연인 기본 값.
+        if(tab === 0) {
+            getAreaData(1);
+            console.log('ss')
+        } else {
+            getAreaData('A001', 'ranCos');
+            //현재 없으므로 임시로 서울.
+            console.log('bb')
+        }
+        return () => {
+            setAreaData([]);
+            //일단 클린업?
+        }
+    },[tab]);
+
+    useEffect(()=>{
+        let num = 1;
+        switch(area) {
+            case "서울":
+                num = 1;
+                break;
+            case "부산":
+                num = 6;
+                break;
+            case "광주":
+                num = 5;
+                break;
+            case "제주":
+                num = 39;
+                break;
+        }
+        getAreaData(num, 'areas');
+        return () => {
+            setAreaData([]);
+            //일단 클린업?
+        }
+    },[area]);
+    
+//#017858
+//#25ac84
+    const getAreaCodeData = (area) => {
+        let num = 1;
+        switch(area) {
+            case "서울":
+                num = 1;
+                break;
+            case "부산":
+                num = 1;
+                break;
+            case "광주":
+                num = 1;
+                break;
+            case "제주도":
+                num = 1;
+                break;
+        }
+        getAreaData(num);
+    };
     useEffect(()=>{
         // 지역/코스에 클릭 이벤트 추가...
         const menuAll = document.querySelectorAll('.main-mid > ul > li');
@@ -129,15 +206,24 @@ function Sec01 () {
                     tab={tab}
                 />
             </div>
-            <div className='sec01-btm'>
-                {
-                    testArr.map((data, index) => (
-                        <BtmView index={index} data={data} />
-                    ))
-                }
-            </div>
+            { tab === 0 ?
+                <div className='sec01-btm'>
+                    {
+                        areaData.map((data, index) => (
+                            <BtmView key={index} index={index} data={data} tab={0} />
+                        ))
+                    }
+                </div>
+                :
+                <div className='sec01-btm'>
+                    {
+                        areaData.map((data, index) => (
+                            <BtmView key={index} index={index} data={data} tab={1} />
+                        ))
+                    }
+                </div>
+            }
             <Sec01Ads />
-
         </div>
         </section>
     )

@@ -70,6 +70,13 @@
     align-items: center;
     margin-bottom: 20px;
 }
+#content > .content-nav.scroll {
+    position: fixed;
+    top: 60px;
+    background-color: white;
+    width: 1360px;
+    z-index: 1;
+}
 
 #content > .content-nav > ul {
     display: flex;
@@ -83,7 +90,7 @@
 }
 #content > .content-nav > ul > .line {
     width: 1px;
-    height: 16px;
+    height: 20px;
     background-color: black;
 }
 /* #content > .content-nav > ul > li:not(:first-child)::before {
