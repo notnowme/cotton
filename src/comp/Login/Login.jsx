@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../../css/login.css';
+import KAKAO from '../../assets/kakao_login_medium_wide.png';
 
 const Login = () => {
     const [showSign, setShowSign] = useState(false);
@@ -37,6 +38,9 @@ const Login = () => {
                         </div>
                         <button>로그인</button>
                     </form>
+                    <div className="sns">
+                    <button className='kakao'>로그인</button>
+                    </div>
                 </div>
                 <div className={showSign ? 'sign show' : 'sign'} onClick={()=>signHandle('show')}>
                         <i className="fa-solid fa-x" onClick={(e)=>signHandle02('close',e)}></i>

@@ -63,7 +63,28 @@
     font-size: 2rem;
     font-family: 메인폰트;
 }
+#login-container > .login > .sns {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 
+    border: 1px solid tomato;
+}
+
+#login-container > .login > .sns > button {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    height: 50px;
+    font-size: 2rem;
+    font-family: 메인폰트;
+}
+.kakao {
+    background-color: #FEE500;
+    color: #000000;
+}
 #login-container > .sign {
     position: absolute;
     top: 0;
