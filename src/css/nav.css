@@ -93,6 +93,10 @@
     font-family: SUITE-Regular;
     font-size: 1.8rem;
 }
+.nav-right > ul > li > span {
+    font-family: SUITE-Regular;
+    font-size: 1.8rem;
+}
 #navbar > .nav-right > ul > li > a > span {
     color: white;
 }

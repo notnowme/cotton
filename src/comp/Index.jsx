@@ -4,30 +4,63 @@ import { useEffect, useRef, useState } from 'react';
 import Seoul from './main/Seoul';
 import Gwangju from './main/Gwangju';
 import Busan from './main/Busan';
+import Spot01 from './main/Spot01';
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 const Index = () => {
     const [menu, setMenu] = useState(0);
     const [area, setArea] = useState(0);
     const [news, setNews] = useState(0);
+    const [arr, setArr] = useState([]);
     const menuHandle = (n) => {
         setMenu(prev => n);
     };
     const areaHandle = (n) => {
         setArea(prev => n);
-    };
-    const showDetail = (n) => {
-        if(detail !== n && !viewDetail) {
-            setViewDetail(true);
-            setDetail(prev => n);
-        } else if(detail !== n && viewDetail) {
-            setDetail(prev => n);
-        } else if(detail === n && viewDetail) {
-            setDetail(prev => 99);
-            setViewDetail(false);
+        switch(area) {
+            case 0:
+                getAreaInfo(1, 'areas');
+                break;
+            case 4:
+                getAreaInfo(5, 'areas');
+                break;
+            case 15:
+                getAreaInfo(39, 'areas');
+                break;
+            case 5:
+                getAreaInfo(6, 'areas');
+                break;
+            
         }
-    }
+    };
     const newsHandle = (n) => {
         setNews(prev => n);
     }
+    const getAreaInfo = async(n = 1, code = 'areas') => {
+        // 서울 1 - 0
+        // 광주 39 - 4
+        // 제주 5 - 15
+        // 부산 6 - 5
+        const getData = await fetch(`http://121.66.158.211:3001/${code}?info=${n}`,{
+            method: 'get',
+            headers: {
+                'Content-type':'application/json'
+            }
+        });
+        const data = await getData.json();
+        setArr(prev => data);
+    }
+    useEffect(()=>{
+        getAreaInfo();
+        return () => {
+            setArr([]);
+        }
+    },[])
     return (
         <section id="sec01">
             <MainTop />
@@ -58,55 +91,24 @@ const Index = () => {
                         </ul>
                     </div>
                     <div className="desc">
-                        <div className="desc-item">
-                            <div className="img">
-
-                            </div>
-                            <div className="desc-text">
-                                <i className="fa-regular fa-heart"></i>
-                                <span className='text'>서울 강남구</span>
-                                <span className='text'>가나다라마바사</span>
-                            </div>
-                        </div>
-                        <div className="desc-item">
-                            <div className="img">
-
-                            </div>
-                            <div className="desc-text">
-                                <i className="fa-regular fa-heart"></i>
-                                <span className='text'>서울 강남구</span>
-                                <span className='text'>가나다라마바사</span>
-                            </div>
-                        </div>
-                        <div className="desc-item">
-                            <div className="img">
-
-                            </div>
-                            <div className="desc-text">
-                                <i className="fa-regular fa-heart"></i>
-                                <span className='text'>서울 강남구</span>
-                                <span className='text'>가나다라마바사</span>
-                            </div>
-                        </div>
-                        <div className="desc-item">
-                            <div className="img">
-
-                            </div>
-                            <div className="desc-text">
-                                <i className="fa-regular fa-heart"></i>
-                                <span className='text'>서울 강남구</span>
-                                <span className='text'>가나다라마바사</span>
-                            </div>
-                        </div>
-                        <div className="desc-item">
-                            <div className="img">
-
-                            </div>
-                            <div className="desc-text">
-                                <i className="fa-regular fa-heart"></i>
-                                <span className='text'>서울 강남구</span>
-                                <span className='text'>가나다라마바사</span>
-                            </div>
+                        <div className='desc-container'>
+                            <Swiper
+                                slidesPerView={5}
+                                spaceBetween={280}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                modules={[Pagination]}
+                                className="mySwiper"
+                            >
+                                {
+                                    arr.map((data, index) => (
+                                        <SwiperSlide>
+                                            <Spot01 data={data} key={index} />
+                                        </SwiperSlide>
+                                    ))
+                                }
+                            </Swiper>
                         </div>
                     </div>
                 </div>
