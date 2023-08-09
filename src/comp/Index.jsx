@@ -22,21 +22,6 @@ const Index = () => {
     };
     const areaHandle = (n) => {
         setArea(prev => n);
-        switch(area) {
-            case 0:
-                getAreaInfo(1, 'areas');
-                break;
-            case 4:
-                getAreaInfo(5, 'areas');
-                break;
-            case 15:
-                getAreaInfo(39, 'areas');
-                break;
-            case 5:
-                getAreaInfo(6, 'areas');
-                break;
-            
-        }
     };
     const newsHandle = (n) => {
         setNews(prev => n);
@@ -61,13 +46,29 @@ const Index = () => {
             setArr([]);
         }
     },[])
+    useEffect(()=>{
+        switch(area) {
+            case 0:
+                getAreaInfo(1, 'areas');
+                break;
+            case 4:
+                getAreaInfo(5, 'areas');
+                break;
+            case 15:
+                getAreaInfo(39, 'areas');
+                break;
+            case 5:
+                getAreaInfo(6, 'areas');
+                break;
+        }
+    },[area])
     return (
         <section id="sec01">
             <MainTop />
             <div className="sec01-main">
                 <ul>
                     <li className={menu === 0 ? 'sel' : ''} onClick={()=>menuHandle(0)}>인기 관광지</li>
-                    <li className={menu === 1 ? 'sel' : ''} onClick={()=>menuHandle(1)}>인기 코스</li>
+                    <li className={menu === 1 ? 'sel' : ''} onClick={()=>menuHandle(1)}>인기 테마 코스</li>
                 </ul>
                 <div className="sec01-content">
                     <div className="item">
@@ -89,22 +90,32 @@ const Index = () => {
                             <li className={area === 14 ? 'sel' : ''} onClick={()=>areaHandle(14)}>전남</li>
                             <li className={area === 15 ? 'sel' : ''} onClick={()=>areaHandle(15)}>제주</li>
                         </ul>
+                        {menu === 1 &&
+                            <ul className='theme'>
+                                <li>테마</li>
+                                <li>테마2</li>
+                                <li>테마3</li>
+                                <li>테마4</li>
+                                <li>테마5</li>
+                            </ul>
+                        }
                     </div>
                     <div className="desc">
                         <div className='desc-container'>
                             <Swiper
-                                slidesPerView={5}
-                                spaceBetween={280}
+                                slidesPerView={4}
+                                spaceBetween={10}
                                 pagination={{
                                     clickable: true,
                                 }}
                                 modules={[Pagination]}
                                 className="mySwiper"
+                                loop={true}
                             >
                                 {
                                     arr.map((data, index) => (
-                                        <SwiperSlide>
-                                            <Spot01 data={data} key={index} />
+                                        <SwiperSlide key={index}>
+                                            <Spot01 data={data} />
                                         </SwiperSlide>
                                     ))
                                 }

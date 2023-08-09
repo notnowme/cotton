@@ -1,8 +1,9 @@
+import noImg from '../../assets/noImage.png';
 const Spot01 = ({ data }) => {
     return (
         <div className="desc-item">
             <div className="img">
-                <img src={data.firstimage} alt="" />
+                <img src={data.firstimage ? data.firstimage : noImg} alt="" />
             </div>
             <div className="desc-text">
                 <i className="fa-regular fa-heart"></i>
