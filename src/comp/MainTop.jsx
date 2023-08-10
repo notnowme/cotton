@@ -10,65 +10,62 @@ import "../css/style.css";
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
-import beach_firework from "../assets/beach_firework.mp4";
-import mountainVideo from "../assets/mountain.mp4";
+import seaView from "../assets/ht_seaside.jpg";
 import beachVideo from "../assets/beach.mp4";
 import surfingVideo from "../assets/surfing.mp4";
+import pool from "../assets/hiltonPool.jpg";
+import highball from "../assets/highball.jpg";
+import buffet from "../assets/buffet.jpg";
+import infinity from "../assets/infinityPool.jpg";
+import seoulSky from "../assets/seoulSky.jpg";
+import sunset from "../assets/seoulSunset.png";
+import bistro from "../assets/bistro.jpg";
 
 export default function App() {
   return (
     <>
       <Swiper
-        spaceBetween={0}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2800,
-          disableOnInteraction: false,
-        }}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        navigation={true}
+        slidesPerView={"auto"}
+        spaceBetween={100}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
-        speed={1000}
+        centeredSlides={true}
+        navigation={true}
         loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
       >
         <SwiperSlide>
-          <video
-            src={surfingVideo}
-            muted
-            loop
-            autoPlay
-            className="slide-video"
-          ></video>
+          <img src={pool}></img>
         </SwiperSlide>
         <SwiperSlide>
-          <video
-            src={mountainVideo}
-            muted
-            loop
-            autoPlay
-            className="slide-video"
-          ></video>
+          <img src={seaView} />
         </SwiperSlide>
         <SwiperSlide>
-          <video
-            src={beachVideo}
-            muted
-            loop
-            autoPlay
-            className="slide-video"
-          ></video>
+          <img src={highball} />
         </SwiperSlide>
         <SwiperSlide>
-          <video
-            src={beach_firework}
-            muted
-            loop
-            autoPlay
-            className="slide-video"
-          ></video>
+          <img src={buffet} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <video src={surfingVideo} className="slideImg"></video>
+        </SwiperSlide>
+        <SwiperSlide>
+          <video src={beachVideo} className="slideImg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={infinity} className="slideImg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={seoulSky} className="slideImg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={sunset} className="slideImg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={bistro} className="slideImg" />
         </SwiperSlide>
       </Swiper>
     </>
