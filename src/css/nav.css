@@ -83,13 +83,9 @@
     cursor: pointer;
 }
 
-<<<<<<< HEAD
-.nav-right > ul > li:hover {
-    color: #25ac84;
-=======
+
 .nav-right>ul>li:hover {
     color: tomato;
->>>>>>> 25357a356d8bc2c05622e3764d054e984514569b
 }
 
 .nav-right>ul>li.sel::after {
@@ -116,13 +112,6 @@
 #navbar.scroll>.nav-right>ul>li>a>span {
     color: black;
 }
-<<<<<<< HEAD
-#navbar > .nav-right > ul > li:hover > a > span {
-    color: #25ac84;
-}
-#navbar.scroll > .nav-right > ul > li:hover > a > span {
-    color: #25ac84;
-=======
 
 #navbar>.nav-right>ul>li:hover>a>span {
     color: #a9e4ff;
@@ -160,5 +149,4 @@
 
 input::placeholder {
     font-size: 15px;
->>>>>>> 25357a356d8bc2c05622e3764d054e984514569b
 }
