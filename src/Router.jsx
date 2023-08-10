@@ -9,6 +9,7 @@ import Index from "./comp/Index";
 import Login from "./comp/Login/Login";
 import Choice from './comp/Choice'
 import Fav from "./comp/fav/Fav";
+import Search from "./comp/Search/Search";
 
 const Router = () => {
     return (
@@ -22,6 +23,7 @@ const Router = () => {
                 <Route path='/feed' element={<Feed />} />
                 <Route path='/choice' element={<Choice />} />
                 <Route path='/fav' element={<Fav />} />
+                <Route path='/search' element={<Search />} />
             </Routes>
             <div className="footer">
                 
