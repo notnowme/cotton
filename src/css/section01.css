@@ -89,6 +89,7 @@
 }
 #sec01 > .sec01-main > .sec01-content > .item {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -100,6 +101,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 10px;
+    flex-shrink: 0;
 }
 #sec01 > .sec01-main > .sec01-content > .item > ul > li {
     position: relative;
@@ -129,42 +132,59 @@
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
-    padding: 10px;
     padding-left: 0px;
     /* border: 1px solid rgb(220, 220, 220); */
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item {
-    width: 250px;
+#sec01 > .sec01-main > .sec01-content > .desc > .desc-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-left: 0px;
+}
+#sec01 > .sec01-main > .sec01-content > .desc > .desc-container .desc-item {
+    width: 265px;
+    height: 275px;
     border: 1px solid rgb(200, 200, 200);
     display: flex;
     flex-direction: column;
     padding: 10px;
     flex-shrink: 0;
-    margin: 0 10px;
+    /* margin: 0 10px; */
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item > .img {
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .img {
     width: 100%;
     height: 200px;
     background-color: grey;
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item > .desc-text {
+
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .desc-text {
     position: relative;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     font-family: 메인폰트;
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item > .desc-text > i {
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .desc-text > i {
     position: absolute;
-    top: 0;
+    top: -5px;
     right: 0;
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item > .desc-text > .text {
-    font-size: 1.4rem;
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .desc-text > .text {
+    font-size: 1.2rem;
 }
-#sec01 > .sec01-main > .sec01-content > .desc > .desc-item > .desc-text > .text:last-child {
-    font-size: 2rem;
+#sec01 > .sec01-main > .sec01-content > .desc >  .desc-container .desc-item > .desc-text > .text:last-child {
+    margin-top: 3px;
+    font-size: 1.6rem;
 }
 
 /* sec01-news */

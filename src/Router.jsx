@@ -18,7 +18,6 @@ const Router = () => {
                 <Route path='/content' element={<Content />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/feed' element={<Feed />} />
-                <Route path='/login' element={<Login />} />
             </Routes>
             <div className="footer">
                 
