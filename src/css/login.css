@@ -95,6 +95,9 @@
     font-size: 2rem;
     font-family: 메인폰트;
     color: white;
+    background-color: rgb(170, 170, 170);
+}
+#login-container > .login > .form > button.fullfilled {
     background-color: black;
 }
 #login-container > .login > .sns {

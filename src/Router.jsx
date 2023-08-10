@@ -7,6 +7,8 @@ import Mypage from "./comp/Mypage/Mypage";
 import Feed from "./comp/Feed/Feed";
 import Index from "./comp/Index";
 import Login from "./comp/Login/Login";
+import Choice from './comp/Choice'
+import Fav from "./comp/fav/Fav";
 
 const Router = () => {
     return (
@@ -18,6 +20,8 @@ const Router = () => {
                 <Route path='/content' element={<Content />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/feed' element={<Feed />} />
+                <Route path='/choice' element={<Choice />} />
+                <Route path='/fav' element={<Fav />} />
             </Routes>
             <div className="footer">
                 

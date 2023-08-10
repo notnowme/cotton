@@ -131,10 +131,14 @@ const Login = ({login}) => {
                                 onChange={loginInputHandle}
                             />
                         </div>
-                        <button onClick={doLogin}>로그인</button>
+                        <button onClick={doLogin}
+                            className={loginId && loginPw.length >= 4 ? 'fullfilled' : ''}
+                        >
+                            로그인
+                        </button>
                     </div>
                     <div className="sns">
-                    {/* <img src={KAKAO} alt="" /> */}
+                    <img src={KAKAO} alt="" />
                     </div>
                 </div>
                 <div className={showSign ? 'sign show' : 'sign'} onClick={()=>signHandle('show')}>

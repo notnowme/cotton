@@ -76,14 +76,14 @@
 }
 
 .nav-right > ul > li:hover {
-    color: tomato;
+    color: #25ac84;
 }
 .nav-right > ul > li.sel::after {
     position: absolute;
     content: '';
     width: 45px;
     height: 5px;
-    background-color: #78C1F3;
+    background-color: #25ac84;
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
@@ -104,8 +104,8 @@
     color: black;
 }
 #navbar > .nav-right > ul > li:hover > a > span {
-    color: #a9e4ff;
+    color: #25ac84;
 }
 #navbar.scroll > .nav-right > ul > li:hover > a > span {
-    color: #78C1F3;
+    color: #25ac84;
 }
