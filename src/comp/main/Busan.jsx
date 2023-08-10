@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 
 const Busan = () => {
     const [viewDetail, setViewDetail] = useState(false);
+    // 화살표를 클릭하면 자세한 내용을 보여줄 여부의 true/false
+
     const [detail, setDetail] = useState(99);
+    // 몇 번째 항목을 보여줄지 변수. 99번이면 아무것도 보여주지 않음.
+
     const showDetail = (n) => {
         if (detail !== n && !viewDetail) {
             setViewDetail(true);

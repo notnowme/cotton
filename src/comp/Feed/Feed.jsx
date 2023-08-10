@@ -4,10 +4,16 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 
 const Feed = ({infoArr}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
+    // 리코일 변수로 저정한 팝업창 보여주는 true/false 변수. 사용법은 useState와 같음.
+
     const user = useRecoilValue(userInfo);
+    // 리코일 변수로 저장한 유저 정보. 로그인 시 아이디, 닉네임이 저장됨.
+
     const closeFeed = () => {
         setViewFeed(false);
     }
+    // 닫기 버튼을 누르면 팝업창 보여주기 변수를 false.
+
     const likeHandle = () => {
         if(!user) {
             alert('로그인 후 가능.');
@@ -15,6 +21,8 @@ const Feed = ({infoArr}) => {
         }
         alert('okok');
     }
+    // 좋아요 버튼을 누르면, 로그인 여부 확인 후 실행.
+    
     return (
         <div id="background">
             <div className="popup">

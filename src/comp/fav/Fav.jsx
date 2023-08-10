@@ -27,17 +27,26 @@ import imgCafe from '../../assets/cafe.png'
 
 const Fav = () => {
     const [show, setShow] = useState(0);
+    // margin-left 값을 넣을 변수.
+
     const containerRef = useRef(null);
+    // margin-left 값을 수정하기 위해 DOM 지정.
+
     const showHandle = (text) => {
         setShow(prev => text);
     }
+    // 클릭하면 변경할 margin-left 값을 저장함.
+
     const endChoice = () => {
         alert('고마워요');
         setShow(prev => 0);
     }
+    // 선택이 끝나면 margin-left를 0으로.
+
     useEffect(()=>{
         containerRef.current.style.marginLeft = `-${show}px`;
-    },[show])
+    },[show]);
+    // show 변수가 바뀔 때마다 감싸준 컨테이너의 marginLeft 값을 변경.
     return (
         <div id='fav'>
             <div className="container"

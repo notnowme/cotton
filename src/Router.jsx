@@ -12,6 +12,8 @@ import Fav from "./comp/fav/Fav";
 import Search from "./comp/Search/Search";
 
 const Router = () => {
+    // BrowserRouter는 일반적인 url 방식, HashRouter는 localhost/#/url처럼 #이 붙음.
+    // BrowserRouter 안에 감싸주고 path='/주소' element={<컴포넌트>} 하면 라우팅이 됨. 
     return (
         <BrowserRouter>
             <Nav />

@@ -7,16 +7,26 @@ import { useRecoilState } from 'recoil';
 
 const Login = ({login}) => {
     const [user, setUser] = useRecoilState(userInfo);
+    // 리코일 변수로 저장한 유저 정보를 담을 변수.
+
     const [showSign, setShowSign] = useState(false);
+    // 회원가입 부분을 보여줄 true/false 변수.
 
     const [loginShowPw, setLoginShowPw] = useState(false);
+    // 로그인 팝업을 보여줄 true/false 변수.
+
     const [showPw, setShowPw] = useState(false);
+    // 비밀번호 입력을 보여줄 true/false 변수.
+
     const [showPwChk, setShowPwChk] = useState(false);
+    // 비밀번호 확인 입력을 보여줄 true/false 변수.
 
     const [loginInput, setLoginInput] = useState({
         loginId: '',
         loginPw: ''
     });
+    // 로그인 쪽 input 변수들.
+
     const [signInput, setSignInput] = useState({
         signId: '',
         signName: '',
@@ -24,39 +34,50 @@ const Login = ({login}) => {
         signPw: '',
         signPwChk: '',
     });
+    // 회원가입 쪽 input 변수들.
+
     const { loginId, loginPw } = loginInput;
     const { signId, signName, signNick, signPw, signPwChk } = signInput;
+    // 비구조화 할당으로 각각 변수를 뽑아옴.
 
     const loginInputHandle = e => {
         setLoginInput({
             ...loginInput,
             [e.target.name]: e.target.value
         })
-    }
+    };
+    // 로그인 쪽 input의 변경이 있을 시 그 값들을 loginInput에 저장.
+
     const signInputHandle = e => {
         setSignInput({
             ...signInput,
             [e.target.name]: e.target.value
         })
-    }
+    };
+    // 회원가입 쪽 input의 변경이 있을 시 그 값들을 signInput에 저장.
+
+    // name 값이 일치하면 그걸 저장하는 것.
 
     const signHandle = (mode) => {
-        console.log('o')
         if(mode === 'show') {
             setShowSign(true);
         } else if(mode === 'close') {
             setShowSign(false);
         }
-    }
+    };
+    // 로그인 팝업창의 오른쪽을 누르면 회원가입 부분 보여주는 변수를 변경.
+
     const signHandle02 = (mode, e) => {
         e.stopPropagation();
-        console.log('o')
         if(mode === 'show') {
             setShowSign(true);
         } else if(mode === 'close') {
             setShowSign(false);
         }
-    }
+    };
+    // 이벤트 버블링을 방지하기 위해 stopPropagation을 씀.
+    // 나머진 위와 비슷함.
+
     const loginShowPwHandle = () => {
         setLoginShowPw(!loginShowPw);
     }
@@ -66,6 +87,8 @@ const Login = ({login}) => {
     const showPwChkHandle = () => {
         setShowPwChk(!showPwChk);
     }
+    // 비밀번호 입력 칸을 보여줄지 말지.
+    // 결국 true/false 토글밖에 없으므로 !만 쓰면 될 듯.
 
     const doLogin = async() => {
         const login = await fetch('http://121.66.158.211:3001/Login', {
@@ -83,7 +106,11 @@ const Login = ({login}) => {
         session.setItem("id",b.id);
         setUser(b.id);
         loginClose();
-    }
+    };
+    // async-await으로 비동기로 서버와 통신.
+    // 로그인에 성공해서 서버에서 받아온 id, nick을 로컬 세션에 저장.
+    // 이것으로 회원 기능을 만들 것.
+
     const doSign = async(e) => {
         e.stopPropagation();
         const sign = await fetch('http://121.66.158.211:3001/Join', {
@@ -99,10 +126,16 @@ const Login = ({login}) => {
             })
         });
         console.log(sign);
-    }
+    };
+    // async-await으로 비동기로 서버와 통신.
+    // 회원가입 폼에서 입력받은 값을 서버로 넘김.
+    // 서버에서 회원가입 처리.
+
     const loginClose = () => {
         login(false);
-    }
+    };
+    // 로그인 팝업창을 닫는 함수.
+
     return (
         <div id="background">
             <div id="login-container">
@@ -126,6 +159,8 @@ const Login = ({login}) => {
                             ></i>
                             <span>비밀번호</span>
                             <input type={loginShowPw ? 'text' : 'password'}
+                            // true면 보이게 할 것이므로 input type을 text.
+                            // false면 보이지 않게 할 것이므로 type을 password.
                                 name='loginPw'
                                 value={loginPw}
                                 onChange={loginInputHandle}
