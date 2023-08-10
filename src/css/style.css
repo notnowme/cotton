@@ -69,3 +69,20 @@
   bottom: 60px;
   margin-bottom: 50px;
 }
+
+.swiper-slide {
+  width: 80%;
+}
+
+.swiper-button-prev {
+  position: absolute;
+  left: 220px;
+  /* margin-left: 120px; */
+  color: #fff;
+}
+
+.swiper-button-next {
+  position: absolute;
+  right: 220px;
+  color: #fff;
+}
