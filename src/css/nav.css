@@ -85,7 +85,7 @@
 
 
 .nav-right>ul>li:hover {
-    color: tomato;
+    color: #25ac84;
 }
 
 .nav-right>ul>li.sel::after {
@@ -100,7 +100,7 @@
     border-radius: 7px;
 }
 
-.nav-right>ul>li>a>span {
+.nav-right>ul>li span {
     font-family: SUITE-Regular;
     font-size: 1.8rem;
 }
@@ -114,11 +114,11 @@
 }
 
 #navbar>.nav-right>ul>li:hover>a>span {
-    color: #a9e4ff;
+    color: #25ac84;
 }
 
 #navbar.scroll>.nav-right>ul>li:hover>a>span {
-    color: #78C1F3;
+    color: #25ac84;
 }
 
 .input-group {
