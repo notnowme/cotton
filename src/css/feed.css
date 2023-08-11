@@ -159,7 +159,7 @@
     font-size: 2rem;
     margin-right: 5px;
 }
-#background > .popup > .inputs > textarea {
+#background > .popup > .inputs > input {
     height: 100%;
     width: 100%;
     padding: 7px;
@@ -168,14 +168,14 @@
     border: none;
     outline: none;
     resize: none;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     padding-bottom: 5px;
     padding-right: 45px;
     line-height: 1.6rem;
     letter-spacing: 1px;
     background: none;
 }
-#background > .popup > .inputs > textarea::-webkit-scrollbar {
+#background > .popup > .inputs > input::-webkit-scrollbar {
     width: 0px;
   }
 #background > .popup > .inputs > span {

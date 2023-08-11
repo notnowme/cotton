@@ -1,6 +1,6 @@
 import "../../css/nav.css";
 import IMG from "../../assets/logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Login from "../Login/Login";
 import { userInfo } from "../../atoms/atom";
@@ -11,6 +11,7 @@ const Nav = () => {
   const [scroll, setScroll] = useState();
   const [view, setView] = useState(false);
   const [user, setUser] = useRecoilState(userInfo);
+  const navigate = useNavigate();
   const scrollHandle = () => {
     let scrollY = window.scrollY;
     700 < scrollY ? setView(true) : setView(false);
@@ -30,7 +31,25 @@ const Nav = () => {
       setView(false);
     };
   }, []);
-  console.log(user);
+  const [input, setInput] = useState('');
+  const inputHandle = e => {
+    setInput(prev => e.target.value);
+  }
+  const doSearch = (e) => {
+    if(e.key === 'Enter') {
+      if(input === '서울') {
+        navigate('/search?area=1');
+      } else if(input === '광주') {
+        navigate('/search?area=5');
+      } else if(input === '제주') {
+        navigate('/search?area=39');
+      } else if(input === '부산') {
+        navigate('/search?area=6');
+      }
+      setInput(prev => '');
+    }
+
+  }
   return (
     <>
       {showLogin ? <Login login={setShowLogin} /> : null}
@@ -41,7 +60,15 @@ const Nav = () => {
         <div className="logo">
           <img src={IMG} />
           <div className="input-group">
-            <input type="search" className="inputBox" placeholder="Search" />
+            <input
+              type="search"
+              className="inputBox"
+              placeholder="지역을 검색해 보세요"
+              onChange={inputHandle}
+              onKeyDown={doSearch}
+              name='search'
+              value={input}
+            />
             <button type="button" className="search_btn">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -49,21 +76,22 @@ const Nav = () => {
         </div>
         <div className="nav-right">
           <ul>
-            <li className={location.pathname === "/" ? "sel" : ""}>
-              <Link to="/">
-                <span>홈</span>
-              </Link>
-            </li>
-            <li className={location.pathname === "/list" ? "sel" : ""}>
-              <Link to="/list">
+            <Link to="/">
+              <li className={location.pathname === "/" ? "sel" : ""}>
+                
+                  <span>홈</span>
+              </li>
+            </Link>
+              <Link to="/search?area=1">
+            <li className={location.pathname === "/search" ? "sel" : ""}>
                 <span>지역</span>
-              </Link>
             </li>
-            <li className={location.pathname === "/content" ? "sel" : ""}>
+              </Link>
               <Link to="/content">
+            <li className={location.pathname === "/content" ? "sel" : ""}>
                 <span>상세</span>
-              </Link>
             </li>
+              </Link>
             {user ? (
               <li onClick={doLogOut}>
                 <span>로그아웃</span>

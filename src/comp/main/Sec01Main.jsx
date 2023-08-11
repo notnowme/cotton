@@ -14,6 +14,12 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr}
 
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     const [infoArr, setInfoArr] = useState([]);
+    const areaArr = [
+        '서울', '인천', '대전', '대구', '광주',
+        '부산', '세종', '경기', '강원', '충북',
+        '충남', '경북', '경남', '전북', '전남',
+        '제주'
+    ]
     return (
     <>
     {viewFeed ? <Feed infoArr={infoArr}/> : null}
@@ -25,22 +31,11 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr}
                 <div className="sec01-content">
                     <div className="item">
                         <ul>
-                            <li className={area === 0 ? 'sel' : ''} onClick={()=>areaHandle(0)}>서울</li>
-                            <li className={area === 1 ? 'sel' : ''} onClick={()=>areaHandle(1)}>인천</li>
-                            <li className={area === 2 ? 'sel' : ''} onClick={()=>areaHandle(2)}>대전</li>
-                            <li className={area === 3 ? 'sel' : ''} onClick={()=>areaHandle(3)}>대구</li>
-                            <li className={area === 4 ? 'sel' : ''} onClick={()=>areaHandle(4)}>광주</li>
-                            <li className={area === 5 ? 'sel' : ''} onClick={()=>areaHandle(5)}>부산</li>
-                            <li className={area === 6 ? 'sel' : ''} onClick={()=>areaHandle(6)}>세종</li>
-                            <li className={area === 7 ? 'sel' : ''} onClick={()=>areaHandle(7)}>경기</li>
-                            <li className={area === 8 ? 'sel' : ''} onClick={()=>areaHandle(8)}>강원</li>
-                            <li className={area === 9 ? 'sel' : ''} onClick={()=>areaHandle(9)}>충북</li>
-                            <li className={area === 10 ? 'sel' : ''} onClick={()=>areaHandle(10)}>충남</li>
-                            <li className={area === 11 ? 'sel' : ''} onClick={()=>areaHandle(11)}>경북</li>
-                            <li className={area === 12 ? 'sel' : ''} onClick={()=>areaHandle(12)}>경남</li>
-                            <li className={area === 13 ? 'sel' : ''} onClick={()=>areaHandle(13)}>전북</li>
-                            <li className={area === 14 ? 'sel' : ''} onClick={()=>areaHandle(14)}>전남</li>
-                            <li className={area === 15 ? 'sel' : ''} onClick={()=>areaHandle(15)}>제주</li>
+                            {
+                                areaArr.map((data,index) => (
+                                    <li className={area === index ? 'sel' : ''} onClick={()=>areaHandle(index)}>{data}</li>
+                                ))
+                            }
                         </ul>
                         {menu === 1 &&
                             <ul className='theme'>

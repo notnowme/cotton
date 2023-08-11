@@ -230,10 +230,11 @@
     font-family: 메인폰트;
     margin: 0 8px;
     border-radius: 7px;
-    border: 1px solid rgb(200, 200, 200);
-    color: black;
+    border: 1px solid rgb(220, 220, 220);
+    color: #bbbbbb;
     opacity: 0.8;
     cursor: pointer;
+    background-color: white;
 }
 .sec01-news > .menu-bar > span.sel {
     border: 1px solid #017858;
