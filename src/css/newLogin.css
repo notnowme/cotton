@@ -1,0 +1,96 @@
+#newLogin-container {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#newLogin-container > .newLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 500px;
+    height: 800px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: url('/src/assets/loginBg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* #newLogin-container > .newLogin > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+} */
+#newLogin-container > .newLogin > .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 460px;
+    background-color: #ffffff;
+    z-index: 1;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#newLogin-container > .newLogin > .login-form > .input-fields {
+    position: relative;
+    width: 100%;
+    /* box-shadow: rgba(254, 249, 245, 1) 0px 7px 29px 0px; */
+    box-shadow: rgba(255, 241, 238, 1) 0px 5px 15px;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+#newLogin-container > .newLogin > .login-form > .input-fields > input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    color: black;
+    border-radius: 15px;
+    border: 1px solid rgb(240, 240, 240);
+}
+#newLogin-container > .newLogin > .login-form > .action-fields {
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+#newLogin-container > .newLogin > .login-form > .action-fields > span {
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    font-size: 2.6rem;
+    font-family: 로그인;
+    color:#3f3f3f;
+}
+#newLogin-container > .newLogin > .login-form > .action-fields > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    font-size: 4rem;
+    border: none;
+    outline: none;
+    background-color: #25ac84;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+#newLogin-container > .newLogin > .login-form > .action-fields > .sug {
+    width: 100px;
+    height: 30px;
+    border: 1px solid tomato;
+}
