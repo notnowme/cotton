@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import "../../css/content.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const Content = () => {
   const [scroll, setScroll] = useState();
@@ -32,6 +38,10 @@ const Content = () => {
               <i className="fa-regular fa-eye"></i>
               <span>40</span>
             </p>
+            <p>
+              <i className="fa-regular fa-paper-plane"></i>
+              <span>share</span>
+            </p>
           </div>
           <div className="right"></div>
         </div>
@@ -52,7 +62,29 @@ const Content = () => {
         </ul>
       </div>
       <div className="content-main">
-        <div className="img"></div>
+        <div className="img">
+          <Swiper
+            slidesPerView={"auto"}
+            spaceBetween={0}
+            modules={[Pagination, Navigation]}
+            className="contentSwiper"
+            navigation={true}
+            pagination={{
+              clickable: true,
+            }}
+            loop={true}
+          >
+            <SwiperSlide className="contentSlide">
+              <img src="https://cdn.ananti.kr/adm/2023-04-21/H73mv20XDeBxKz3TDtVk7vHhbLQZPhFp.jpg" />
+            </SwiperSlide>
+            <SwiperSlide className="contentSlide">
+              <img src="https://cdn.ananti.kr/adm/2023-08-02/f2F2jtl5YiWNivsC3S2I67iFMYVhCctE.jpg" />
+            </SwiperSlide>
+            <SwiperSlide className="contentSlide">
+              <img src="https://cdn.ananti.kr/plf/ui/img/hilton/ht_seaside_2304.jpg" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
       <div className="content-desc">
         <span className="title">상세 정보</span>
@@ -72,35 +104,37 @@ const Content = () => {
           배경에 둔 산사는 평창 월정사 팔각 구층석탑 등 다수의 국보와 보물을
           지녔다.
         </pre>
+        <div className="info">
+          <ul>
+            <li>
+              <strong>문의 및 안내</strong>
+              <span>033-123-4567</span>
+            </li>
+            <li>
+              <strong>주소</strong>
+              <span>강원특별자치도 평창군 진부면 오대산로 374-8</span>
+            </li>
+            <li>
+              <strong>정보 1</strong>
+              <span>ㄱㄴㄷㄹ</span>
+            </li>
+            <li>
+              <strong>정보 2</strong>
+              <span>ㅁㅂㅅㅇ</span>
+            </li>
+          </ul>
+        </div>
         <div className="map-info">
           <div className="map"></div>
-          <div className="info">
-            <ul>
-              <li>
-                <strong>문의 및 안내</strong>
-                <span>033-123-4567</span>
-              </li>
-              <li>
-                <strong>주소</strong>
-                <span>강원특별자치도 평창군 진부면 오대산로 374-8</span>
-              </li>
-              <li>
-                <strong>정보 1</strong>
-                <span>ㄱㄴㄷㄹ</span>
-              </li>
-              <li>
-                <strong>정보 2</strong>
-                <span>ㅁㅂㅅㅇ</span>
-              </li>
-            </ul>
-          </div>
         </div>
         <div className="cmt">
           <p>
             <strong>후기</strong>
             <span>2</span>
           </p>
+
           <div className="cmt-input">
+            {" "}
             <div className="input">
               <textarea
                 name=""
@@ -111,8 +145,11 @@ const Content = () => {
               <button>로그인</button>
             </div>
           </div>
-          <div className="cmt-view">
+          {/* <div className="cmt-view">
             <div className="cmt-item">
+              <div className="userImg">
+                <i className="fa-solid fa-user"></i>
+              </div>
               <div className="line"></div>
               <div className="name">
                 <span>다꼬리</span>
@@ -128,6 +165,9 @@ const Content = () => {
               </div>
             </div>
             <div className="cmt-item">
+              <div className="userImg">
+                <i className="fa-solid fa-user"></i>
+              </div>
               <div className="line"></div>
               <div className="name">
                 <span>꼬리선</span>
@@ -147,6 +187,59 @@ const Content = () => {
               </div>
               <div className="date">
                 <span>2023. 01. 17</span>
+              </div>
+            </div>
+          </div> */}
+          <div className="cmt-box">
+            <div className="cmt-view">
+              <div className="cmt-img">
+                <i className="fa-solid fa-user"></i>
+              </div>
+              <div className="cmt-item">
+                <div className="cmt-user">
+                  <div className="name">
+                    <span>다꼬리</span>
+                  </div>
+                  <div className="date">
+                    <span>2023. 01. 17</span>
+                  </div>
+                </div>
+                <div className="reply">
+                  <p>
+                    눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에
+                    전나무향? 이 물씬 났어요 힐링으로 최고!
+                  </p>
+                  <hr></hr>
+                </div>
+              </div>
+            </div>
+            <div className="cmt-view">
+              <div className="cmt-img">
+                <i className="fa-solid fa-user"></i>
+              </div>
+              <div className="cmt-item">
+                <div className="cmt-user">
+                  <div className="name">
+                    <span>꼬리선</span>
+                  </div>
+                  <div className="date">
+                    <span>2023. 01. 17</span>
+                  </div>
+                </div>
+                <div className="reply">
+                  <p>
+                    눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에
+                    전나무향? 이 물씬 났어요 힐링으로 최고! 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
+                    글자 많은 것도 확인 글자 많은 것도 확인
+                  </p>
+                  <hr></hr>
+                </div>
               </div>
             </div>
           </div>
