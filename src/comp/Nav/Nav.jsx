@@ -70,9 +70,7 @@ const Nav = () => {
               </li>
             ) : (
               <li onClick={loginOpen}>
-                <Link to="/">
                   <span>로그인</span>
-                </Link>
               </li>
             )}
           </ul>

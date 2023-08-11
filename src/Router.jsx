@@ -7,8 +7,13 @@ import Mypage from "./comp/Mypage/Mypage";
 import Feed from "./comp/Feed/Feed";
 import Index from "./comp/Index";
 import Login from "./comp/Login/Login";
+import Choice from './comp/Choice'
+import Fav from "./comp/fav/Fav";
+import Search from "./comp/Search/Search";
 
 const Router = () => {
+    // BrowserRouter는 일반적인 url 방식, HashRouter는 localhost/#/url처럼 #이 붙음.
+    // BrowserRouter 안에 감싸주고 path='/주소' element={<컴포넌트>} 하면 라우팅이 됨. 
     return (
         <BrowserRouter>
             <Nav />
@@ -18,6 +23,9 @@ const Router = () => {
                 <Route path='/content' element={<Content />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/feed' element={<Feed />} />
+                <Route path='/choice' element={<Choice />} />
+                <Route path='/fav' element={<Fav />} />
+                <Route path='/search' element={<Search />} />
             </Routes>
             <div className="footer">
                 

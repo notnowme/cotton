@@ -1,7 +1,19 @@
 import noImg from '../../assets/noImage.png';
-const Spot01 = ({ data }) => {
+
+const Spot01 = ({ data, setViewFeed, setInfoArr }) => {
+    const test = async(code) => {
+        setViewFeed(true);
+        const getData = await fetch(`http://121.66.158.211:3001/detail?info=${code}`,{
+            method: 'get',
+            headers: {
+                'Content-type':'application/json'
+            }
+        });
+        const data = await getData.json();
+        setInfoArr(prev => data[0]);
+    }
     return (
-        <div className="desc-item">
+        <div className="desc-item" onClick={()=>test(data.contentid)}>
             <div className="img">
                 <img src={data.firstimage ? data.firstimage : noImg} alt="" />
             </div>

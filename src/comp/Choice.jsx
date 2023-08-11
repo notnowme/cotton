@@ -5,8 +5,6 @@ import PersonNum from "./Choice/PersonNum";
 import Period from "./Choice/Period";
 import StartPrefer from "./Choice/StartPrefer";
 import Detail from "./Choice/DetailChoice";
-// import Detail2 from "./Choice/Detail2Choice";
-// import Nature from "./Choice/Nature";
 import Food from "./Choice/food";
 
 const Choice = () => {
