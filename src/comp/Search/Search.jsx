@@ -8,6 +8,9 @@ import TAPE from '../../assets/tape.png';
 import noImg from '../../assets/noImage.png';
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
+import Feed from '../Feed/Feed';
+import { feedHandle, userInfo } from '../../atoms/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 
 const Search = () => {
@@ -17,6 +20,9 @@ const Search = () => {
     const [theme, setTheme] = useState(0);
 
     const [arr, setArr] = useState([]);
+
+    const [infoArr, setInfoArr] = useState([]);
+    const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
 
     const getAreaInfo = async(code) => {
         const getData = await fetch(`http://121.66.158.211:3001/Search?areacode=${code}&tema=${theme}`,{
@@ -33,11 +39,25 @@ const Search = () => {
     useEffect(()=>{
         getAreaInfo(areaCode)
     },[theme])
-
+    useEffect(()=>{
+        setTheme(0);
+    },[areaCode])
     const themeHandle = (n) => {
         setTheme(prev => n);
     }
 
+    const getDetailData = async(code) => {
+        setViewFeed(true);
+        const getData = await fetch(`http://121.66.158.211:3001/detail?info=${code}`,{
+            method: 'get',
+            headers: {
+                'Content-type':'application/json'
+            }
+        });
+        const data = await getData.json();
+        console.log(data);
+        setInfoArr(prev => data[0]);
+    };
     useEffect(()=>{
         console.log('test');
         const area = searchParams.get('area');
@@ -48,6 +68,7 @@ const Search = () => {
     },[areaCode])
     return (
         <>
+        {viewFeed ? <Feed infoArr={infoArr}/> : null}
         <div className="show-area">
             {areaCode === '1' && <img src={SEOUL} />}
             {areaCode === '5' && <img src={GJ} />}
@@ -80,7 +101,7 @@ const Search = () => {
             <div className="container">
                 {
                     arr.map((data, index) => (
-                        <div key={index} className="desc-item">
+                        <div key={index} className="desc-item" onClick={()=>getDetailData(data.contentid)}>
                             <img src={TAPE} alt="" />
                             <div className="img">
                                 <img src={data.firstimage ? data.firstimage : noImg} alt="" />

@@ -7,11 +7,10 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import Spot01 from "./Spot01";
 import Feed from '../Feed/Feed';
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { feedHandle } from '../../atoms/atom';
 import { useRecoilState } from 'recoil';
-const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr}) => {
-
+const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr, forceUpdate}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     const [infoArr, setInfoArr] = useState([]);
     const areaArr = [
@@ -22,7 +21,7 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr}
     ]
     return (
     <>
-    {viewFeed ? <Feed infoArr={infoArr}/> : null}
+    {viewFeed ? <Feed infoArr={infoArr} forceUpdate={forceUpdate}/> : null}
         <div className="sec01-main">
                 <ul>
                     <li className={menu === 0 ? 'sel' : ''} onClick={()=>menuHandle(0)}>인기 관광지</li>
@@ -33,7 +32,7 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr}
                         <ul>
                             {
                                 areaArr.map((data,index) => (
-                                    <li className={area === index ? 'sel' : ''} onClick={()=>areaHandle(index)}>{data}</li>
+                                    <li key={index} className={area === index ? 'sel' : ''} onClick={()=>areaHandle(index)}>{data}</li>
                                 ))
                             }
                         </ul>

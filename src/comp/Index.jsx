@@ -1,10 +1,15 @@
 import MainTop from './MainTop';
 import '../css/section01.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Sec01Main from './main/Sec01Main';
 import Sec01News from './main/Sec01News';
 
 const Index = () => {
+    // useEffect(()=>{
+    //     window.localStorage.setItem('likes','/');
+    // },[])
+    const [, updateState] = useState();
+    const forceUpdate = useCallback(()=>updateState({}),[]);
     const [menu, setMenu] = useState(0);
     const [area, setArea] = useState(0);
     const [theme, setTheme] = useState(0);
@@ -110,6 +115,7 @@ const Index = () => {
                 theme={theme}
                 themeHandle={themeHandle}
                 arr={arr}
+                forceUpdate={forceUpdate}
             />
             {/* ------------------ */}
             <Sec01News

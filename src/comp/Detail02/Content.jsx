@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../css/content.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { userInfo } from "../../atoms/atom";
+import { useRecoilState } from "recoil";
 
 // Import Swiper styles
 import "swiper/css";
@@ -8,11 +10,15 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const Content = () => {
+  const [user, setUser] = useRecoilState(userInfo);
   const [scroll, setScroll] = useState();
   const [view, setView] = useState(false);
+  const picRef = useRef(null);
+  const contentRef = useRef(null);
+  const replyRef = useRef(null);
   const scrollMenuHandle = () => {
     let scrollY = window.scrollY;
-    390 < scrollY ? setView(true) : setView(false);
+    370 < scrollY ? setView(true) : setView(false);
   };
   useEffect(() => {
     window.addEventListener("scroll", scrollMenuHandle);
@@ -25,7 +31,7 @@ const Content = () => {
   return (
     <div id="content">
       <div className="content-top">
-        <span className="title">오대산 월정사 전나무숲길</span>
+        <span className="title">ddddddddddd</span>
         <span className="addr">강원 평창군</span>
         <span className="desc">전나무 숲에서 즐기는 피톤치드 산림욕</span>
         <div className="menu">
@@ -48,20 +54,20 @@ const Content = () => {
       </div>
       <div className={view ? "content-nav scroll" : "content-nav"}>
         <ul>
-          <li>
+          <li onClick={()=>{picRef.current.scrollIntoView({behavior: 'smooth'})}}>
             <span>사진 보기</span>
           </li>
           <div className="line"></div>
-          <li>
+          <li onClick={()=>{contentRef.current.scrollIntoView({behavior: 'smooth', })}}>
             <span>상세 정보</span>
           </li>
           <div className="line"></div>
-          <li>
+          <li onClick={()=>{replyRef.current.scrollIntoView({behavior: 'smooth'})}}>
             <span>후기</span>
           </li>
         </ul>
       </div>
-      <div className="content-main">
+      <div className="content-main" ref={picRef}>
         <div className="img">
           <Swiper
             slidesPerView={"auto"}
@@ -86,7 +92,7 @@ const Content = () => {
           </Swiper>
         </div>
       </div>
-      <div className="content-desc">
+      <div className="content-desc" ref={contentRef}>
         <span className="title">상세 정보</span>
         <div className="line"></div>
         <pre>
@@ -127,7 +133,7 @@ const Content = () => {
         <div className="map-info">
           <div className="map"></div>
         </div>
-        <div className="cmt">
+        <div className="cmt" ref={replyRef}>
           <p>
             <strong>후기</strong>
             <span>2</span>
@@ -139,8 +145,8 @@ const Content = () => {
               <textarea
                 name=""
                 id=""
-                placeholder="로그인 후 소중한 의견을 남겨주세요."
-                disabled
+                placeholder={userInfo ? '로그인 후 소중한 의견을 남겨 주세요.' : '소중한 의견을 남겨 주세요.'}
+                disabled={userInfo ? true : false}
               />
               <button>로그인</button>
             </div>

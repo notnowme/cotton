@@ -69,6 +69,45 @@ export const Sejong = [
         img: ''
     },
 ]
+export const Gyeongi = [
+    {
+        title: '경기 안양공공예술 프로젝트',
+        date: '2023. 08. 25 ~ 2023. 11. 02',
+        place: '안양예술공원',
+        url: 'https://www.ayac.or.kr/base/contents/view?contentsNo=9&menuLevel=3&menuNo=9',
+        img: ''
+    },
+    {
+        title: '더 큰 평화를 여는 DMZ OPEN 페스티벌',
+        date: '2023. 05. 20 ~ 2023. 11. 11',
+        place: '경기도 파주시 임진각로 148-40 평화누리',
+        url: 'https://www.instagram.com/dmz_open/',
+        img: ''
+    },
+]
+export const Gwangwon = [
+    {
+        title: '2023 소(牛)맥 페스티벌',
+        date: '2023. 08. 25 ~ 2023. 08. 27',
+        place: '횡성베이스볼파크',
+        url: 'https://hsg.go.kr',
+        img: ''
+    },
+    {
+        title: '둔내 토마토 축제',
+        date: '2023. 08. 12 ~ 2023. 08. 14',
+        place: '강원도 횡성군 둔내면 둔내종합체육공원',
+        url: 'https://hsg.go.kr',
+        img: ''
+    },
+    {
+        title: '횡성 한우 축제',
+        date: '2023. 10. 06 ~ 2023. 10. 10',
+        place: '강원도 횡성군 문화체육로 47 종합운동장 일원',
+        url: 'http://www.happyhanwoofestival.com/ ',
+        img: ''
+    },
+]
 export const Busan = [
     {
         title: '2023 다대포 썸머 페스타',

@@ -206,7 +206,6 @@
 /* sec01-news */
 .sec01-news {
     width: 1200px;
-
     display: flex;
     flex-direction: column;
     padding: 15px;

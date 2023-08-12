@@ -1,7 +1,7 @@
 import SpotItem from "./Seoul";
 // import Gwangju from "./Gwangju";
 // import Busan from "./Busan";
-import {Seoul, Gwangju, Busan, Incheon} from '../../datas/info';
+import {Seoul, Gwangju, Busan, Incheon, Gwangwon, Gyeongi, Daegu, Daejeon, Sejong} from '../../datas/info';
 import { useEffect, useState } from "react";
 
 const Sec01News = ({news, newsHandle}) => {
@@ -35,6 +35,21 @@ const Sec01News = ({news, newsHandle}) => {
                 break;
             case 3:
                 setArr(prev => Incheon);
+                break;
+            case 4:
+                setArr(prev => Daejeon);
+                break;
+            case 5:
+                setArr(prev => Daegu);
+                break;
+            case 6:
+                setArr(prev => Sejong);
+                break;
+            case 7:
+                setArr(prev => Gyeongi);
+                break;
+            case 8:
+                setArr(prev => Gwangwon);
                 break;
         }
     },[news])

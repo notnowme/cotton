@@ -104,7 +104,11 @@ const Login = ({login}) => {
         const b = await login.json();
         let session = window.sessionStorage;
         session.setItem("id",b.id);
-        setUser(b.id);
+        session.setItem("nick",b.nick);
+        setUser({
+            id: b.id,
+            nick: b.nick
+        });
         loginClose();
     };
     // async-await으로 비동기로 서버와 통신.

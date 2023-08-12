@@ -48,7 +48,9 @@ const Nav = () => {
       }
       setInput(prev => '');
     }
-
+  }
+  const goHome = () => {
+    navigate('/');
   }
   return (
     <>
@@ -58,7 +60,7 @@ const Nav = () => {
         className={view || location.pathname !== "/" ? "scroll" : "scroll"}
       >
         <div className="logo">
-          <img src={IMG} />
+          <img src={IMG} onClick={goHome}/>
           <div className="input-group">
             <input
               type="search"
