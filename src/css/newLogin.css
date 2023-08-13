@@ -96,6 +96,14 @@
     font-family: 메인폰트;
     padding: 15px;
 }
+#newLogin-container > .newLogin > form > .input-field > i {
+    position: absolute;
+    font-size: 1.2rem;
+    color: rgb(170, 170, 170);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+}
 #newLogin-container > .newLogin > form > button {
     width: 100%;
     height: 40px;

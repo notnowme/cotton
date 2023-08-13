@@ -3,7 +3,7 @@ import { userInfo } from '../../atoms/atom';
 import { useRecoilState } from 'recoil';
 import KAKAO from '../../assets/kakao.png'
 import GOOGLE from '../../assets/google.png'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NewLogin = ({login}) => {
@@ -16,6 +16,7 @@ const NewLogin = ({login}) => {
     const [user, setUser] = useRecoilState(userInfo);
     // 리코일로 저장한 유저 정보를 담을 변수.
 
+    const [loginShowPw, setLoginShowPw] = useState(false);
     const [showPw, setShowPw] = useState(false);
     // 비밀번호 입력을 보여줄 true/false.
     
@@ -141,6 +142,28 @@ const NewLogin = ({login}) => {
         login(false);
     };
     // 로그인 팝업 창을 닫는 함수.
+
+    const loginIdRef = useRef(null);
+
+    useEffect(()=>{
+        loginIdRef.current.focus();
+    },[]);
+    useEffect(()=>{
+        setLoginShowPw(false);
+        setShowPw(false);
+        setShowPwChk(false);
+        setLoginInput({
+            loginId: '',
+            loginPw: ''
+        });
+        setSignInput({
+            signId: '',
+            signName: '',
+            signNick: '',
+            signPw: '',
+            signPwChk: ''
+        });
+    },[showLogin])
     return (
         <div id="background">
             <div id="newLogin-container">
@@ -162,11 +185,15 @@ const NewLogin = ({login}) => {
                                 name='loginId'
                                 value={loginId}
                                 onChange={loginInputHandle}
+                                ref={loginIdRef}
                             />
                         </div>
                         <div className="input-field">
+                            <i className={loginShowPw ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
+                                onClick={loginShowPwHandle}
+                            ></i>
                             <span>비밀번호</span>
-                            <input type="text"
+                            <input type={loginShowPw ? "text" : "password"}
                                 placeholder='비밀번호를 입력하세요.'
                                 name='loginPw'
                                 value={loginPw}
@@ -221,8 +248,11 @@ const NewLogin = ({login}) => {
                             />
                         </div>
                         <div className="input-field">
+                            <i className={showPw ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
+                                onClick={showPwHandle}
+                            ></i>
                             <span>비밀번호</span>
-                            <input type="text"
+                            <input type={showPw ? "text" : "password"}
                                 placeholder='비밀번호를 입력하세요.'
                                 name='signPw'
                                 value={signPw}
@@ -230,8 +260,11 @@ const NewLogin = ({login}) => {
                             />
                         </div>
                         <div className="input-field">
+                            <i className={showPwChk ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
+                                onClick={showPwChk}
+                            ></i>
                             <span>비밀번호 확인</span>
-                            <input type="text"
+                            <input type={showPwChk ? "text" : "password"}
                                 placeholder='비밀번호 한 번 더 입력하세요.'
                                 name='signPwChk'
                                 value={signPwChk}
