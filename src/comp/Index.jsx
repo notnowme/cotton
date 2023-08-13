@@ -104,6 +104,11 @@ const Index = () => {
         const data = await getData.json();
         setArr(prev => data);
     }
+
+    useEffect(()=>{
+        const title = document.getElementsByTagName('title')[0];
+        title.innerHTML = `메인 | COTTON CANDY`;
+    },[]);
     return (
         <section id="sec01">
             <MainTop />

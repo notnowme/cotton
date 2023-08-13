@@ -6,6 +6,12 @@ import BUSAN from '../../assets/bgBusan.png';
 import JEJU from '../../assets/bgJeju.png';
 import TAPE from '../../assets/tape.png';
 import noImg from '../../assets/noImage.png';
+
+import imgShop from '../../assets/shopping.png'
+import imgForest from '../../assets/forest.png'
+import imgAct from '../../assets/activity.png'
+import imgFood from '../../assets/food.png'
+
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import Feed from '../Feed/Feed';
@@ -15,14 +21,25 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 
 const Search = () => {
     const location = useLocation();
+    // url을 읽어오기 위한 기능.
+
     const searchParams = new URLSearchParams(location.search);
+    // 쿼리 값을 찾아주는 기능.
+
     const areaCode = searchParams.get('area');
+    // url?area=1 일 경우 1이란 값을 저장해줌.
+
     const [theme, setTheme] = useState(0);
+    // 어느 테마를 보여주기 위한 변수 저장.
 
     const [arr, setArr] = useState([]);
+    // 관광지 정보들을 저장하기 위한 변수.
 
     const [infoArr, setInfoArr] = useState([]);
+    // 관광지 정보(단일)을 저장하기 위한 변수.
+
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
+    // 팝업창을 띄위기 위한 true/false 리코일 전역 변수.
 
     const getAreaInfo = async(code) => {
         const getData = await fetch(`http://121.66.158.211:3001/Search?areacode=${code}&tema=${theme}`,{
@@ -34,17 +51,18 @@ const Search = () => {
         const data = await getData.json();
         console.log(data);
         setArr(prev => data);
-    }
+    };
+    // 서버와 통신해서 관광지 정보를 받아옴.
 
     useEffect(()=>{
         getAreaInfo(areaCode)
-    },[theme])
-    useEffect(()=>{
-        setTheme(0);
-    },[areaCode])
+    },[theme]);
+    // 테마 코드가 변경될 때마다 서버와 통신해서 정보를 갱신함.
+
     const themeHandle = (n) => {
         setTheme(prev => n);
     }
+    // 버튼을 누르면 테마의 값이 바뀜. 0,1,2,3
 
     const getDetailData = async(code) => {
         setViewFeed(true);
@@ -58,14 +76,43 @@ const Search = () => {
         console.log(data);
         setInfoArr(prev => data[0]);
     };
+    // 관광지를 클릭하면
+    // 팝업창을 띄우고
+    // 서버와 통신해서 정보를 받아옴.
+
     useEffect(()=>{
-        console.log('test');
         const area = searchParams.get('area');
+        setTheme(0);
         getAreaInfo(area);
         return () => {
             setArr([]);
         }
     },[areaCode])
+    // 주소가 변경될 때마다 (url?area=1 이 area=2가 되는 경우)
+    // 기본값으로 보여줄 테마를 0번(쇼핑)으로 해두는 역할.
+    // 그리고 서버와 통신해서 정보를 갱신함.
+
+    useEffect(()=>{
+        const area = searchParams.get('area');
+        let areaName = '';
+        switch(area) {
+            case '1':
+                areaName = '서울';
+                break;
+            case '5':
+                areaName = '광주'
+                break;
+            case '39':
+                areaName = '제주'
+                break;
+            case '6':
+                areaName = '부산'
+                break;
+        }
+        const title = document.getElementsByTagName('title')[0];
+        title.innerHTML = `${areaName} 지역 | COTTON CANDY`;
+    },[areaCode]);
+    // 위에 제목을 바꾸기 위한 함수.
     return (
         <>
         {viewFeed ? <Feed infoArr={infoArr}/> : null}
@@ -80,21 +127,33 @@ const Search = () => {
                 <li className={theme === 0 ? 'sel' : ''}
                     onClick={()=>themeHandle(0)}
                 >
+                    <div className="img">
+                        <img src={imgShop} />
+                    </div>
                     쇼핑
                 </li>
                 <li className={theme === 1 ? 'sel' : ''}
                     onClick={()=>themeHandle(1)}
                 >
+                    <div className="img">
+                        <img src={imgForest} />
+                    </div>
                     자연
                 </li>
                 <li className={theme === 2 ? 'sel' : ''}
                     onClick={()=>themeHandle(2)}
                 >
+                    <div className="img">
+                        <img src={imgAct} />
+                    </div>
                     액티비티
                 </li>
                 <li className={theme === 3 ? 'sel' : ''}
                     onClick={()=>themeHandle(3)}
                 >
+                    <div className="img">
+                        <img src={imgFood} />
+                    </div>
                     맛집
                 </li>
             </ul>

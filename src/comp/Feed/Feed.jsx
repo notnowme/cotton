@@ -15,20 +15,23 @@ const Feed = ({infoArr, forceUpdate}) => {
         setViewFeed(false);
     }
     // 닫기 버튼을 누르면 팝업창 보여주기 변수를 false.
+
     const [cmt, setCmt] = useState([]);
-    const [aaa, setAaa] = useState({});
+    // 댓글 정보를 저장할 변수.
+
+
+    const textRef = useRef(null);
+    // input DOM 지정. focus 쓰기 위함과 작성 후 비워주기 위해.
 
     const [input, setInput] = useState('');
+    // 댓글 입력한 텍스트를 저장할 변수.
+
     const inputHandle = e => {
       setInput(prev => e.target.value);
     }
-    const [userDetail, setUserDetail] = useState();
+    // input에 변경이 생기면 글자를 저장할 함수.
 
-    useEffect(() => {
-        if (user) {
-            getUserData(user.id);
-        }
-    }, [])
+    const [userDetail, setUserDetail] = useState();
 
     const getUserData = async(userId) => {
         const getData = await fetch();
@@ -45,11 +48,6 @@ const Feed = ({infoArr, forceUpdate}) => {
         const data = await getData.json();        
         setCmt(prev => data);
     }
-
-    useEffect(()=>{
-        getCmt(infoArr.contentid);
-    },[infoArr]);
-
     
     const likeHandle = async (code) => {
         // 유저의 fav를 가져오기...
@@ -97,8 +95,7 @@ const Feed = ({infoArr, forceUpdate}) => {
     }
     // 좋아요 버튼을 누르면, 로그인 여부 확인 후 실행.
     
-    const textRef = useRef(null);
-    const test = async() => {
+    const writeCmt = async() => {
         // const text = textRef.current.value;
         // console.log(text);
         // 텍스트.
@@ -118,7 +115,16 @@ const Feed = ({infoArr, forceUpdate}) => {
         getCmt(infoArr.contentid);
         forceUpdate();
     }
-    // textarea DOM
+
+    useEffect(()=>{
+        getCmt(infoArr.contentid);
+    },[infoArr]);
+
+    useEffect(() => {
+        if (user) {
+            getUserData(user.id);
+        }
+    }, []);
     return (
         <div id="background">
             <div className="popup">
@@ -168,7 +174,7 @@ const Feed = ({infoArr, forceUpdate}) => {
                 <div className="inputs">
                     <i className="fa-regular fa-pen-to-square"></i>
                     <input type="text" placeholder='댓글 달기...' onChange={inputHandle} value={input} ref={textRef}/>
-                    <span onClick={test}>게시</span>
+                    <span onClick={writeCmt}>게시</span>
                 </div>
             </div>
         </div>

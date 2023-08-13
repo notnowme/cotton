@@ -1,69 +1,113 @@
 #Mypage {
-    margin-top: 100px;
-    width: 1400px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    margin-top: 200px;
+    width: 800px;
+    background-color: white;
+    padding-bottom: 40px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    margin-bottom: 60px;
 }
-#Mypage > h1 {
-    font-size: 3.6rem;
-    margin-bottom: 15px;
-}
-#Mypage > .container {
+#Mypage > .mypage-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
     width: 100%;
-    height: 500px;
-    display: flex;
-    justify-content: space-around;
+    height: 100px;
+    background-color: #25ac84;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
-
-#Mypage > .container > .left {
-    width: 500px;
-    height: 100%;
-    margin-right: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-    background-color: #73D2F3;
+#Mypage > .mypage-top > .mypage-modify {
+    background-color: #017858;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 7px 50px;
+    border-radius: 5px;
 }
-#Mypage > .container > .left > .icon > i {
-    font-size: 5rem;
-    color: #5CAAC4;
-}
-#Mypage > .container > .left > .name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-#Mypage > .container > .left > .name > p {
-    font-family: SUITE-Regular;
-    font-size: 1.8rem;
+#Mypage > .mypage-top > .mypage-modify > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
     color: white;
 }
-#Mypage > .container > .left > .name > p.name {
-    font-size: 2.4rem;
-}
-#Mypage > .container > .right {
-    width: 100%;
-    height: 100%;
-    border: 1px solid gray;
+#Mypage > .mypage-top > .mypage-icon {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    left: 50px;
+    bottom: -50px;
 }
-#Mypage > .container > .right > .act {
+#Mypage > .mypage-top > .mypage-icon > i {
+    font-size: 4rem;
+    color: #25ac84;
+}
+#Mypage > .mypage-main {
+    width: 100%;
+    margin-top: 60px;
+    padding: 10px;
+}
+#Mypage > .mypage-main > .mypage-name {
+    width: 100%;
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+#Mypage > .mypage-main > .mypage-name strong,
+#Mypage > .mypage-main > .mypage-name span {
+    font-size: 2rem;
+    font-family: 메인폰트;
+}
+#Mypage > .mypage-main > .mypage-activity {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+#Mypage > .mypage-main > .mypage-activity > .mypage-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    opacity: 0.8;
 }
-#Mypage > .container > .right > .act > h1 {
-    font-size: 2rem;
+#Mypage > .mypage-main > .mypage-activity > .mypage-item:hover {
+    opacity: 1;
 }
-#Mypage > .container > .right > .act > .items {
+#Mypage > .mypage-main > .mypage-activity > .mypage-item i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+#Mypage > .mypage-main > .mypage-activity > .mypage-item span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+}
+#Mypage > .mypage-main > .mypage-activity > .mypage-item > .count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
     display: flex;
-}
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 50%;
 
-#Mypage > .container > .right > .act > .items > li > i {
-    
+    color: white;
+    background-color: #25ac84;
+}
+#Mypage > .mypage-main > .mypage-activity > .mypage-item > .count > span {
+    font-size: 1.5rem;
 }
