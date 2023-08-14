@@ -1,4 +1,9 @@
-const Seoul = ({data, index, detail, viewDetail, setDetail, setViewDetail,showDetail}) => {
+const Spots = ({data, index, detail, showDetail}) => {
+
+    const goPage = (url) => {
+        const open = window.open('about:blank');
+        open.location.href = url;
+    };
     return (
         <div className="news-desc">
             <div className={detail === index ? 'news-item' : 'news-item close'}>
@@ -22,6 +27,9 @@ const Seoul = ({data, index, detail, viewDetail, setDetail, setViewDetail,showDe
                                 <strong>장소: </strong>
                                 <span>{data.place}</span>
                             </li>
+                            <li>
+                                <button onClick={()=>goPage(data.url)}>자세히 보기</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -30,4 +38,4 @@ const Seoul = ({data, index, detail, viewDetail, setDetail, setViewDetail,showDe
     )
 };
 
-export default Seoul;
+export default Spots;

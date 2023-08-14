@@ -2,39 +2,43 @@ import "../../css/nav.css";
 import IMG from "../../assets/logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Login from "../Login/Login";
+import NewLogin from "../Login/NewLogin";
 import { userInfo } from "../../atoms/atom";
 import { useRecoilState } from "recoil";
 const Nav = () => {
   const [showLogin, setShowLogin] = useState(false);
+  // 로그인 창을 보여주기 위한 true/false
+
   const location = useLocation();
-  const [scroll, setScroll] = useState();
-  const [view, setView] = useState(false);
-  const [user, setUser] = useRecoilState(userInfo);
+  // url을 가져오기 위한 기능.
+
   const navigate = useNavigate();
-  const scrollHandle = () => {
-    let scrollY = window.scrollY;
-    700 < scrollY ? setView(true) : setView(false);
-  };
+  // 페이지 이동을 위한 기능.
+
+  const [user, setUser] = useRecoilState(userInfo);
+  // 로그인 하면 유저 정보를 담을 리코일 전역 변수.
+
   const loginOpen = () => {
     setShowLogin(true);
   };
+  // 로그인 창을 열어주는 함수.
 
   const doLogOut = () => {
     window.sessionStorage.removeItem("id");
     setUser("");
   };
-  useEffect(() => {
-    window.addEventListener("scroll", scrollHandle);
-    return () => {
-      window.removeEventListener("scroll", scrollHandle);
-      setView(false);
-    };
-  }, []);
+  // 로그아웃 함수.
+  // 로그아웃을 하면 브라우저 세션을 지워주고
+  // user 리코일 전역 변수를 비워줌.
+
   const [input, setInput] = useState('');
+  // 검색창 input 밸류 값 넣을 변수.
+
   const inputHandle = e => {
     setInput(prev => e.target.value);
   }
+  // input이 변경되면 텍스트를 저장할 함수.
+
   const doSearch = (e) => {
     if(e.key === 'Enter') {
       if(input === '서울') {
@@ -48,17 +52,67 @@ const Nav = () => {
       }
       setInput(prev => '');
     }
-
   }
+  // 엔터를 치면
+  // input 밸류 값을 비교해서 각 지역에 맞는 페이지로 이동.
+
+  const goHome = () => {
+    navigate('/');
+  };
+  // 홈으로 가는 함수.
+
+
+  // useEffect(() => {
+  //   const title = document.getElementsByTagName('title')[0];
+  //   switch (location.pathname) {
+  //     case '/':
+  //       title.innerHTML = '메인 :: COTTON CANDY'
+  //       break;
+  //     case '/search':
+  //       title.innerHTML = '지역 :: COTTON CANDY'
+  //       break;
+  //     case '/content':
+  //       title.innerHTML = '코스 상세 :: COTTON CANDY'
+  //       break;
+  //     case '/mypage':
+  //       title.innerHTML = '마이페이지 :: COTTON CANDY'
+  //       break;
+  //     case '/fav':
+  //       title.innerHTML = '취향 선택 :: COTTON CANDY'
+  //       break;
+  //   };
+  // }, [location.pathname])
+  ////////////////////////////////////////////////////////////
+  // nav 창 변경하기 위한 것들인데
+  // 안 쓸 거 같음.
+  // 살짝 아까워서 안 지움.
+  const [scroll, setScroll] = useState();
+  const [view, setView] = useState(false);
+
+  const scrollHandle = () => {
+    let scrollY = window.scrollY;
+    700 < scrollY ? setView(true) : setView(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandle);
+    return () => {
+      window.removeEventListener("scroll", scrollHandle);
+      setView(false);
+    };
+  }, []);
+  ////////////////////////////////////////////////////////////
+
+
   return (
     <>
-      {showLogin ? <Login login={setShowLogin} /> : null}
+      {showLogin ? <NewLogin login={setShowLogin} /> : null}
       <nav
         id="navbar"
         className={view || location.pathname !== "/" ? "scroll" : "scroll"}
       >
         <div className="logo">
-          <img src={IMG} />
+          <img src={IMG} onClick={goHome}/>
           <div className="input-group">
             <input
               type="search"
@@ -78,7 +132,6 @@ const Nav = () => {
           <ul>
             <Link to="/">
               <li className={location.pathname === "/" ? "sel" : ""}>
-                
                   <span>홈</span>
               </li>
             </Link>

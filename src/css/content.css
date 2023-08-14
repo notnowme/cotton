@@ -89,7 +89,7 @@
     position: fixed;
     top: 60px;
     background-color: white;
-    width: 1360px;
+    width: 1160px;
     z-index: 10;
 }
 
@@ -395,6 +395,7 @@
 /* comment content start */
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view {
+    position: relative;
     display: flex;
     align-items: center;
 
@@ -404,6 +405,8 @@
 }
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-img {
+    position: absolute;
+    top: 17px;
     margin-left: 20px;
 }
 
@@ -418,6 +421,7 @@
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-item {
     width: 90%;
     padding: 20px;
+    margin-left: 70px;
 }
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-item>.cmt-user {

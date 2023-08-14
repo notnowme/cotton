@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../css/content.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { COURSE_DATA } from "./COURSE_DATA";
@@ -29,9 +29,12 @@ const Content = () => {
   };
 
   const [view, setView] = useState(false);
+  const picRef = useRef(null);
+  const contentRef = useRef(null);
+  const replyRef = useRef(null);
   const scrollMenuHandle = () => {
     let scrollY = window.scrollY;
-    390 < scrollY ? setView(true) : setView(false);
+    370 < scrollY ? setView(true) : setView(false);
   };
   useEffect(() => {
     window.addEventListener("scroll", scrollMenuHandle);
@@ -45,7 +48,7 @@ const Content = () => {
     <div id="content">
       {/* content title */}
       <div className="content-top">
-        <span className="title">오대산 월정사 전나무숲길</span>
+        <span className="title">ddddddddddd</span>
         <span className="addr">강원 평창군</span>
         <span className="desc">전나무 숲에서 즐기는 피톤치드 산림욕</span>
         <div className="menu">
@@ -69,15 +72,27 @@ const Content = () => {
       {/* content nav */}
       <div className={view ? "content-nav scroll" : "content-nav"}>
         <ul>
-          <li>
+          <li
+            onClick={() => {
+              picRef.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <span>사진 보기</span>
           </li>
           <div className="line"></div>
-          <li>
+          <li
+            onClick={() => {
+              contentRef.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <span>상세 정보</span>
           </li>
           <div className="line"></div>
-          <li>
+          <li
+            onClick={() => {
+              replyRef.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <span>후기</span>
           </li>
         </ul>
@@ -186,8 +201,12 @@ const Content = () => {
               <textarea
                 name=""
                 id=""
-                placeholder="로그인 후 소중한 의견을 남겨주세요."
-                disabled
+                placeholder={
+                  userInfo
+                    ? "로그인 후 소중한 의견을 남겨 주세요."
+                    : "소중한 의견을 남겨 주세요."
+                }
+                disabled={userInfo ? true : false}
               />
               <button>로그인</button>
             </div>

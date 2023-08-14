@@ -8,89 +8,156 @@
 }
 #newLogin-container > .newLogin {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     position: absolute;
-    width: 500px;
-    height: 800px;
+    width: 450px;
+    height: 720px;
     background-color: white;
-    border-radius: 15px;
-    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background: url('/src/assets/loginBg.png');
-    background-repeat: no-repeat;
-    background-position: center;
 }
-/* #newLogin-container > .newLogin > img {
+#newLogin-container > .newLogin > .tab {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#newLogin-container > .newLogin > .tab > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-size: 2rem;
+    font-family: 메인폰트;
+    background-color: rgb(231, 231, 231);
+    color: #8d8d8d;
+}
+#newLogin-container > .newLogin > .tab > span:hover {
+    color: black;
+}
+#newLogin-container > .newLogin > .tab > span.sel {
+    background-color: white;
+    color: black;
+}
+#newLogin-container > .newLogin > .menu {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+#newLogin-container > .newLogin > .menu > i {
+    font-size: 1.6rem;
+    position: absolute;
+    right: 60px;
+    margin-top: 10px;
+    bottom: 0;
+    cursor: pointer;
+}
+#newLogin-container > .newLogin > .menu > i:hover {
+    color: tomato;
+}
+#newLogin-container > .newLogin > form {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    z-index: 0;
-} */
-#newLogin-container > .newLogin > .login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 460px;
-    background-color: #ffffff;
-    z-index: 1;
-    padding: 20px 40px;
-    border-radius: 15px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0 60px;
 }
-#newLogin-container > .newLogin > .login-form > .input-fields {
+#newLogin-container > .newLogin > form.no {
+    display: none;
+}
+#newLogin-container > .newLogin > form > .input-field {
     position: relative;
     width: 100%;
-    /* box-shadow: rgba(254, 249, 245, 1) 0px 7px 29px 0px; */
-    box-shadow: rgba(255, 241, 238, 1) 0px 5px 15px;
-    border-radius: 15px;
-    margin: 10px 0;
+    height: 45px;
+    border: 1px solid rgb(201, 201, 201);
+    margin: 25px 0;
+    border-radius: 5px;
 }
-#newLogin-container > .newLogin > .login-form > .input-fields > input {
-    border: none;
-    outline: none;
-    height: 100%;
+#newLogin-container > .newLogin > form > .input-field > span {
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    font-size: 1.4rem;
+    font-family: 메인폰트;
+}
+#newLogin-container > .newLogin > form > .input-field > input {
     width: 100%;
-    padding: 15px;
+    height: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: none;
     font-size: 1.6rem;
     font-family: 메인폰트;
-    color: black;
-    border-radius: 15px;
-    border: 1px solid rgb(240, 240, 240);
+    padding: 15px;
 }
-#newLogin-container > .newLogin > .login-form > .action-fields {
-    margin-top: 15px;
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-#newLogin-container > .newLogin > .login-form > .action-fields > span {
+#newLogin-container > .newLogin > form > .input-field > i {
     position: absolute;
-    top: -10px;
-    left: 5px;
-    font-size: 2.6rem;
-    font-family: 로그인;
-    color:#3f3f3f;
+    font-size: 1.2rem;
+    color: rgb(170, 170, 170);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
 }
-#newLogin-container > .newLogin > .login-form > .action-fields > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: flex-end;
-    font-size: 4rem;
+#newLogin-container > .newLogin > form > button {
+    width: 100%;
+    height: 40px;
     border: none;
     outline: none;
     background-color: #25ac84;
     color: white;
-    padding: 10px;
-    border-radius: 15px;
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#newLogin-container > .newLogin > .login-form > .action-fields > .sug {
-    width: 100px;
-    height: 30px;
-    border: 1px solid tomato;
+#newLogin-container > .newLogin > form > button > img {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+#newLogin-container > .newLogin > form > button > i {
+    font-size: 2rem;
+    margin-right: 12px;
+}
+#newLogin-container > .newLogin > form > button.kakao {
+    background-color: #FEE500;
+    color: black;
+    margin-bottom: 30px;
+}
+#newLogin-container > .newLogin > form > button.apple {
+    background-color: black;
+    color: white;
+    margin-bottom: 30px;
+}
+#newLogin-container > .newLogin > form > button.google {
+    background-color: white;
+    color: black;
+    margin-bottom: 30px;
+    border: 1px solid rgb(201, 201, 201);
+}
+#newLogin-container > .newLogin > form > .line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(230, 230, 230);
+    font-family: 메인폰트;
+    margin: 30px 0;
+}
+#newLogin-container > .newLogin > form > .line > span {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.6rem;
+    padding: 7px 24px;
+    background-color: white;
+    color: rgb(170, 170, 170);
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import '../../css/fav.css';
+import { useNavigate } from 'react-router-dom';
 
+import '../../css/fav.css';
 import imgDay from '../../assets/day.png'
 import imgOne from '../../assets/oneNight.png'
 import imgTwo from '../../assets/twoNight.png'
@@ -22,18 +23,19 @@ import imgJp from '../../assets/japanese.png'
 import imgItl from '../../assets/italian.png'
 import imgCafe from '../../assets/cafe.png'
 
-
-
-
 const Fav = () => {
+
+    const navigate = useNavigate();
+    // 페이지 이동 기능.
+
     const [show, setShow] = useState(0);
     // margin-left 값을 넣을 변수.
 
     const containerRef = useRef(null);
     // margin-left 값을 수정하기 위해 DOM 지정.
 
-    const showHandle = (text) => {
-        setShow(prev => text);
+    const showHandle = (num) => {
+        setShow(prev => num);
     }
     // 클릭하면 변경할 margin-left 값을 저장함.
 
@@ -42,11 +44,27 @@ const Fav = () => {
         setShow(prev => 0);
     }
     // 선택이 끝나면 margin-left를 0으로.
+    // 메인페이지로 이동시킬까?
+
+    const doNext = () => {
+        if(confirm('진짜?')) {
+            navigate('/');
+        }
+    }
+    // 다음에 고른다고 하면
+    // 메인으로 이동시키기.
 
     useEffect(()=>{
         containerRef.current.style.marginLeft = `-${show}px`;
     },[show]);
     // show 변수가 바뀔 때마다 감싸준 컨테이너의 marginLeft 값을 변경.
+    // 이러면 슬라이드됨.
+
+    useEffect(()=>{
+        const title = document.getElementsByTagName('title')[0];
+        title.innerHTML = '취향 선택 | COTTON CANDY';
+    },[]);
+    // 위에 제목을 바꾸기 위한 함수.
     return (
         <div id='fav'>
             <div className="container"
@@ -64,8 +82,12 @@ const Fav = () => {
                         </span>
                     </div>
                     <button onClick={()=>showHandle(1160)}>취향 선택하기</button>
+                    <button className='next' onClick={doNext}>다음에 선택하기</button>
                 </div>
-                <div className="date">
+                <div className="people">
+                    <i className="fa-solid fa-arrow-left"
+                        onClick={()=>setShow(0)}
+                    ></i>
                     <div className="title">
                         <h1>인원수를 선택해 주세요.</h1>
                     </div>
@@ -97,6 +119,9 @@ const Fav = () => {
                     </div>
                 </div>
                 <div className='people'>
+                    <i className="fa-solid fa-arrow-left"
+                        onClick={()=>setShow(1160)}
+                    ></i>
                     <div className="title">
                         <h1>여행 기간을 선택해 주세요.</h1>
                     </div>
@@ -136,6 +161,9 @@ const Fav = () => {
                     </div>
                 </div>
                 <div className='people'>
+                    <i className="fa-solid fa-arrow-left"
+                        onClick={()=>setShow(2340)}
+                    ></i>
                     <div className="title">
                         <h1>선호하는 여행지를 선택해 주세요.</h1>
                     </div>
@@ -183,6 +211,9 @@ const Fav = () => {
                     </div>
                 </div>
                 <div className='people'>
+                    <i className="fa-solid fa-arrow-left"
+                        onClick={()=>setShow(3520)}
+                    ></i>
                     <div className="title">
                         <h1>어떤 맛집을 가고 싶나요?</h1>
                     </div>

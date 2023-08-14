@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Cmt from './Cmt';
 //corCmt
-const Feed = ({infoArr}) => {
+const Feed = ({infoArr, forceUpdate}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     // 리코일 변수로 저정한 팝업창 보여주는 true/false 변수. 사용법은 useState와 같음.
 
@@ -15,11 +15,29 @@ const Feed = ({infoArr}) => {
         setViewFeed(false);
     }
     // 닫기 버튼을 누르면 팝업창 보여주기 변수를 false.
-    const [cmt, setCmt] = useState([]);
-    const [, updateState] = useState();
-    const [aaa, setAaa] = useState({});
-    const forceUpdate = useCallback(()=>updateState({}),[]);
 
+    const [cmt, setCmt] = useState([]);
+    // 댓글 정보를 저장할 변수.
+
+
+    const textRef = useRef(null);
+    // input DOM 지정. focus 쓰기 위함과 작성 후 비워주기 위해.
+
+    const [input, setInput] = useState('');
+    // 댓글 입력한 텍스트를 저장할 변수.
+
+    const inputHandle = e => {
+      setInput(prev => e.target.value);
+    }
+    // input에 변경이 생기면 글자를 저장할 함수.
+
+    const [userDetail, setUserDetail] = useState();
+
+    const getUserData = async(userId) => {
+        const getData = await fetch();
+        const data = await getData.json();
+        setUserDetail(prev => data);
+    }
     const getCmt = async(code) => {
         const getData = await fetch(`http://121.66.158.211:3001/callCmt?contentid=${code}`,{
             method: 'get',
@@ -30,27 +48,56 @@ const Feed = ({infoArr}) => {
         const data = await getData.json();        
         setCmt(prev => data);
     }
-
-    useEffect(()=>{
-        getCmt(infoArr.contentid);
-    },[]);
-
     
+    const likeHandle = async (code) => {
+        // 유저의 fav를 가져오기...
+        const getFav = await fetch(`http://121.66.158.211:3001/detail?info=${code}`, {
+            method: 'get',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+        const favData = await getFav.json();
 
-    
-    const likeHandle = () => {
-        if(!user) {
-            alert('로그인 후 가능.');
-            return;
+        const result = favData[0];
+        // 유저 정보
+
+        const splitFav = result.fav.split('/');
+        const filteredFav = splitFav.filter(el => el === code);
+
+        if (filteredFav.length > 0) {
+            // 좋아요 누른 상태.
+            const deleteFav = splitFav.filter(el => el !== code);
+            const concatFav = deleteFav.join('/');
+            const submit = await fetch('http://121.66.158.211:3001/cmt', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: 't01',
+                    contentid: `${concatFav}`
+                })
+            });
+        } else {
+            // 좋아요 안 누른 상태.
+            const submit = await fetch('http://121.66.158.211:3001/cmt', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: 't01',
+                    contentid: `${result.fav}/${code}`
+                })
+            });
         }
-        alert('okok');
     }
     // 좋아요 버튼을 누르면, 로그인 여부 확인 후 실행.
     
-    const textRef = useRef(null);
-    const test = async() => {
-        const text = textRef.current.value;
-        console.log(text);
+    const writeCmt = async() => {
+        // const text = textRef.current.value;
+        // console.log(text);
         // 텍스트.
         const submit = await fetch('http://121.66.158.211:3001/cmt', {
             method: 'post',
@@ -60,15 +107,24 @@ const Feed = ({infoArr}) => {
             body: JSON.stringify({
                 user_id: 't01',
                 contentid: infoArr.contentid,
-                w_content: text,
+                w_content: input,
             })
         });
+        setInput('');
         const a = await submit.json();
-        textRef.current.innerText = '';
         getCmt(infoArr.contentid);
-        this.forceUpdate();
+        forceUpdate();
     }
-    // textarea DOM
+
+    useEffect(()=>{
+        getCmt(infoArr.contentid);
+    },[infoArr]);
+
+    useEffect(() => {
+        if (user) {
+            getUserData(user.id);
+        }
+    }, []);
     return (
         <div id="background">
             <div className="popup">
@@ -83,10 +139,10 @@ const Feed = ({infoArr}) => {
                 </div>
                 <div className="menu-items">
                     <div className="left">
-                        <i className="fa-regular fa-heart"
-                            onClick={likeHandle}
+                        <i className='fa-regular fa-heart'
+                            onClick={()=>likeHandle(infoArr.contentid)}
                         ></i>
-                        <i className="fa-regular fa-comment"></i>
+                        <i className="fa-regular fa-comment" onClick={()=>{textRef.current.focus()}}></i>
                         <i className="fa-regular fa-paper-plane"></i>
                     </div>
                     <div className="right">
@@ -117,8 +173,8 @@ const Feed = ({infoArr}) => {
                 <div className="line"></div>
                 <div className="inputs">
                     <i className="fa-regular fa-pen-to-square"></i>
-                    <input type="text" placeholder='댓글 달기...' ref={textRef}/>
-                    <span onClick={test}>게시</span>
+                    <input type="text" placeholder='댓글 달기...' onChange={inputHandle} value={input} ref={textRef}/>
+                    <span onClick={writeCmt}>게시</span>
                 </div>
             </div>
         </div>

@@ -206,7 +206,6 @@
 /* sec01-news */
 .sec01-news {
     width: 1200px;
-
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -330,4 +329,13 @@
 .sec01-news > .news-desc > .news-item > .desc > .text > ul > li > strong,
 .sec01-news > .news-desc > .news-item > .desc > .text > ul > li > span {
     font-size: 1.6rem;
+}
+.sec01-news > .news-desc > .news-item button {
+    border: none;
+    outline: none;
+    background-color: #25ac84;
+    color: white;
+    padding: 7px 20px;
+    font-size: 1.4rem;
+    font-family: 메인폰트;
 }

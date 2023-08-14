@@ -11,6 +11,7 @@ import Choice from './comp/Choice'
 import Fav from "./comp/fav/Fav";
 import Search from "./comp/Search/Search";
 import NewLogin from "./comp/Login/NewLogin";
+import Footer from "./comp/Footer/Footer";
 
 const Router = () => {
     // BrowserRouter는 일반적인 url 방식, HashRouter는 localhost/#/url처럼 #이 붙음.
@@ -29,9 +30,7 @@ const Router = () => {
                 <Route path='/search' element={<Search />} />
                 <Route path='/login' element={<NewLogin />} />
             </Routes>
-            <div className="footer">
-                
-            </div>
+            <Footer />
         </BrowserRouter>
     )
 };
