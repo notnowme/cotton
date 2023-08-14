@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Cmt from './Cmt';
 //corCmt
-const Feed = ({infoArr, forceUpdate}) => {
+const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     // 리코일 변수로 저정한 팝업창 보여주는 true/false 변수. 사용법은 useState와 같음.
 

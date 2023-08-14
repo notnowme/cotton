@@ -115,7 +115,7 @@ const Search = () => {
     // 위에 제목을 바꾸기 위한 함수.
     return (
         <>
-        {viewFeed ? <Feed infoArr={infoArr}/> : null}
+        {viewFeed ? <Feed infoArr={infoArr} setInfoArr={setInfoArr}/> : null}
         <div className="show-area">
             {areaCode === '1' && <img src={SEOUL} />}
             {areaCode === '5' && <img src={GJ} />}

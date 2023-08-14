@@ -28,7 +28,7 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr,
 
     return (
     <>
-    {viewFeed ? <Feed infoArr={infoArr} forceUpdate={forceUpdate}/> : null}
+    {viewFeed ? <Feed infoArr={infoArr} setInfoArr={setInfoArr} forceUpdate={forceUpdate}/> : null}
         <div className="sec01-main">
                 <ul>
                     <li className={menu === 0 ? 'sel' : ''} onClick={()=>menuHandle(0)}>인기 관광지</li>

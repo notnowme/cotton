@@ -261,7 +261,7 @@ const NewLogin = ({login}) => {
                         </div>
                         <div className="input-field">
                             <i className={showPwChk ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
-                                onClick={showPwChk}
+                                onClick={showPwChkHandle}
                             ></i>
                             <span>비밀번호 확인</span>
                             <input type={showPwChk ? "text" : "password"}

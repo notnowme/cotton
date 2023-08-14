@@ -103,6 +103,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 15px;
+    cursor: pointer;
 }
 #newLogin-container > .newLogin > form > button {
     width: 100%;

@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import { userInfo } from "../../atoms/atom";
+import { useRecoilState } from "recoil";
 import "../../css/content.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { COURSE_DATA } from "./COURSE_DATA";
@@ -15,6 +17,7 @@ import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
 const Content = () => {
   const [content, setContent] = useState();
+  const [user, setUser] = useRecoilState(userInfo);
 
   const handleClickButton = (e) => {
     const { name } = e.target;
@@ -202,11 +205,11 @@ const Content = () => {
                 name=""
                 id=""
                 placeholder={
-                  userInfo
+                  user
                     ? "로그인 후 소중한 의견을 남겨 주세요."
                     : "소중한 의견을 남겨 주세요."
                 }
-                disabled={userInfo ? true : false}
+                disabled={user ? true : false}
               />
               <button>로그인</button>
             </div>
