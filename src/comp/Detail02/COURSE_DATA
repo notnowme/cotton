@@ -1,0 +1,33 @@
+// import comp1Img from "https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/crrr/image/wdlDfWYjRiDSafkoE0T9vjzv6sE.jpg";
+// import comp2Img from "https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/crrr/image/wVCwdyjqcMjqD7P28ybOEXuCMyY.jpg";
+// import comp3Img from "https://img4.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202201/14/cosmopolitan/20220114000121283yqzu.jpg";
+// import comp4Img from "https://i.pinimg.com/564x/aa/5a/ce/aa5ace355fc0bb19edb52e917add217c.jpg";
+// import comp5Img from "https://i.pinimg.com/564x/28/64/20/28642081bab5d93147b0cbea78e0bee5.jpg";
+
+export const COURSE_DATA = [
+  {
+    id: 1,
+    name: "Comp1",
+    img: "https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/crrr/image/wdlDfWYjRiDSafkoE0T9vjzv6sE.jpg",
+  },
+  {
+    id: 2,
+    name: "Comp2",
+    img: "https://t1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/crrr/image/wVCwdyjqcMjqD7P28ybOEXuCMyY.jpg",
+  },
+  {
+    id: 3,
+    name: "Comp3",
+    img: "https://img4.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202201/14/cosmopolitan/20220114000121283yqzu.jpg",
+  },
+  {
+    id: 4,
+    name: "Comp4",
+    img: "https://i.pinimg.com/564x/aa/5a/ce/aa5ace355fc0bb19edb52e917add217c.jpg",
+  },
+  {
+    id: 5,
+    name: "Comp5",
+    img: "https://i.pinimg.com/564x/28/64/20/28642081bab5d93147b0cbea78e0bee5.jpg",
+  },
+];

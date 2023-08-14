@@ -1,0 +1,107 @@
+.info>.infoTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* info title */
+.info>.infoTitle>span {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: SUITE-Regular;
+    margin-bottom: 5px;
+}
+
+.info>.infoTitle>.infoAdress {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: SUITE-Regular;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+/* info content */
+.info>.infoContent {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info>.infoContent>.courseImg {
+    width: 600px;
+    height: 400px;
+
+    margin-bottom: 20px;
+
+}
+
+.info>.infoContent>.courseTag {
+    width: 80%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.info>.infoContent>.courseTag>span {
+    font-family: SUITE-Regular;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    margin-bottom: 30px;
+
+}
+
+.info>.infoContent>.title {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: SUITE-Regular;
+    display: flex;
+    flex-direction: column;
+}
+
+.info>.infoContent>.line {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    margin: 10px 0 10px 0
+}
+
+.info>.infoContent>pre {
+    font-family: SUITE-Regular;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    margin-bottom: 30px;
+}
+
+/* etc detail box */
+.info>.infoContent>.detailInfoBox {
+    display: flex;
+    flex-direction: row;
+}
+
+.info>.infoContent>.detailInfoBox>ul {
+    width: 100%;
+    font-family: SUITE-Regular;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.info>.infoContent>.detailInfoBox>ul>li {
+    font-size: 1.9rem;
+    margin: 5px 0;
+}
+
+.info>.infoContent>.detailInfoBox>ul strong {
+
+    margin-right: 15px;
+}
+
+/* .info>.infoContent>.detailInfoBox>ul>span a {
+    font-size: 1.4rem;
+} */

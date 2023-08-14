@@ -1,6 +1,5 @@
 import "./App.css";
 import Router from "./Router";
-import Choice from "./comp/Choice";
 
 function App() {
   // 가장 최상단 페이지.

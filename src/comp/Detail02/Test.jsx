@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../css/content.css";
+import "./Test.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { COURSE_DATA } from "./COURSE_DATA";
 import Comp1 from "./Comp1";
@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
-const Content = () => {
+const Test = () => {
   const [content, setContent] = useState();
 
   const handleClickButton = (e) => {
@@ -85,75 +85,24 @@ const Content = () => {
       <div className="content-main"></div>
 
       <div className="content-desc">
-        {/* map info */}
         <div className="map-info">
-          <div className="courseInfo">
-            <ul>
-              <li>
-                <i className="fa-regular fa-calendar"></i>
-                <div>
-                  <span>일정</span>
-                  <strong>당일 여행</strong>
-                </div>
-              </li>
-              <li>
-                <i className="fa-solid fa-tags"></i>
-                <div>
-                  <span>태그</span>
-                  <strong>#서울힐링여행 #추천코스</strong>
-                </div>
-              </li>
-            </ul>
-            {/* right ul */}
-            <ul>
-              <li>
-                <i className="fa-solid fa-leaf"></i>
-                <div>
-                  <span>테마</span>
-                  <strong>힐링 코스</strong>
-                </div>
-              </li>
-            </ul>
-          </div>
-          {/* insert map API */}
           <div className="map"></div>
-          <div className="mapInfoBox">
-            {/* left ul */}
-            <ul>
-              <li>
-                <strong>총 거리</strong>
-                <span>n km</span>
-              </li>
-              <li>
-                <strong>총 시간</strong>
-                <span>n hours</span>
-              </li>
-            </ul>
-            {/* right ul */}
-            <ul>
-              <li>
-                <strong>총 요금</strong>
-                <span>n 원</span>
-              </li>
-              <li>
-                <strong>예상 택시 요금</strong>
-                <span>n 원</span>
-              </li>
-            </ul>
-          </div>
         </div>
         <div className="detailSwiperBox">
           <Swiper
             slidesPerView={4}
             slidesPerGroup={4}
-            spaceBetween={30}
+            spaceBetween={0}
             modules={[Pagination, Navigation]}
-            navigation={true}
+            pagination={{
+              clickable: true,
+            }}
             className="detailBtnSwiper"
           >
             {COURSE_DATA.map((data) => {
               return (
                 <SwiperSlide key={data.id} slidesPerView={4} slidesPerGroup={4}>
+                  <div className="swiper-pagination"></div>
                   <img
                     onClick={handleClickButton}
                     name={data.name}
@@ -175,8 +124,8 @@ const Content = () => {
         </div>
 
         <div className="cmt">
-          <p className="cmtTitle">
-            <strong>Comment</strong>
+          <p>
+            <strong>후기</strong>
             <span>2</span>
           </p>
 
@@ -251,4 +200,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Test;
