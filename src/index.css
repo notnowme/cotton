@@ -94,3 +94,16 @@ button:hover {
   align-items: center;
   animation: fadein 200ms ease-in Alternate;
 }
+#mapTest {
+  width: 1200px;
+  height: 500px;
+  border: 1px solid gray;
+}
+.iframes {
+  width: 1200px;
+  height: 500px;
+}
+iframe {
+  border: 0;
+  outline: 0;
+}

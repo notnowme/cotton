@@ -47,6 +47,12 @@ const Content = () => {
     };
   }, []);
 
+  const iframes = () => {
+    return {
+      __html: '<iframe src="/TmapDrive.html" width="100%" height="100%"></iframe>'
+    };
+  }
+
   return (
     <div id="content">
       {/* content title */}
@@ -121,9 +127,6 @@ const Content = () => {
                   <strong>#서울힐링여행 #추천코스</strong>
                 </div>
               </li>
-            </ul>
-            {/* right ul */}
-            <ul>
               <li>
                 <i className="fa-solid fa-leaf"></i>
                 <div>
@@ -132,10 +135,16 @@ const Content = () => {
                 </div>
               </li>
             </ul>
+            {/* right ul */}
+            {/* <ul>
+            </ul> */}
           </div>
           {/* insert map API */}
-          <div className="map"></div>
-          <div className="mapInfoBox">
+          <div className="map"
+            dangerouslySetInnerHTML={iframes()}
+          ></div>
+          <div className="mapInfoBox"
+          >
             {/* left ul */}
             <ul>
               <li>

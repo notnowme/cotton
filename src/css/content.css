@@ -244,16 +244,18 @@
 
 
 #content>.content-desc>.map-info>.courseInfo>ul {
-    width: 500px;
+    /* width: 500px; */
     font-family: SUITE-Regular;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    /* flex-direction: column; */
+    justify-content: space-around;
     align-items: center;
 }
 
 #content>.content-desc>.map-info>.courseInfo>ul>li {
     display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.9rem;
 
 }
@@ -285,8 +287,6 @@
 #content>.content-desc>.map-info>.map {
     width: 1000px;
     height: 400px;
-    border: 1px solid gray;
-    background-color: gray;
     margin-bottom: 20px;
     margin-top: 30px;
 }

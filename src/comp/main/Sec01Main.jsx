@@ -10,7 +10,7 @@ import Feed from '../Feed/Feed';
 import { useState } from "react";
 import { feedHandle } from '../../atoms/atom';
 import { useRecoilState } from 'recoil';
-const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr, forceUpdate}) => {
+const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr, forceUpdate, favUser}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     // 팝업창 보여주기 위한 리코일로 전역 변수.
 
@@ -28,7 +28,7 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr,
 
     return (
     <>
-    {viewFeed ? <Feed infoArr={infoArr} setInfoArr={setInfoArr} forceUpdate={forceUpdate}/> : null}
+    {viewFeed ? <Feed infoArr={infoArr} setInfoArr={setInfoArr} forceUpdate={forceUpdate} favUser={favUser}/> : null}
         <div className="sec01-main">
                 <ul>
                     <li className={menu === 0 ? 'sel' : ''} onClick={()=>menuHandle(0)}>인기 관광지</li>

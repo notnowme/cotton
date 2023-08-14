@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Cmt from './Cmt';
 //corCmt
-const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
+const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     // 리코일 변수로 저정한 팝업창 보여주는 true/false 변수. 사용법은 useState와 같음.
 
@@ -31,12 +31,18 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
     }
     // input에 변경이 생기면 글자를 저장할 함수.
 
-    const [userDetail, setUserDetail] = useState();
+    const [userDetail, setUserDetail] = useState('');
 
     const getUserData = async(userId) => {
-        const getData = await fetch();
-        const data = await getData.json();
+        const getFav = await fetch(`http://121.66.158.211:3001/getUser?user_id=${'t01'}`, {
+            method: 'get',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+        const data = await getFav.json();
         setUserDetail(prev => data);
+        console.log(userDetail.split('/'));
     }
     const getCmt = async(code) => {
         const getData = await fetch(`http://121.66.158.211:3001/callCmt?contentid=${code}`,{
@@ -51,7 +57,7 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
     
     const likeHandle = async (code) => {
         // 유저의 fav를 가져오기...
-        const getFav = await fetch(`http://121.66.158.211:3001/detail?info=${code}`, {
+        const getFav = await fetch(`http://121.66.158.211:3001/getUser?user_id=${'t01'}`, {
             method: 'get',
             headers: {
                 'Content-type': 'application/json'
@@ -60,35 +66,41 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
         const favData = await getFav.json();
 
         const result = favData[0];
+        console.log(result.user_fav);
         // 유저 정보
-
-        const splitFav = result.fav.split('/');
-        const filteredFav = splitFav.filter(el => el === code);
+        const splitFav = result.user_fav ? result.user_fav.split('/') : [];
+        console.log(splitFav);
+        console.log(code);
+        
+        const filteredFav = splitFav.filter(el => el === code.toString());
+        console.log(filteredFav);
 
         if (filteredFav.length > 0) {
             // 좋아요 누른 상태.
-            const deleteFav = splitFav.filter(el => el !== code);
-            const concatFav = deleteFav.join('/');
-            const submit = await fetch('http://121.66.158.211:3001/cmt', {
-                method: 'post',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    user_id: 't01',
-                    contentid: `${concatFav}`
-                })
-            });
+            console.log('bbb');
+            // const deleteFav = splitFav.filter(el => el !== code);
+            // const concatFav = deleteFav.join('/');
+            // const submit = await fetch('http://121.66.158.211:3001/cmt', {
+            //     method: 'post',
+            //     headers: {
+            //         "Content-Type": "application/json"
+            //     },
+            //     body: JSON.stringify({
+            //         user_id: 't01',
+            //         contentid: `${concatFav}`
+            //     })
+            // });
         } else {
+            console.log('aaa');
             // 좋아요 안 누른 상태.
-            const submit = await fetch('http://121.66.158.211:3001/cmt', {
+            const submit = await fetch('http://121.66.158.211:3001/postUser', {
                 method: 'post',
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     user_id: 't01',
-                    contentid: `${result.fav}/${code}`
+                    fav: `${result.user_fav}/${code}`
                 })
             });
         }
@@ -113,6 +125,7 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
         setInput('');
         const a = await submit.json();
         getCmt(infoArr.contentid);
+        setInfoArr([...infoArr]);
         forceUpdate();
     }
 
@@ -121,10 +134,8 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
     },[infoArr]);
 
     useEffect(() => {
-        if (user) {
-            getUserData(user.id);
-        }
-    }, []);
+        console.log(favUser);
+    },[]);
     return (
         <div id="background">
             <div className="popup">
@@ -139,7 +150,7 @@ const Feed = ({infoArr, forceUpdate, setInfoArr}) => {
                 </div>
                 <div className="menu-items">
                     <div className="left">
-                        <i className='fa-regular fa-heart'
+                        <i className={favUser[0].user_fav.split('/').filter(el => el == infoArr.contentid).length > 0 ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}
                             onClick={()=>likeHandle(infoArr.contentid)}
                         ></i>
                         <i className="fa-regular fa-comment" onClick={()=>{textRef.current.focus()}}></i>

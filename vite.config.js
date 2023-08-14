@@ -8,5 +8,10 @@ export default defineConfig({
     proxy: {
       '/3010': 'http://gjaischool-a.ddns.net:8447/proxy/'
     }
+  },
+  build: {
+    rollupOptions: {
+      assetsInclude: ['**/*.html'],
+    }
   }
 })

@@ -43,6 +43,7 @@ const Index = () => {
     }
     useEffect(()=>{
         getAreaInfo();
+        getUserData();
         return () => {
             setArr([]);
         }
@@ -104,6 +105,17 @@ const Index = () => {
         const data = await getData.json();
         setArr(prev => data);
     }
+    const [favUser, setFavUser] = useState('');
+    const getUserData = async() => {
+        const getFav = await fetch(`http://121.66.158.211:3001/getUser?user_id=${'t01'}`, {
+            method: 'get',
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+        const data = await getFav.json();
+        setFavUser(prev => data);
+    }
 
     useEffect(()=>{
         const title = document.getElementsByTagName('title')[0];
@@ -121,6 +133,7 @@ const Index = () => {
                 themeHandle={themeHandle}
                 arr={arr}
                 forceUpdate={forceUpdate}
+                favUser={favUser}
             />
             {/* ------------------ */}
             <Sec01News
