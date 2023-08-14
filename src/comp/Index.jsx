@@ -114,12 +114,14 @@ const Index = () => {
             }
         });
         const data = await getFav.json();
+        console.log(data);
         setFavUser(prev => data);
     }
 
     useEffect(()=>{
         const title = document.getElementsByTagName('title')[0];
         title.innerHTML = `메인 | COTTON CANDY`;
+        console.log(favUser)
     },[]);
     return (
         <section id="sec01">

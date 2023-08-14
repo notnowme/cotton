@@ -88,6 +88,7 @@ const NewLogin = ({login}) => {
         // 비동기 통신으로 post 방식으로 서버에 값을 보냄.
 
         const result = await login.json();
+        console.log(result);
         // 서버에서 보내준 응답을 json 형식으로 바꿔서 저장.
 
         let session = window.sessionStorage;
@@ -97,10 +98,10 @@ const NewLogin = ({login}) => {
         // 브라우저 탭이 유지되는 동안에는 세션 값이 사라지지 않음.
         // 임시로 로그인 구현.
 
-        setUser({
+        setUser([{
             id: result.id,
             nick: result.nick
-        });
+        }]);
         // 로그인 성공하면 각 값들을 변수에 저장.
 
         loginClose();
@@ -111,18 +112,18 @@ const NewLogin = ({login}) => {
         e.preventDefault();
         // form 자체의 액션을 없앰 (페이지 자동 새로고침 등.)
 
-        // const sign = await fetch('http://121.66.158.211:3001/Join', {
-        //     method: 'post',
-        //     headers: {
-        //         "Content-Type":"application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         id: signId,
-        //         pw: signPw,
-        //         name: signName,
-        //         nick: signNick,
-        //     })
-        // });
+        const sign = await fetch('http://121.66.158.211:3001/Join', {
+            method: 'post',
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                id: signId,
+                pw: signPw,
+                name: signName,
+                nick: signNick,
+            })
+        });
         // 비동기 통신으로 post 방식으로 서버에 값을 보냄.
 
         alert('가입 성공');

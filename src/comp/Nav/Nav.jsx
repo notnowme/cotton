@@ -25,7 +25,8 @@ const Nav = () => {
 
   const doLogOut = () => {
     window.sessionStorage.removeItem("id");
-    setUser("");
+    window.sessionStorage.removeItem("nick");
+    setUser([{id: '', nick:''}]);
   };
   // 로그아웃 함수.
   // 로그아웃을 하면 브라우저 세션을 지워주고
@@ -95,6 +96,7 @@ const Nav = () => {
   };
 
   useEffect(() => {
+    console.log(user[0].id)
     window.addEventListener("scroll", scrollHandle);
     return () => {
       window.removeEventListener("scroll", scrollHandle);
@@ -145,7 +147,7 @@ const Nav = () => {
                 <span>상세</span>
             </li>
               </Link>
-            {user ? (
+            {user[0].id ? (
               <li onClick={doLogOut}>
                 <span>로그아웃</span>
               </li>
@@ -155,12 +157,12 @@ const Nav = () => {
               </li>
             )}
           </ul>
-          {user && (
+          {user[0].id && (
             <div className="login">
               <button>
                 <i className="fa-solid fa-user"></i>
               </button>
-              <span>{user} 님 환영합니다.</span>
+              <span>{user[0].id} 님 환영합니다.</span>
             </div>
           )}
         </div>

@@ -41,7 +41,7 @@ const Fav = () => {
 
     const endChoice = () => {
         alert('고마워요');
-        setShow(prev => 0);
+        navigate('/');
     }
     // 선택이 끝나면 margin-left를 0으로.
     // 메인페이지로 이동시킬까?

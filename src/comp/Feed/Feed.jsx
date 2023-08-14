@@ -78,18 +78,18 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
         if (filteredFav.length > 0) {
             // 좋아요 누른 상태.
             console.log('bbb');
-            // const deleteFav = splitFav.filter(el => el !== code);
-            // const concatFav = deleteFav.join('/');
-            // const submit = await fetch('http://121.66.158.211:3001/cmt', {
-            //     method: 'post',
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify({
-            //         user_id: 't01',
-            //         contentid: `${concatFav}`
-            //     })
-            // });
+            const deleteFav = splitFav.filter(el => el !== code.toString());
+            const concatFav = deleteFav.join('/');
+            const submit = await fetch('http://121.66.158.211:3001/postUser', {
+                method: 'post',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: 't01',
+                    contentid: `${concatFav}`
+                })
+            });
         } else {
             console.log('aaa');
             // 좋아요 안 누른 상태.
@@ -104,6 +104,7 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                 })
             });
         }
+        location.reload();
     }
     // 좋아요 버튼을 누르면, 로그인 여부 확인 후 실행.
     
@@ -136,6 +137,10 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
     useEffect(() => {
         console.log(favUser);
     },[]);
+
+    const tttt = (id) => {
+        console.log(favUser[0].user_fav.split('/').filter(el => {console.log(el, id); el == id}).length);
+    }
     return (
         <div id="background">
             <div className="popup">
@@ -150,8 +155,8 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                 </div>
                 <div className="menu-items">
                     <div className="left">
-                        <i className={favUser[0].user_fav.split('/').filter(el => el == infoArr.contentid).length > 0 ? 'fa-solid fa-heart' : 'fa-regular fa-heart'}
-                            onClick={()=>likeHandle(infoArr.contentid)}
+                        <i className='fa-regular fa-heart'
+                            onClick={()=>{likeHandle(infoArr.contentid); tttt(infoArr.contentid)}}
                         ></i>
                         <i className="fa-regular fa-comment" onClick={()=>{textRef.current.focus()}}></i>
                         <i className="fa-regular fa-paper-plane"></i>

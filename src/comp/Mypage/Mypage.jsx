@@ -7,6 +7,23 @@ const Mypage = () => {
     // const [userInfo, setUserInfo] = useState();
     // const [cmtInfo, setCmtInfo] = useState([]);
     const [fav, setFav] = useState(0);
+    const [cmt, setCmt] = useState([]);
+
+    const getCmt = async() => {
+        const getData = await fetch(`http://121.66.158.211:3001/userCmt?user_id=t01`,{
+            method: 'get',
+            headers: {
+                'Content-type':'application/json'
+            }
+        });
+        const data = await getData.json();
+        console.log(data);     
+        setCmt(prev => data);
+    }
+
+    useEffect(()=>{
+        getCmt();
+    },[])
     // const getUserData = async(id) => {
     //     const getData = await fetch(`url?=${id}`);
 
@@ -89,7 +106,7 @@ const Mypage = () => {
                             <span>나의 후기</span>
                         </div>
                         <div className="count">
-                            <span>0</span>
+                            <span>{cmt.length}</span>
                         </div>
                     </div>
                 </div>

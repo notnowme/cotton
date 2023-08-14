@@ -82,7 +82,7 @@ const Sec01Main = ({menu, menuHandle, area, areaHandle, theme, themeHandle, arr,
                                 {
                                     arr.map((data, index) => (
                                         <SwiperSlide key={index}>
-                                            <Spot01 data={data} setViewFeed={setViewFeed} setInfoArr={setInfoArr}/>
+                                            <Spot01 favUser={favUser} data={data} setViewFeed={setViewFeed} setInfoArr={setInfoArr}/>
                                         </SwiperSlide>
                                     ))
                                 }
