@@ -8,7 +8,6 @@
     padding-bottom: 40px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 5px;
-    margin-bottom: 60px;
 }
 #Mypage > .mypage-top {
     display: flex;
@@ -97,17 +96,60 @@
 }
 #Mypage > .mypage-main > .mypage-activity > .mypage-item > .count {
     position: absolute;
+    width: 27px;
+    height: 27px;
     top: -7px;
     right: -7px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px 8px;
     border-radius: 50%;
-
     color: white;
     background-color: #25ac84;
 }
 #Mypage > .mypage-main > .mypage-activity > .mypage-item > .count > span {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+}
+#Mypage > .showItems {
+    margin-top: 30px;
+    width: 800px;
+}
+#Mypage > .showItems > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#Mypage > .showItems > ul > li {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 140px;
+    padding: 5px;
+    border: 1px solid rgb(230, 230, 230);
+}
+#Mypage > .showItems > ul > li > img.tape {
+    position: absolute;
+    top: -47px;
+    left: 25px;
+    width: 90px;
+    opacity: 0.9;
+    transform: rotate(35deg);
+}
+#Mypage > .showItems > ul > li > .img {
+    width: 100%;
+    height: 130px;
+    background-color: gainsboro;
+}
+#Mypage > .showItems > ul > li > .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+#Mypage > .showItems > ul > li > .text > span {
+    margin-top: 5px;
+    font-size: 1.4rem;
+    font-family: 메인폰트;
 }

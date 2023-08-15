@@ -135,16 +135,19 @@ const Nav = () => {
             <Link to="/">
               <li className={location.pathname === "/" ? "sel" : ""}>
                   <span>홈</span>
+                  {location.pathname === "/" && <i className="fa-solid fa-caret-up"></i>}
               </li>
             </Link>
               <Link to="/search?area=1">
             <li className={location.pathname === "/search" ? "sel" : ""}>
                 <span>지역</span>
+                {location.pathname === "/search" && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
               <Link to="/content">
             <li className={location.pathname === "/content" ? "sel" : ""}>
                 <span>상세</span>
+                {location.pathname === "/content" && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
             {user[0].id ? (

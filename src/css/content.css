@@ -2,7 +2,7 @@
     margin-top: 120px;
     margin-bottom: 120px;
     width: 1200px;
-    border: 1px solid gray;
+    border: 1px solid rgb(230, 230, 230);
     background-color: #fff;
 
     display: flex;
@@ -24,10 +24,12 @@
 #content>.content-top>.title {
     font-size: 3rem;
     font-weight: 700;
+    font-family: 메인폰트;
 }
 
 #content>.content-top>.addr {
     font-size: 1.6rem;
+    font-family: 메인폰트;
 }
 
 #content>.content-top>.desc {
@@ -36,12 +38,12 @@
     font-size: 2.2rem;
     font-weight: bold;
     box-shadow: inset 0 -12px 0 rgba(255, 223, 223, 1);
+    font-family: 메인폰트;
 }
 
 #content>.content-top>.desc::after {
     position: absolute;
     content: '';
-
 }
 
 #content>.content-top>.menu {
@@ -68,7 +70,7 @@
 }
 
 #content>.content-top>.menu>.left>p>span {
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 1.6rem;
 }
 
@@ -76,8 +78,8 @@
 /* content navigation */
 #content>.content-nav {
     width: 100%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid rgb(201, 201, 201);
+    border-bottom: 1px solid rgb(201, 201, 201);
     padding: 15px;
     display: flex;
     justify-content: space-around;
@@ -108,7 +110,7 @@
 #content>.content-nav>ul>.line {
     width: 1px;
     height: 20px;
-    background-color: black;
+    background-color: rgb(201, 201, 201);
 }
 
 /* #content > .content-nav > ul > li:not(:first-child)::before {
@@ -123,7 +125,7 @@
     margin-top: -8px;
 } */
 #content>.content-nav>ul>li>span {
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 2rem;
 }
 
@@ -155,14 +157,14 @@
 #content>.content-desc>.title {
     font-size: 2.8rem;
     font-weight: bold;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     margin-bottom: 5px;
 }
 
 #content>.content-desc>.line {
     width: 100%;
     height: 3px;
-    background-color: black;
+    background-color: rgb(201, 201, 201);
     margin-bottom: 5px;
 }
 
@@ -186,7 +188,7 @@
 
 #content>.content-desc>.info>pre {
     width: 80%;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 1.6rem;
     line-height: 3rem;
     margin-bottom: 30px;
@@ -197,7 +199,7 @@
     width: 100%;
     position: relative;
     font-size: 1.6rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     display: flex;
     flex-direction: column;
     justify-content: flex-start
@@ -226,69 +228,62 @@
     justify-content: center;
     align-items: center;
 }
-
 #content>.content-desc>.map-info>.courseInfo {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 200px;
-    margin: 10px 0 30px 0;
-    padding: 0 20% 0 20%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid rgb(201, 201, 201);
+    border-bottom: 1px solid rgb(201, 201, 201);
 }
-
-
-#content>.content-desc>.map-info>.courseInfo>ul {
-    /* width: 500px; */
-    font-family: SUITE-Regular;
+#content>.content-desc>.map-info>.courseInfo>.course-container {
     display: flex;
-    /* flex-direction: column; */
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    width: 960px;
+    height: 100%;
 }
-
-#content>.content-desc>.map-info>.courseInfo>ul>li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.9rem;
-
-}
-
-#content>.content-desc>.map-info>.courseInfo>ul>li>div {
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    height: 100%;
+}
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li {
+    display: flex;
     align-items: center;
-    font-size: 1.9rem;
-    margin: 20px 0;
+    margin: 10px 0;
 }
-
-#content>.content-desc>.map-info>.courseInfo>ul>li>i {
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    margin: 20px 10px 0 0;
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    font-size: 3rem;
+    /* padding: 10px; */
+    border-radius: 50%;
+    background-color: rgb(240, 240, 240);
     color: #017858;
-    text-align: center;
-
 }
-
-#content>.content-desc>.map-info>.courseInfo>ul strong {
-    margin-right: 15px;
-    margin-top: 8px;
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
 }
-
-
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>span{
+    font-size: 1.5rem;
+    font-family: 메인폰트;
+    margin-bottom: 3px
+}
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>strong{
+    font-size: 1.5rem;
+    font-family: 메인폰트;
+}
 #content>.content-desc>.map-info>.map {
     width: 1000px;
-    height: 400px;
-    margin-bottom: 20px;
-    margin-top: 30px;
+    height: 500px;
 }
 
 #content>.content-desc>.map-info>.mapInfoBox {
@@ -304,7 +299,7 @@
 
 #content>.content-desc>.map-info>.mapInfoBox>ul {
     width: 100%;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -333,7 +328,7 @@
 
 #content>.content-desc>.cmt>p>strong {
     font-size: 3rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     margin: 0 8px 0 13px;
     color: #f2f2f2;
     padding: 3px;
@@ -341,7 +336,7 @@
 
 #content>.content-desc>.cmt>p>span {
     font-size: 2rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     color: #f2f2f2;
 }
 
@@ -368,7 +363,7 @@
     height: 100px;
     font-size: 1.6rem;
     line-height: 2.6rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     padding: 10px;
     resize: none;
     outline: none;
@@ -383,7 +378,7 @@
     width: 90px;
     height: 50px;
     align-self: flex-end;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 1.6rem;
     outline: none;
     background-color: #017858;
@@ -430,13 +425,13 @@
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-item>.cmt-user>.name>span {
     font-size: 1.8rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-weight: bold;
 }
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-item>.cmt-user>.date>span {
     font-size: 1.1rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     color: gray;
     opacity: 0.8;
     margin-left: 7px;
@@ -448,7 +443,7 @@
 
 #content>.content-desc>.cmt>.cmt-box>.cmt-view>.cmt-item>.reply>p {
     font-size: 1.6rem;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     line-height: 2.6rem;
     /* color: gray; */
 }
@@ -523,8 +518,16 @@
     width: 100px;
     height: 100px;
     font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
 }
-
+.compSlideBtn:hover{
+    opacity: 1;
+}
+.compSlideBtn.sel {
+    outline: 2px solid #25ac84;
+    opacity: 1;
+}
 .compSlide {
     width: 500px;
     height: 400px;
@@ -536,4 +539,83 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+/* .compSlideBtn {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    overflow: hidden;
+    z-index: 2;
+}
+.compSlideBtn > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.compSlideBtn:hover{
+    opacity: 1;
+}
+.compSlideBtn.sel {
+    opacity: 1;
+}
+.compSlideBtn.sel::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(140, 233, 205, 0.5);
+} */
+
+
+
+
+
+
+
+
+
+
+
+.toggle-map {
+    width: 100%;
+    /* height: 50px; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.toggle-map > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    color: rgb(150, 150, 150);
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.toggle-map > li > i {
+    font-size: 2.4rem;
+}
+.toggle-map > li > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+}
+.toggle-map > li.sel {
+    color: #25ac84;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.toggle-map > li:hover {
+    color: #25ac84;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

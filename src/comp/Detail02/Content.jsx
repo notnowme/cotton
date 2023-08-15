@@ -18,10 +18,24 @@ import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 const Content = () => {
   const [content, setContent] = useState();
   const [user, setUser] = useRecoilState(userInfo);
+  const [reply, setReply] = useState([
+    {
+      name: '다꼬리',
+      date: '2023. 01. 17',
+      content: '눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에 전나무향? 이 물씬 났어요 힐링으로 최고!',
+    },
+    {
+      name: '꼬리선',
+      date: '2023. 01. 17',
+      content: '다꼬리 따라갔는데 정말 좋았어요! 다음엔 혼자 가볼래요ㅎㅎ',
+    },
+  ]);
 
-  const handleClickButton = (e) => {
+  const [imgNum, setImgNum] = useState(0);
+  const handleClickButton = (e, n) => {
     const { name } = e.target;
     setContent(name);
+    setImgNum(prev => n);
   };
   const selectComponent = {
     Comp1: <Comp1 />,
@@ -47,12 +61,44 @@ const Content = () => {
     };
   }, []);
 
-  const iframes = () => {
+  const iframes = (text) => {
     return {
-      __html: '<iframe src="/TmapDrive.html" width="100%" height="100%"></iframe>'
+      __html: `<iframe src="${text}" width="100%" height="100%"></iframe>`
     };
   }
-
+  const [mapNum, setMapNum] = useState(0);
+  const [mapHtml, setMapHtml] = useState('TmapDrive.html');
+  const mapChange = (n) => {
+    setMapNum(prev => n);
+    switch (n) {
+      case 0:
+        setMapHtml(prev => 'TmapDrive.html');
+        break;
+      case 1:
+        setMapHtml(prev => 'TmapWalk.html');
+        break;
+      case 2:
+        setMapHtml(prev => 'TmapCCTV.html');
+        break;
+    }
+  }
+  const [textArea, setTextArea] = useState('');
+  const textareaHandle = e => {
+    setTextArea(prev => e.target.value);
+  }
+  const writeReply = () => {
+    const replys = {
+      name: '다꼬리2',
+      date: new Intl.DateTimeFormat('ko', { dateStyle: 'medium' }).format(new Date()),
+      content: textArea
+    };
+    setReply(prev => [...prev, replys]);
+    setTextArea('');
+  }
+  useEffect(() => {
+    const title = document.getElementsByTagName('title')[0];
+    title.innerHTML = '코스 상세 | COTTON CANDY';
+  }, []);
   return (
     <div id="content">
       {/* content title */}
@@ -106,46 +152,67 @@ const Content = () => {
           </li>
         </ul>
       </div>
-      <div className="content-main"></div>
+      {/* <div className="content-main"></div> */}
 
       <div className="content-desc">
         {/* map info */}
         <div className="map-info">
           <div className="courseInfo">
-            <ul>
-              <li>
-                <i className="fa-regular fa-calendar"></i>
-                <div>
-                  <span>일정</span>
-                  <strong>당일 여행</strong>
-                </div>
-              </li>
-              <li>
-                <i className="fa-solid fa-tags"></i>
-                <div>
-                  <span>태그</span>
-                  <strong>#서울힐링여행 #추천코스</strong>
-                </div>
-              </li>
-              <li>
-                <i className="fa-solid fa-leaf"></i>
-                <div>
-                  <span>테마</span>
-                  <strong>힐링 코스</strong>
-                </div>
-              </li>
-            </ul>
-            {/* right ul */}
-            {/* <ul>
-            </ul> */}
+            <div className="course-container">
+              <ul>
+                <li>
+                  <i className="fa-regular fa-calendar"></i>
+                  <div>
+                    <span>일정</span>
+                    <strong>당일 여행</strong>
+                  </div>
+                </li>
+                <li>
+                  <i className="fa-solid fa-tags"></i>
+                  <div>
+                    <span>태그</span>
+                    <strong>#서울힐링여행 #추천코스</strong>
+                  </div>
+                </li>
+              </ul>
+              {/* right ul */}
+              <ul>
+                <li>
+                  <i className="fa-solid fa-leaf"></i>
+                  <div>
+                    <span>테마</span>
+                    <strong>힐링 코스</strong>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
           {/* insert map API */}
+          <div className="toggle-map">
+            <li className={mapNum === 0 ? 'sel' : ''}
+              onClick={() => mapChange(0)}
+            >
+              <i className="fa-solid fa-location-dot"></i>
+              <span>일반</span>
+            </li>
+            <li className={mapNum === 1 ? 'sel' : ''}
+              onClick={() => mapChange(1)}
+            >
+              <i className="fa-solid fa-person-walking"></i>
+              <span>도보</span>
+            </li>
+            <li className={mapNum === 2 ? 'sel' : ''}
+              onClick={() => mapChange(2)}
+            >
+              <i className="fa-solid fa-video"></i>
+              <span>CCTV</span>
+            </li>
+          </div>
           <div className="map"
-            dangerouslySetInnerHTML={iframes()}
+            dangerouslySetInnerHTML={iframes(mapHtml)}
           ></div>
-          <div className="mapInfoBox"
+          {/* <div className="mapInfoBox"
           >
-            {/* left ul */}
             <ul>
               <li>
                 <strong>총 거리</strong>
@@ -156,7 +223,6 @@ const Content = () => {
                 <span>n hours</span>
               </li>
             </ul>
-            {/* right ul */}
             <ul>
               <li>
                 <strong>총 요금</strong>
@@ -167,7 +233,7 @@ const Content = () => {
                 <span>n 원</span>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className="detailSwiperBox">
           <Swiper
@@ -178,16 +244,17 @@ const Content = () => {
             navigation={true}
             className="detailBtnSwiper"
           >
-            {COURSE_DATA.map((data) => {
+            {COURSE_DATA.map((data, index) => {
               return (
                 <SwiperSlide key={data.id} slidesPerView={4} slidesPerGroup={4}>
                   <img
-                    onClick={handleClickButton}
+                    onClick={(e) => handleClickButton(e, index)}
                     name={data.name}
                     key={data.id}
-                    className="compSlideBtn"
+                    className={imgNum === index ? 'compSlideBtn sel' : 'compSlideBtn'}
                     src={data.img}
-                  ></img>
+                  >
+                  </img>
                 </SwiperSlide>
               );
             })}
@@ -204,7 +271,7 @@ const Content = () => {
         <div className="cmt">
           <p className="cmtTitle">
             <strong>Comment</strong>
-            <span>2</span>
+            <span>{reply.length}</span>
           </p>
 
           <div className="cmt-input">
@@ -213,68 +280,37 @@ const Content = () => {
               <textarea
                 name=""
                 id=""
-                placeholder={
-                  user
-                    ? "로그인 후 소중한 의견을 남겨 주세요."
-                    : "소중한 의견을 남겨 주세요."
-                }
-                disabled={user ? true : false}
+                value={textArea}
+                onChange={textareaHandle}
+                placeholder={"소중한 의견을 남겨 주세요."}
               />
-              <button>로그인</button>
+              <button onClick={writeReply}>작성하기</button>
             </div>
           </div>
           <div className="cmt-box">
-            <div className="cmt-view">
-              <div className="cmt-img">
-                <i className="fa-solid fa-user"></i>
-              </div>
-              <div className="cmt-item">
-                <div className="cmt-user">
-                  <div className="name">
-                    <span>다꼬리</span>
-                  </div>
-                  <div className="date">
-                    <span>2023. 01. 17</span>
-                  </div>
+            {reply.map((data, index) => (
+              <div className="cmt-view" key={index}>
+                <div className="cmt-img">
+                  <i className="fa-solid fa-user"></i>
                 </div>
-                <div className="reply">
-                  <p>
-                    눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에
-                    전나무향? 이 물씬 났어요 힐링으로 최고!
-                  </p>
-                  <hr></hr>
-                </div>
-              </div>
-            </div>
-            <div className="cmt-view">
-              <div className="cmt-img">
-                <i className="fa-solid fa-user"></i>
-              </div>
-              <div className="cmt-item">
-                <div className="cmt-user">
-                  <div className="name">
-                    <span>꼬리선</span>
+                <div className="cmt-item">
+                  <div className="cmt-user">
+                    <div className="name">
+                      <span>{data.name}</span>
+                    </div>
+                    <div className="date">
+                      <span>{data.date}</span>
+                    </div>
                   </div>
-                  <div className="date">
-                    <span>2023. 01. 17</span>
+                  <div className="reply">
+                    <p>
+                      {data.content}
+                    </p>
+                    <hr></hr>
                   </div>
                 </div>
-                <div className="reply">
-                  <p>
-                    눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에
-                    전나무향? 이 물씬 났어요 힐링으로 최고! 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인 글자 많은 것도 확인
-                    글자 많은 것도 확인 글자 많은 것도 확인
-                  </p>
-                  <hr></hr>
-                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

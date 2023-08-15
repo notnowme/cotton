@@ -9,7 +9,7 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     margin-bottom: 5px;
 }
 
@@ -17,7 +17,7 @@
     text-align: center;
     font-size: 1.2rem;
     font-weight: 600;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     color: gray;
     margin-bottom: 10px;
 }
@@ -33,23 +33,20 @@
 .info>.infoContent>.courseImg {
     width: 600px;
     height: 400px;
-
+    align-self: center;
     margin-bottom: 20px;
 
 }
 
 .info>.infoContent>.courseTag {
     width: 80%;
-    margin-bottom: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    text-align: center;
-
 }
 
 .info>.infoContent>.courseTag>span {
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 1.5rem;
     line-height: 3rem;
     margin-bottom: 30px;
@@ -59,7 +56,7 @@
 .info>.infoContent>.title {
     font-size: 2rem;
     font-weight: bold;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     display: flex;
     flex-direction: column;
 }
@@ -72,9 +69,9 @@
 }
 
 .info>.infoContent>pre {
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     font-size: 1.5rem;
-    line-height: 3rem;
+    line-height: 2.4rem;
     margin-bottom: 30px;
 }
 
@@ -86,19 +83,23 @@
 
 .info>.infoContent>.detailInfoBox>ul {
     width: 100%;
-    font-family: SUITE-Regular;
+    font-family: 메인폰트;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 .info>.infoContent>.detailInfoBox>ul>li {
-    font-size: 1.9rem;
+    font-size: 2rem;
     margin: 5px 0;
 }
-
+.info>.infoContent>.detailInfoBox>ul>li>a {
+    color: black;
+}
+.info>.infoContent>.detailInfoBox>ul>li>a:hover {
+    text-decoration: underline;
+}
 .info>.infoContent>.detailInfoBox>ul strong {
-
     margin-right: 15px;
 }
 
