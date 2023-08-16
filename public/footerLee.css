@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* header, nav, main, footer {
+    padding: 20px;
+} */
+
+footer {
+    color: #333;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 10px;
+}
+.footer-content2{
+    display:flex;
+}
+
+.footer-content3{
+    display:flex;
+    text-align:left;
+}
+
+section {
+    flex: 1;
+    margin-right: 10px;
+}
+
+section:last-child {
+    margin-right: 0;
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.contact-info, .company-info {
+    margin-top: 10px;
+}
+.contact-info {
+    text-align: left;
+}
+.company-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -10px;
+    margin-right: 100px;
+}
+
+
+.company-info2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -10px;
+    margin-right: 100px;
+}
+
+.company-info{
+    margin-right: 100px;
+}
+.company-info p {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+p {
+    margin-left: 15px;
+}

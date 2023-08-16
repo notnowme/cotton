@@ -3,21 +3,18 @@ import { userInfo } from "../../atoms/atom";
 import { useRecoilState } from "recoil";
 import "../../css/content.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { COURSE_DATA } from "./COURSE_DATA";
-import Comp1 from "./Comp1";
-import Comp2 from "./Comp2";
-import Comp3 from "./Comp3";
-import Comp4 from "./Comp4";
-import Comp5 from "./Comp5";
+import { COURSE_DATA2 } from "./COURSE_DATA2";
+import Comp6 from "./Comp6";
+import Comp7 from "./Comp7";
+import Comp8 from "./Comp8";
+import Comp9 from "./Comp9";
+import Comp10 from "./Comp10";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 import { useParams } from "react-router-dom";
-import Comp6 from "./Comp6";
-import Comp7 from "./Comp7";
-
 const Content = () => {
   const [content, setContent] = useState();
   const [user, setUser] = useRecoilState(userInfo);
@@ -43,11 +40,11 @@ const Content = () => {
     setImgNum(prev => n);
   };
   const selectComponent = {
-    Comp1: <Comp1 />,
-    Comp2: <Comp2 />,
-    Comp3: <Comp3 />,
-    Comp4: <Comp4 />,
-    Comp5: <Comp5 />,
+    Comp1: <Comp6 />,
+    Comp2: <Comp7 />,
+    Comp3: <Comp8 />,
+    Comp4: <Comp9 />,
+    Comp5: <Comp10 />,
   };
   const [view, setView] = useState(false);
   const picRef = useRef(null);
@@ -252,7 +249,7 @@ const Content = () => {
             navigation={true}
             className="detailBtnSwiper"
           >
-            {COURSE_DATA.map((data, index) => {
+            {COURSE_DATA2.map((data, index) => {
               return (
                 <SwiperSlide key={data.id} slidesPerView={4} slidesPerGroup={4}>
                   <div
@@ -276,7 +273,7 @@ const Content = () => {
             <div className="compBox">{selectComponent[content]}</div>
           ) : (
             <div className="compBox">
-              <Comp1 />
+              <Comp6 />
             </div>
           )}
         </div>

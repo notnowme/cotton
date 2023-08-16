@@ -525,22 +525,57 @@
 
 
 .compSlideBtn {
-    width: 100px;
-    height: 100px;
+    position: relative;
+    width: 208px;
+    height: 275px;
     object-fit: cover;
     font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
+    overflow: hidden;
 }
-
-.compSlideBtn:hover {
-    opacity: 0.5;
-    color: #25ac84;
+.compSlideBtn > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .compSlideBtn.sel {
     outline: 2px solid #25ac84;
-    opacity: 1;
+}
+.slide-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    /* background-color: rgba(37, 172, 132, 0.2); */
+    color: white;
+}
+.compSlideBtn > .slide-text > span {
+    display: none;
+    font-size: 2.4rem;
+    font-family: 메인폰트;
+    font-weight: bold;
+}
+.compSlideBtn.sel > .slide-text > span {
+    display: inline;
+}
+.compSlideBtn.sel > .slide-text {
+    background-color: rgba(37, 172, 132, 0.2);
+}
+.compSlideBtn:hover {
+    outline: 2px solid #25ac84;
+}
+.compSlideBtn:hover > .slide-text > span {
+    display: inline;
+}
+.slide-text:hover {
+    background-color: rgba(37, 172, 132, 0.2);
 }
 
 .compSlide {
@@ -548,7 +583,7 @@
     height: 400px;
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    /* background: #fff; */
 
     /* Center slide text vertically */
     display: flex;

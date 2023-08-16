@@ -144,10 +144,10 @@ const Nav = () => {
                 {location.pathname === "/search" && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
-              <Link to="/content">
-            <li className={location.pathname === "/content" ? "sel" : ""}>
-                <span>상세</span>
-                {location.pathname === "/content" && <i className="fa-solid fa-caret-up"></i>}
+              <Link to="/course?area=1">
+            <li className={location.pathname === "/course" ? "sel" : ""}>
+                <span>코스</span>
+                {location.pathname === "/course" && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
             {user[0].id ? (
@@ -161,7 +161,7 @@ const Nav = () => {
             )}
           </ul>
           {user[0].id && (
-            <div className="login">
+            <div className="login" onClick={()=>navigate('/mypage')}>
               <button>
                 <i className="fa-solid fa-user"></i>
               </button>

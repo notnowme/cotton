@@ -1,0 +1,38 @@
+import comp1Img from "../../assets/daemo1.jpg";
+import comp2Img from "../../assets/maru2.jpg";
+import comp3Img from "../../assets/huninneungBtn.jpg";
+import comp4Img from "../../assets/joganae.jpg";
+import comp5Img from "../../assets/myinBtn.jpg";
+
+export const COURSE_DATA = [
+  {
+    id: 6,
+    name: "Comp6",
+    title: '굴다리식당',
+    img: comp5Img,
+  },
+  {
+    id: 7,
+    name: "Comp7",
+    title: '자하싸리집',
+    img: comp5Img,
+  },
+  {
+    id: 8,
+    name: "Comp8",
+    title: '카페인신현리 아티장가든',
+    img: comp5Img,
+  },
+  {
+    id: 9,
+    name: "Comp9",
+    title: '대성한정식',
+    img: comp5Img,
+  },
+  {
+    id: 10,
+    name: "Comp10",
+    title: '탭퍼블릭',
+    img: comp5Img,
+  },
+];

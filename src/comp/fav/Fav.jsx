@@ -23,6 +23,11 @@ import imgJp from '../../assets/japanese.png'
 import imgItl from '../../assets/italian.png'
 import imgCafe from '../../assets/cafe.png'
 
+import mountain from "../../assets/mountain.png";
+import waterfall from "../../assets/waterfall.png";
+import island from "../../assets/island.png";
+
+
 const Fav = () => {
 
     const navigate = useNavigate();
@@ -41,7 +46,7 @@ const Fav = () => {
 
     const endChoice = () => {
         alert('고마워요');
-        navigate('/');
+        navigate('/content/1');
     }
     // 선택이 끝나면 margin-left를 0으로.
     // 메인페이지로 이동시킬까?
@@ -215,48 +220,32 @@ const Fav = () => {
                         onClick={()=>setShow(3520)}
                     ></i>
                     <div className="title">
-                        <h1>어떤 맛집을 가고 싶나요?</h1>
+                        <h1>자연 중 어느 곳으로 가고 싶나요?</h1>
                     </div>
                     <div className="menu">
                         <div className="item"
                             onClick={endChoice}
                         >
                             <div className="img">
-                                <img src={imgKor} />
+                                <img src={mountain} />
                             </div>
-                            <span>한식</span>
+                            <span>산</span>
                         </div>
                         <div className="item"
                             onClick={endChoice}
                         >
                             <div className="img">
-                                <img src={imgChn} />
+                                <img src={waterfall} />
                             </div>
-                            <span>중식</span>
+                            <span>계곡</span>
                         </div>
                         <div className="item"
                             onClick={endChoice}
                         >
                             <div className="img">
-                                <img src={imgJp} />
+                                <img src={island} />
                             </div>
-                            <span>일식</span>
-                        </div>
-                        <div className="item"
-                            onClick={endChoice}
-                        >
-                            <div className="img">
-                                <img src={imgItl} />
-                            </div>
-                            <span>양식</span>
-                        </div>
-                        <div className="item"
-                            onClick={endChoice}
-                        >
-                            <div className="img">
-                                <img src={imgCafe} />
-                            </div>
-                            <span>카페</span>
+                            <span>바다</span>
                         </div>
                     </div>
                 </div>

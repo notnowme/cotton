@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import '../../css/mypage.css'
 import { useState } from 'react';
 import TAPE from '../../assets/TAPE.png';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 const Mypage = () => {
 
@@ -9,7 +10,7 @@ const Mypage = () => {
     // const [cmtInfo, setCmtInfo] = useState([]);
     const [fav, setFav] = useState(0);
     const [cmt, setCmt] = useState([]);
-
+    const [arr, setArr] = useState([]);
     const getCmt = async() => {
         const getData = await fetch(`http://121.66.158.211:3001/userCmt?user_id=t01`,{
             method: 'get',
@@ -17,13 +18,23 @@ const Mypage = () => {
                 'Content-type':'application/json'
             }
         });
-        const data = await getData.json();
-        console.log(data);     
+        const data = await getData.json(); 
         setCmt(prev => data);
+    }
+    const getThemeInfo = async() => {
+        const getData = await fetch(`http://121.66.158.211:3001/ranCos?info=A002`,{
+            method: 'get',
+            headers: {
+                'Content-type':'application/json'
+            }
+        });
+        const data = await getData.json();
+        setArr(prev => data);
     }
 
     useEffect(()=>{
         getCmt();
+        getThemeInfo();
     },[])
     // const getUserData = async(id) => {
     //     const getData = await fetch(`url?=${id}`);
@@ -85,7 +96,7 @@ const Mypage = () => {
                             <span>좋아요</span>
                         </div>
                         <div className="count">
-                            <span>{fav}</span>
+                            <span>5</span>
                         </div>
                     </div>
                     <div className="mypage-item">
@@ -107,58 +118,26 @@ const Mypage = () => {
                             <span>나의 후기</span>
                         </div>
                         <div className="count">
-                            <span>{45}</span>
+                            <span>{cmt.length}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="showItems">
                 <ul>
-                    <li>
-                        <img src={TAPE} className='tape' />
-                        <div className="img">
-
-                        </div>
-                        <div className="text">
-                            <span>관광지 이름</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src={TAPE} className='tape' />
-                        <div className="img">
-
-                        </div>
-                        <div className="text">
-                            <span>관광지 이름</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src={TAPE} className='tape' />
-                        <div className="img">
-
-                        </div>
-                        <div className="text">
-                            <span>관광지 이름</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src={TAPE} className='tape' />
-                        <div className="img">
-
-                        </div>
-                        <div className="text">
-                            <span>관광지 이름</span>
-                        </div>
-                    </li>
-                    <li>
-                        <img src={TAPE} className='tape' />
-                        <div className="img">
-
-                        </div>
-                        <div className="text">
-                            <span>관광지 이름</span>
-                        </div>
-                    </li>
+                    {
+                        arr.map((data, index) => (
+                            <li key={index}>
+                                <img src={TAPE} className='tape' />
+                                <div className="img">
+                                    <img src={data.firstimage} alt="" />
+                                </div>
+                                <div className="text">
+                                    <span>{data.title}</span>
+                                </div>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
         </div>
