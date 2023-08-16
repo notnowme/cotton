@@ -192,11 +192,12 @@
 }
 
 #sec01 > .sec01-main > .sec01-content > .item > ul.theme > li {
-    padding: 3px 5px;
+    padding: 3px 7px;
+    background-color: white;
 }
 #sec01 > .sec01-main > .sec01-content > .item > ul.theme > li.sel {
-    color: black;
-    border: 1px solid #25ac84;
+    color: white;
+    background-color: #25ac84;
     border-radius: 5px;
 }
 #sec01 > .sec01-main > .sec01-content > .item > ul.theme > li.sel::after {

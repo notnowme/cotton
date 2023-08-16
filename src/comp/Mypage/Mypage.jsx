@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import '../../css/mypage.css'
 import { useState } from 'react';
+import TAPE from '../../assets/TAPE.png';
 
 const Mypage = () => {
 
@@ -95,7 +96,7 @@ const Mypage = () => {
                             <span>즐겨찾기</span>
                         </div>
                         <div className="count">
-                            <span>0</span>
+                            <span>5</span>
                         </div>
                     </div>
                     <div className="mypage-item">
@@ -106,10 +107,59 @@ const Mypage = () => {
                             <span>나의 후기</span>
                         </div>
                         <div className="count">
-                            <span>{cmt.length}</span>
+                            <span>{45}</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="showItems">
+                <ul>
+                    <li>
+                        <img src={TAPE} className='tape' />
+                        <div className="img">
+
+                        </div>
+                        <div className="text">
+                            <span>관광지 이름</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={TAPE} className='tape' />
+                        <div className="img">
+
+                        </div>
+                        <div className="text">
+                            <span>관광지 이름</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={TAPE} className='tape' />
+                        <div className="img">
+
+                        </div>
+                        <div className="text">
+                            <span>관광지 이름</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={TAPE} className='tape' />
+                        <div className="img">
+
+                        </div>
+                        <div className="text">
+                            <span>관광지 이름</span>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={TAPE} className='tape' />
+                        <div className="img">
+
+                        </div>
+                        <div className="text">
+                            <span>관광지 이름</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     )

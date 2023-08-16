@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -32,6 +33,41 @@
 			});
 
 			// 2. 시작, 도착 심볼찍기
+=======
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>simpleMap</title>
+		<script	src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=527Pw6oiPh8qCcmAnnATR9yrjQEiCH3T1Re2pQkH"></script>
+		<script type="text/javascript">
+			var map;
+			var markerInfo;
+			//출발지,도착지 마커
+			var marker_s, marker_e, marker_p;
+			//경로그림정보
+			var drawInfoArr = [];
+			var drawInfoArr2 = [];
+		
+			var chktraffic = [];
+			var resultdrawArr = [];
+			var resultMarkerArr = [];
+		
+			function initTmap() {
+				$(document).ready(() => {
+					$('#btn_select').trigger('click');
+				})
+				// 1. 지도 띄우기
+				map = new Tmapv2.Map("map_div", {
+					center : new Tmapv2.LatLng(37.49241689559544, 127.03171389453507),
+					width : "100%",
+					height : "400px",
+					zoom : 11,
+					zoomControl : true,
+					scrollwheel : true
+				});
+		
+				// 2. 시작, 도착 심볼찍기
+>>>>>>> 47fb06dcb3c19f77045c2d78ac80cc6e2e599e36
 			// 시작
 			marker_s = new Tmapv2.Marker(
 				{
@@ -448,6 +484,7 @@
 					resultdrawArr[i].setMap(null);
 				}
 			}
+<<<<<<< HEAD
 
 			chktraffic = [];
 			drawInfoArr = [];
@@ -483,6 +520,52 @@
 					<option value="N">N</option>
 				</select>
 				<button id="btn_select">적용하기</button>
+=======
+		</script>
+		<style>
+			::-webkit-scrollbar {
+				width: 0;
+			}
+			#btn_select {
+				border: none;
+				outline: none;
+				padding: 3px 20px;
+				font-size: 16px;
+				margin-bottom: 5px;
+				color: white;
+				background-color: #25ac84;
+			}
+			select {
+				border: 1px solid #25ac84;
+				padding: 5px;
+			}
+			select option {
+				padding: 10px 0;
+			}
+		</style>
+		</head>
+	<body onload="initTmap()">
+		<div class="ft_area">
+			<div class="ft_select_wrap">
+				<div class="ft_select">
+					<select id="selectLevel">
+						<option value="0" selected>교통최적+추천</option>
+						<option value="1">교통최적+무료우선</option>
+						<option value="2">교통최적+최소시간</option>
+						<option value="3">교통최적+초보</option>
+						<option value="4">교통최적+고속도로우선</option>
+						<option value="10">최단거리+유/무료</option>
+						<option value="12">이륜차도로우선</option>
+						<option value="19">교통최적+어린이보호구역 회피</option>
+					</select>
+					<select id="year">
+						<option value="N">교통정보 표출 옵션</option>
+						<option value="Y" selected>Y</option>
+						<option value="N">N</option>
+					</select>
+					<button id="btn_select">적용하기</button>
+				</div>
+>>>>>>> 47fb06dcb3c19f77045c2d78ac80cc6e2e599e36
 			</div>
 		</div>
 		<div class="map_act_btn_wrap clear_box"></div>
