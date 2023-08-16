@@ -1,4 +1,5 @@
 // import { Swiper, SwiperSlide } from "swiper/react";
+import huninneung1 from "../../assets/huninneung3.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,14 +16,13 @@ const Comp1 = () => {
           <span className="infoAdress">서울 서초구</span>
         </div>
         <div className="infoContent">
-          <img
-            className="courseImg"
-            src="https://cdn.ananti.kr/adm/2023-04-21/H73mv20XDeBxKz3TDtVk7vHhbLQZPhFp.jpg"
-          />
-          <div className="courseTag">
-            <span>
-              #관광지#나들이#당일치기여행#생태관광#수도권#오리나무림#자연#자연&숲#자연좋은곳#헌인릉생태경관보전지역#힐링
-            </span>
+          <div className="courseImgBox">
+            <img className="courseImg" src={huninneung1} />
+            <div className="courseTag">
+              <span>
+                #관광지#나들이#당일치기여행#생태관광#수도권#오리나무림#자연#자연&숲#자연좋은곳#헌인릉생태경관보전지역#힐링
+              </span>
+            </div>
           </div>
           <span className="title">상세 정보</span>
           <div className="line"></div>

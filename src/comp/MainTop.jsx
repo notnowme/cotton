@@ -38,13 +38,13 @@ export default function App() {
         }}
       >
         <SwiperSlide>
-          <img src={pool}></img>
+          <img className="mainTopImg" src={pool}></img>
         </SwiperSlide>
         <SwiperSlide>
-          <img src={seaView} />
+          <img className="mainTopImg" src={seaView} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={highball} />
+          <img className="mainTopImg" src={highball} />
         </SwiperSlide>
         <SwiperSlide>
           <img src={buffet} />

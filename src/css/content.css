@@ -482,6 +482,7 @@
     padding: 4%;
 }
 
+
 /* course btn swiper button */
 .detailBtnSwiper>.swiper-button-prev {
     width: 40px;
@@ -522,7 +523,14 @@
 .compSlideBtn {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     font-size: 20px;
+    border-radius: 10px;
+}
+
+.compSlideBtn:hover {
+    opacity: 0.5;
+    color: #25ac84;
 }
 
 .compSlide {

@@ -1,4 +1,5 @@
 // import { Swiper, SwiperSlide } from "swiper/react";
+import maru1 from "../../assets/maru2.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,14 +16,13 @@ const Comp2 = () => {
           <span className="infoAdress">서울 강남구</span>
         </div>
         <div className="infoContent">
-          <img
-            className="courseImg"
-            src="https://cdn.ananti.kr/adm/2023-04-21/H73mv20XDeBxKz3TDtVk7vHhbLQZPhFp.jpg"
-          />
-          <div className="courseTag">
-            <span>
-              #관광지#근린공원#도로교통공원#도로교통체험놀이터#마루공원#일원동근린공원
-            </span>
+          <div className="courseImgBox">
+            <img className="courseImg" src={maru1} />
+            <div className="courseTag">
+              <span>
+                #관광지#근린공원#도로교통공원#도로교통체험놀이터#마루공원#일원동근린공원
+              </span>
+            </div>
           </div>
           <span className="title">상세 정보</span>
           <div className="line"></div>

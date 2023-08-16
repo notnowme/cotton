@@ -1,4 +1,5 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";\
+import daemo1 from "../../assets/daemo1.jpg";
 
 // Import Swiper styles
 import "swiper/css";
@@ -38,14 +39,14 @@ const Comp1 = () => {
           </SwiperSlide>
         </Swiper> */}
         <div className="infoContent">
-          <img
-            className="courseImg"
-            src="https://cdn.ananti.kr/adm/2023-04-21/H73mv20XDeBxKz3TDtVk7vHhbLQZPhFp.jpg"
-          />
-          <div className="courseTag">
-            <span>
-              #강남#공원#관광지#대모산공원#도심공원#산책길#산책하기#산책하기좋은곳#자연좋은곳#자연환경#휴식공간#휴식여행#휴식처
-            </span>
+          <div className="courseImgBox">
+            <img className="courseImg" src={daemo1} />
+            <div className="courseTag">
+              <span>
+                #강남#공원#관광지#대모산공원#도심공원#산책길#산책하기#산책하기좋은곳
+                <br></br>#자연좋은곳#자연환경#휴식공간#휴식여행#휴식처
+              </span>
+            </div>
           </div>
           <span className="title">상세 정보</span>
           <div className="line"></div>
