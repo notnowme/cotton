@@ -520,24 +520,16 @@
     height: 100px;
     object-fit: cover;
     font-size: 20px;
-<<<<<<< HEAD
     border-radius: 10px;
+    cursor: pointer;
 }
-
 .compSlideBtn:hover {
     opacity: 0.5;
     color: #25ac84;
-=======
-    cursor: pointer;
-    opacity: 0.8;
-}
-.compSlideBtn:hover{
-    opacity: 1;
 }
 .compSlideBtn.sel {
     outline: 2px solid #25ac84;
     opacity: 1;
->>>>>>> 47fb06dcb3c19f77045c2d78ac80cc6e2e599e36
 }
 .compSlide {
     width: 500px;
