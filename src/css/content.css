@@ -228,6 +228,7 @@
     justify-content: center;
     align-items: center;
 }
+
 #content>.content-desc>.map-info>.courseInfo {
     display: flex;
     justify-content: center;
@@ -236,6 +237,7 @@
     border-top: 1px solid rgb(201, 201, 201);
     border-bottom: 1px solid rgb(201, 201, 201);
 }
+
 #content>.content-desc>.map-info>.courseInfo>.course-container {
     display: flex;
     justify-content: space-evenly;
@@ -243,6 +245,7 @@
     width: 960px;
     height: 100%;
 }
+
 #content>.content-desc>.map-info>.courseInfo>.course-container>ul {
     padding-top: 20px;
     display: flex;
@@ -250,12 +253,14 @@
     /* justify-content: center; */
     height: 100%;
 }
+
 #content>.content-desc>.map-info>.courseInfo>.course-container>ul>li {
     display: flex;
     align-items: center;
     margin: 10px 0;
 }
-#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>i{
+
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>i {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,20 +272,24 @@
     background-color: rgb(240, 240, 240);
     color: #017858;
 }
-#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div{
+
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
-#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>span{
+
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>span {
     font-size: 1.5rem;
     font-family: 메인폰트;
     margin-bottom: 3px
 }
-#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>strong{
+
+#content>.content-desc>.map-info>.courseInfo>.course-container>ul>li>div>strong {
     font-size: 1.5rem;
     font-family: 메인폰트;
 }
+
 #content>.content-desc>.map-info>.map {
     width: 1000px;
     height: 500px;
@@ -472,8 +481,8 @@
 
 }
 
-.detailBtnSwiper {
-    margin-bottom: 30px;
+#content>.content-desc>.detailSwiperBox>.detailBtnSwiper {
+    margin: 20px 0px 30px 0px;
     padding: 4%;
 }
 
@@ -523,14 +532,17 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
 .compSlideBtn:hover {
     opacity: 0.5;
     color: #25ac84;
 }
+
 .compSlideBtn.sel {
     outline: 2px solid #25ac84;
     opacity: 1;
 }
+
 .compSlide {
     width: 500px;
     height: 400px;
@@ -595,7 +607,8 @@
     align-items: center;
     margin-bottom: 10px;
 }
-.toggle-map > li {
+
+.toggle-map>li {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -607,18 +620,22 @@
     border-radius: 5px;
     cursor: pointer;
 }
-.toggle-map > li > i {
+
+.toggle-map>li>i {
     font-size: 2.4rem;
 }
-.toggle-map > li > span {
+
+.toggle-map>li>span {
     font-size: 1.6rem;
     font-family: 메인폰트;
 }
-.toggle-map > li.sel {
+
+.toggle-map>li.sel {
     color: #25ac84;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.toggle-map > li:hover {
+
+.toggle-map>li:hover {
     color: #25ac84;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
