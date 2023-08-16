@@ -145,9 +145,9 @@ const Nav = () => {
             </li>
               </Link>
               <Link to="/course?area=1">
-            <li className={location.pathname === "/course" ? "sel" : ""}>
+            <li className={location.pathname.includes("/course")  ? "sel" : ""}>
                 <span>코스</span>
-                {location.pathname === "/course" && <i className="fa-solid fa-caret-up"></i>}
+                {location.pathname.includes("/course") && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
             {user[0].id ? (

@@ -45,8 +45,8 @@ const Fav = () => {
     // 클릭하면 변경할 margin-left 값을 저장함.
 
     const endChoice = () => {
-        alert('고마워요');
-        navigate('/content/1');
+        alert('고마워요!');
+        navigate('/course/content/1');
     }
     // 선택이 끝나면 margin-left를 0으로.
     // 메인페이지로 이동시킬까?

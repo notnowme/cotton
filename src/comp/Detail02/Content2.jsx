@@ -14,22 +14,19 @@ import Comp10 from "./Comp10";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
-import { useParams } from "react-router-dom";
 const Content = () => {
   const [content, setContent] = useState();
   const [user, setUser] = useRecoilState(userInfo);
-  const params = useParams();
-  console.log(params.id + '-----------------');
   const [reply, setReply] = useState([
     {
       name: '다꼬리',
-      date: '2023. 01. 17',
-      content: '눈 안내린 겨울에 방문했는데 바닥도 조금 폭신한 느낌에 전나무향? 이 물씬 났어요 힐링으로 최고!',
+      date: '2023. 02. 04',
+      content: '이대로 따라가면 좋아요.',
     },
     {
       name: '꼬리선',
-      date: '2023. 01. 17',
-      content: '다꼬리 따라갔는데 정말 좋았어요! 다음엔 혼자 가볼래요ㅎㅎ',
+      date: '2023. 02. 04',
+      content: 'ㅎㅎㅎㅎㅎ',
     },
   ]);
 
@@ -40,11 +37,11 @@ const Content = () => {
     setImgNum(prev => n);
   };
   const selectComponent = {
-    Comp1: <Comp6 />,
-    Comp2: <Comp7 />,
-    Comp3: <Comp8 />,
-    Comp4: <Comp9 />,
-    Comp5: <Comp10 />,
+    Comp6: <Comp6 />,
+    Comp7: <Comp7 />,
+    Comp8: <Comp8 />,
+    Comp9: <Comp9 />,
+    Comp10: <Comp10 />,
   };
   const [view, setView] = useState(false);
   const picRef = useRef(null);
@@ -68,18 +65,18 @@ const Content = () => {
     };
   }
   const [mapNum, setMapNum] = useState(0);
-  const [mapHtml, setMapHtml] = useState('TmapDrive.html');
+  const [mapHtml, setMapHtml] = useState('TmapDrive2.html');
   const mapChange = (n) => {
     setMapNum(prev => n);
     switch (n) {
       case 0:
-        setMapHtml(prev => 'TmapDrive.html');
+        setMapHtml(prev => 'TmapDrive2.html');
         break;
       case 1:
-        setMapHtml(prev => 'TmapWalk.html');
+        setMapHtml(prev => 'TmapWalk2.html');
         break;
       case 2:
-        setMapHtml(prev => 'TmapCCTV.html');
+        setMapHtml(prev => 'TmapCCTV2.html');
         break;
     }
   }

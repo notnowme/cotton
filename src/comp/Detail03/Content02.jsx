@@ -151,7 +151,7 @@ const Content02 = () => {
                             }
                     </div>
                 </div>
-                <div className="course-item" onClick={()=>navigate('/content/2')}>
+                <div className="course-item" onClick={()=>navigate('/course/content/2')}>
                     <div className="area">
                         <img src={imgFood} />
                         <span>맛집</span>

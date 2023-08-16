@@ -9,6 +9,7 @@ import Fav from "./comp/fav/Fav";
 import Search from "./comp/Search/Search";
 import Footer from "./comp/Footer/Footer";
 import Content02 from "./comp/Detail03/Content02";
+import Recmd from "./comp/Best/Recmd";
 
 const Router = () => {
     // BrowserRouter는 일반적인 url 방식, HashRouter는 localhost/#/url처럼 #이 붙음.
@@ -22,8 +23,9 @@ const Router = () => {
                 <Route path='/fav' element={<Fav />} />
                 <Route path='/search' element={<Search />} />
                 <Route path='/course' element={<Content02 />} />
-                <Route path='/content/1' element={<Content />} />
-                <Route path='/content/2' element={<Content2 />} />
+                <Route path='/course/content/1' element={<Content />} />
+                <Route path='/course/content/2' element={<Content2 />} />
+                <Route path='/recmd' element={<Recmd />} />
             </Routes>
             <Footer />
         </BrowserRouter>

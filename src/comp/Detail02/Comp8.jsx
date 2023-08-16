@@ -1,5 +1,5 @@
 // import { Swiper, SwiperSlide } from "swiper/react";
-import myin1 from "../../assets/myin3.jpg";
+import myin1 from "../../assets/comp08.jpg";
 
 // Import Swiper styles
 import "swiper/css";

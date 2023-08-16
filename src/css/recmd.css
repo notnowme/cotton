@@ -1,0 +1,411 @@
+#recmd {
+    margin-top: 100px;
+    width: 1400px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+#recmd > .maps {
+    position: relative;
+    width: 395px;
+    height: 800px;
+    background-color: #3a4240;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 10px;
+}
+#recmd > .maps > .map-img {
+    width: 100%;
+    height: 570px;
+    overflow: hidden;
+}
+#recmd > .maps > .map-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* SEOUL */
+#recmd > .maps > .map-seoul {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 227px;
+    left: 78px;
+}
+#recmd > .maps > .map-seoul2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 215px;
+    left: 68px;
+    z-index: 4;
+    cursor: pointer;
+}
+#recmd > .maps > .map-seoul > .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 48px;
+    height: 30px;
+    left: -5px;
+    top: -30px;
+
+    border-radius: 5px;
+    background-color: #f88222;
+}
+#recmd > .maps > .map-seoul > .location::after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color: #f88222;
+	border-bottom: 0;
+	margin-left: -7px;
+	margin-bottom: -7px;
+}
+#recmd > .maps > .map-seoul > .location > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    color: white;
+}
+/* SEOUL */
+
+
+/* GJ */
+#recmd > .maps > .map-gj {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 506px;
+    left: 50px;
+}
+#recmd > .maps > .map-gj2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 506px;
+    left: 50px;
+    z-index: 4;
+    cursor: pointer;
+}
+#recmd > .maps > .map-gj > .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 48px;
+    height: 30px;
+    left: 0px;
+    top: -25px;
+
+    border-radius: 5px;
+    background-color: #f88222;
+}
+#recmd > .maps > .map-gj > .location::after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color: #f88222;
+	border-bottom: 0;
+	margin-left: -7px;
+	margin-bottom: -7px;
+}
+#recmd > .maps > .map-gj > .location > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    color: white;
+}
+/* GJ */
+
+/* BUSAN */
+#recmd > .maps > .map-busan {
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    top: 494px;
+    left: 267px;
+}
+#recmd > .maps > .map-busan2 {
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    top: 494px;
+    left: 267px;
+    z-index: 4;
+    cursor: pointer;
+}
+#recmd > .maps > .map-busan > .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 48px;
+    height: 30px;
+    left: 5px;
+    top: -25px;
+
+    border-radius: 5px;
+    background-color: #f88222;
+}
+#recmd > .maps > .map-busan > .location::after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color: #f88222;
+	border-bottom: 0;
+	margin-left: -7px;
+	margin-bottom: -7px;
+}
+#recmd > .maps > .map-busan > .location > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    color: white;
+}
+/* BUSAN */
+
+/* JEJU */
+#recmd > .maps > .map-jeju {
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    top: 639px;
+    left: 90px;
+}
+#recmd > .maps > .map-jeju2 {
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    top: 639px;
+    left: 90px;
+    z-index: 4;
+    cursor: pointer;
+}
+#recmd > .maps > .map-jeju > .location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 48px;
+    height: 30px;
+    left: 10px;
+    top: -25px;
+    border-radius: 5px;
+    background-color: #f88222;
+}
+#recmd > .maps > .map-jeju > .location::after {
+    content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-top-color: #f88222;
+	border-bottom: 0;
+	margin-left: -7px;
+	margin-bottom: -7px;
+}
+#recmd > .maps > .map-jeju > .location > span {
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    color: white;
+}
+/* JEJU */
+
+
+
+
+
+
+
+#recmd .maps i {
+    position: absolute;
+    font-size: 2.4rem;
+    top: calc(50% - 3px);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    color: tomato;
+}
+#recmd .map-seoul2.sel > i {
+    display: none;
+}
+#recmd .map-gj2.sel > i {
+    display: none;
+}
+#recmd .map-busan2.sel > i {
+    display: none;
+}
+#recmd .map-jeju2.sel > i {
+    display: none;
+}
+
+
+.store-info {
+    width: 100%;
+    height: 100%;
+    margin-left: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.store-info > .title {
+    width: 100%;
+    font-family: 메인폰트;
+    margin-bottom: 10px;
+}
+.store-info > .title > h1 {
+    font-size: 4rem;
+    margin-bottom: 3px;
+}
+.store-info > .title > h1 > span {
+    font-size: 4rem;
+    color: rgb(37, 172, 132, 1);
+}
+.store-info > .title > span {
+    font-size: 2.4rem;
+}
+
+.store-info > .desc {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.store-info > .desc > .top-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.store-info > .desc > .top-item > .items {
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.store-info > .desc > .top-item > .items > .img {
+    width: 100%;
+    height: 220px;
+    background-color: gainsboro;
+    margin-bottom: 7px;
+}
+.store-info > .desc > .top-item > .items > .text {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.store-info > .desc > .top-item > .items > .text > .rank {
+    font-size: 3rem;
+    font-family: 메인폰트;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.store-info > .desc > .top-item > .items > .text > i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 7px;
+    color: rgb(37, 172, 132, 1);
+}  
+.store-info > .desc > .top-item > .items > .text > .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.store-info > .desc > .top-item > .items > .text > .detail > .store {
+    font-size: 2.4rem;
+    font-family: 메인폰트;
+}
+.store-info > .desc > .top-item > .items > .text > .detail > .addr {
+    font-size: 1.8rem;
+    font-family: 메인폰트;
+}
+.store-info > .desc > .under-item {
+    display: flex;
+    justify-content: space-around;
+}
+.store-info > .desc > .left {
+    margin-right: 100px;
+}
+.store-info > .desc > .under-item .items {
+    width: 330px;
+    height: 80px;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+    margin: 30px 0;
+}
+.store-info > .desc .items > i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4rem;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 7px;
+    margin-right: 15px;
+    color: rgb(37, 172, 132, 1);
+}    
+.store-info > .desc .items > span {
+    font-size: 2rem;
+    font-family: 메인폰트;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.store-info > .desc .items > div {
+    display: flex;
+    flex-direction: column;
+}
+.store-info > .desc .items > div > span {
+    position: relative;
+    font-size: 1.6rem;
+    font-family: 메인폰트;
+    margin: 2px;
+}
+/* .store-info > .desc .items > div > span.store::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    bottom: -3px;
+    left: 0;
+} */
+.store-info > .desc .items > div > span.addr {
+    font-size: 1.4rem;
+}
