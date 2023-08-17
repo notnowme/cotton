@@ -275,7 +275,7 @@ function placeCCTVMarkers(cctvData, routeStartX, routeStartY, routeEndX, routeEn
         if (isNearRoute) {
             let marker_cctv = new Tmapv2.Marker({
                 position: new Tmapv2.LatLng(cctvLat, cctvLng),
-                icon: "https://o.remove.bg/downloads/00ee8c28-84eb-4165-8c1d-dc078858690a/cctv4-removebg-preview.png",
+                icon: "./cctv.png",
                 // https://o.remove.bg/downloads/4b72c9e5-9d6f-4963-8a61-75132cfb0ef2/cctv3-removebg-preview.png
                 iconSize: new Tmapv2.Size(24, 40),  
                 map: map
@@ -352,7 +352,7 @@ function placeCCTVMarkers(cctvData, routeStartX, routeStartY, routeEndX, routeEn
 	
 </script>
 </head>
-<body onload="initTmap();">
+<body onload="cc();">
 	
 		<!-- 190430 기존 지도를 모두 이미지 처리 위해 주석 처리 S -->
 		<div id="map_wrap" class="map_wrap3">
@@ -360,7 +360,7 @@ function placeCCTVMarkers(cctvData, routeStartX, routeStartY, routeEndX, routeEn
 		</div>
 		<div class="map_act_btn_wrap clear_box"></div>
 		<p id="result"></p>
-		<button onclick="cc()">버튼</button>
+		<!-- <button onclick="cc()">버튼</button> -->
 		<br />
 
 </body>

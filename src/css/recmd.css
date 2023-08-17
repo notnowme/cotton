@@ -309,6 +309,12 @@
     height: 220px;
     background-color: gainsboro;
     margin-bottom: 7px;
+    overflow: hidden;
+}
+.store-info > .desc > .top-item > .items > .img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .store-info > .desc > .top-item > .items > .text {
     width: 100%;
@@ -318,7 +324,7 @@
     align-items: center;
 }
 .store-info > .desc > .top-item > .items > .text > .rank {
-    font-size: 3rem;
+    font-size: 2.6rem;
     font-family: 메인폰트;
     font-weight: bold;
     margin-right: 15px;
@@ -342,11 +348,11 @@
     align-items: flex-start;
 }
 .store-info > .desc > .top-item > .items > .text > .detail > .store {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-family: 메인폰트;
 }
 .store-info > .desc > .top-item > .items > .text > .detail > .addr {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-family: 메인폰트;
 }
 .store-info > .desc > .under-item {
@@ -357,7 +363,7 @@
     margin-right: 100px;
 }
 .store-info > .desc > .under-item .items {
-    width: 330px;
+    /* width: 330px; */
     height: 80px;
     padding: 10px 40px;
     display: flex;
@@ -382,7 +388,7 @@
     color: rgb(37, 172, 132, 1);
 }    
 .store-info > .desc .items > span {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: 메인폰트;
     font-weight: bold;
     margin-right: 20px;

@@ -11,8 +11,6 @@ import "../css/style.css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import seaView from "../assets/ht_seaside.jpg";
-import beachVideo from "../assets/beach.mp4";
-import surfingVideo from "../assets/surfing.mp4";
 import pool from "../assets/hiltonPool.jpg";
 import highball from "../assets/highball.jpg";
 import buffet from "../assets/buffet.jpg";
@@ -48,12 +46,6 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <img src={buffet} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <video src={surfingVideo} className="slideImg"></video>
-        </SwiperSlide>
-        <SwiperSlide>
-          <video src={beachVideo} className="slideImg" />
         </SwiperSlide>
         <SwiperSlide>
           <img src={infinity} className="slideImg" />

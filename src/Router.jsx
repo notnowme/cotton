@@ -25,7 +25,7 @@ const Router = () => {
                 <Route path='/course' element={<Content02 />} />
                 <Route path='/course/content/1' element={<Content />} />
                 <Route path='/course/content/2' element={<Content2 />} />
-                <Route path='/recmd' element={<Recmd />} />
+                <Route path='/hot' element={<Recmd />} />
             </Routes>
             <Footer />
         </BrowserRouter>

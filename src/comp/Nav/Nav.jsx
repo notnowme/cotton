@@ -1,7 +1,7 @@
 import "../../css/nav.css";
 import IMG from "../../assets/logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NewLogin from "../Login/NewLogin";
 import { userInfo } from "../../atoms/atom";
 import { useRecoilState } from "recoil";
@@ -27,6 +27,7 @@ const Nav = () => {
     window.sessionStorage.removeItem("id");
     window.sessionStorage.removeItem("nick");
     setUser([{id: '', nick:''}]);
+    goHome();
   };
   // 로그아웃 함수.
   // 로그아웃을 하면 브라우저 세션을 지워주고
@@ -104,7 +105,10 @@ const Nav = () => {
     };
   }, []);
   ////////////////////////////////////////////////////////////
-
+  const navRef = useRef(null);
+  useEffect(()=>{
+    navRef.current.scrollIntoView();
+  })
 
   return (
     <>
@@ -112,6 +116,7 @@ const Nav = () => {
       <nav
         id="navbar"
         className={view || location.pathname !== "/" ? "scroll" : "scroll"}
+        ref={navRef}
       >
         <div className="logo">
           <img src={IMG} onClick={goHome}/>
@@ -144,12 +149,18 @@ const Nav = () => {
                 {location.pathname === "/search" && <i className="fa-solid fa-caret-up"></i>}
             </li>
               </Link>
-              <Link to="/course?area=1">
+            <Link to="/course?area=1">
             <li className={location.pathname.includes("/course")  ? "sel" : ""}>
                 <span>코스</span>
                 {location.pathname.includes("/course") && <i className="fa-solid fa-caret-up"></i>}
             </li>
-              </Link>
+            </Link>
+            <Link to="/hot">
+            <li className={location.pathname.includes("/hot")  ? "sel" : ""}>
+                <span>핫플</span>
+                {location.pathname.includes("/hot") && <i className="fa-solid fa-caret-up"></i>}
+            </li>
+            </Link>
             {user[0].id ? (
               <li onClick={doLogOut}>
                 <span>로그아웃</span>

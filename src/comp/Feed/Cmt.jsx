@@ -5,7 +5,7 @@ const Cmt = ({data}) => {
                 <i className="fa-solid fa-user"></i>
             </div>
             <div className="item">
-                <span className='nick'>{data.user_id}</span>
+                <span className='nick'>코튼캔디</span>
                 <span className="text">
                     {data.w_content}
                 </span>

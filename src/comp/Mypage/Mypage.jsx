@@ -85,7 +85,7 @@ const Mypage = () => {
             </div>
             <div className="mypage-main">
                 <div className='mypage-name'>
-                    <span>안녕하세요! <strong>다꼬리</strong> 님</span>
+                    <span>안녕하세요! <strong>코튼캔디</strong> 님</span>
                 </div>
                 <div className="mypage-activity">
                     <div className="mypage-item">

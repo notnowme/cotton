@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Cmt from './Cmt';
 //corCmt
+const { kakao } = window;
 const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
     const [viewFeed, setViewFeed] = useRecoilState(feedHandle);
     // 리코일 변수로 저정한 팝업창 보여주는 true/false 변수. 사용법은 useState와 같음.
@@ -42,7 +43,6 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
         });
         const data = await getFav.json();
         setUserDetail(prev => data);
-        console.log(userDetail.split('/'));
     }
     const getCmt = async(code) => {
         const getData = await fetch(`http://121.66.158.211:3001/callCmt?contentid=${code}`,{
@@ -66,18 +66,13 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
         const favData = await getFav.json();
 
         const result = favData[0];
-        console.log(result.user_fav);
         // 유저 정보
         const splitFav = result.user_fav ? result.user_fav.split('/') : [];
-        console.log(splitFav);
-        console.log(code);
         
         const filteredFav = splitFav.filter(el => el === code.toString());
-        console.log(filteredFav);
 
         if (filteredFav.length > 0) {
             // 좋아요 누른 상태.
-            console.log('bbb');
             const deleteFav = splitFav.filter(el => el !== code.toString());
             const concatFav = deleteFav.join('/');
             const submit = await fetch('http://121.66.158.211:3001/postUser', {
@@ -91,7 +86,6 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                 })
             });
         } else {
-            console.log('aaa');
             // 좋아요 안 누른 상태.
             const submit = await fetch('http://121.66.158.211:3001/postUser', {
                 method: 'post',
@@ -109,9 +103,6 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
     // 좋아요 버튼을 누르면, 로그인 여부 확인 후 실행.
     
     const writeCmt = async() => {
-        // const text = textRef.current.value;
-        // console.log(text);
-        // 텍스트.
         const submit = await fetch('http://121.66.158.211:3001/cmt', {
             method: 'post',
             headers: {
@@ -135,12 +126,36 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
     },[infoArr]);
 
     useEffect(() => {
-        console.log(favUser);
     },[]);
 
     const tttt = (id) => {
-        console.log(favUser[0].user_fav.split('/').filter(el => {console.log(el, id); el == id}).length);
     }
+    const [mapShow, setMapShow] = useState(false);
+    useEffect(()=>{
+        // Kakao.cleanup();
+        // Kakao.init('26b87e8c01f0c8e3cb2ca726c75e804f');
+        // infoArr.mapy, infoArr.mapx
+
+        const container = document.getElementById('map-ping');
+        let mapOption = {
+            center: new kakao.maps.LatLng(Number(infoArr.mapy), Number(infoArr.mapx)), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+        let map = new kakao.maps.Map(container, mapOption); // 지도를 생성합니다
+
+        // 마커가 표시될 위치입니다 
+        let markerPosition = new kakao.maps.LatLng(Number(infoArr.mapy), Number(infoArr.mapx));
+
+        // 마커를 생성합니다
+        let marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+      },[infoArr, mapShow]);
     return (
         <div id="background">
             <div className="popup">
@@ -154,6 +169,11 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                     <img src={infoArr.firstimage} alt="" />
                 </div>
                 <div className="menu-items">
+                    <div id="map-ping"
+                        style={{display: mapShow ? 'block' : 'none'}}
+                    >
+
+                    </div>
                     <div className="left">
                         <i className='fa-regular fa-heart'
                             onClick={()=>{likeHandle(infoArr.contentid); tttt(infoArr.contentid)}}
@@ -162,11 +182,14 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                         <i className="fa-regular fa-paper-plane"></i>
                     </div>
                     <div className="right">
-                        <i className="fa-regular fa-map"></i>
+                        <i className="fa-regular fa-map"
+                            onMouseEnter={()=>setMapShow(true)}
+                            onMouseLeave={()=>setMapShow(false)}
+                        ></i>
                  </div>
                 </div>
                 <div className="likes">
-                    <span>1명이 좋아합니다</span>
+                    <span>0명이 좋아합니다</span>
                 </div>
                 <div className="comments">
                     <div className="cmt">
@@ -174,7 +197,7 @@ const Feed = ({infoArr, forceUpdate, setInfoArr, favUser}) => {
                             <i className="fa-solid fa-user"></i>
                         </div>
                         <div className="item">
-                            <span className='nick'>다꼬리</span>
+                            <span className='nick'>코튼캔디</span>
                             <span className="text">
                                 #{infoArr.addr1} #{infoArr.cat2} #{infoArr.cat3}
                             </span>

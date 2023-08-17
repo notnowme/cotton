@@ -12,7 +12,7 @@ import imgForest from '../../assets/forest.png'
 import imgAct from '../../assets/activity.png'
 import imgFood from '../../assets/food.png'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import Feed from '../Feed/Feed';
 import { feedHandle, userInfo } from '../../atoms/atom';
@@ -113,6 +113,8 @@ const Search = () => {
         title.innerHTML = `${areaName} 지역 | COTTON CANDY`;
     },[areaCode]);
     // 위에 제목을 바꾸기 위한 함수.
+
+    const searchRef = useRef(null);
     return (
         <>
         {viewFeed ? <Feed infoArr={infoArr} setInfoArr={setInfoArr}/> : null}
@@ -122,7 +124,7 @@ const Search = () => {
             {areaCode === '39' && <img src={JEJU} />}
             {areaCode === '6' && <img src={BUSAN} />}
         </div>
-        <div id='search'>
+        <div id='search' ref={searchRef}>
             <ul className="menu">
                 <li className={theme === 0 ? 'sel' : ''}
                     onClick={()=>themeHandle(0)}

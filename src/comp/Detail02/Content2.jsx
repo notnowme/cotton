@@ -14,7 +14,9 @@ import Comp10 from "./Comp10";
 import "swiper/css";
 import "swiper/css/navigation";
 import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
+const { Kakao } = window;
 const Content = () => {
+  console.log(Kakao);
   const [content, setContent] = useState();
   const [user, setUser] = useRecoilState(userInfo);
   const [reply, setReply] = useState([
@@ -29,7 +31,6 @@ const Content = () => {
       content: 'ㅎㅎㅎㅎㅎ',
     },
   ]);
-
   const [imgNum, setImgNum] = useState(0);
   const handleClickButton = (e, n) => {
     const name = e.target.offsetParent.dataset.value
@@ -86,7 +87,7 @@ const Content = () => {
   }
   const writeReply = () => {
     const replys = {
-      name: '다꼬리2',
+      name: '코튼캔디',
       date: new Intl.DateTimeFormat('ko', { dateStyle: 'medium' }).format(new Date()),
       content: textArea
     };
@@ -98,6 +99,33 @@ const Content = () => {
     title.innerHTML = '코스 상세 | COTTON CANDY';
   }, []);
   const contentsRef = useRef(null);
+
+  const shareKakao = () => {
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'ㅌㅅㅌ',
+        description: 'ㅌㅅㅌㅌㅌ',
+        imageUrl: '',
+        link: {
+          mobileWebUrl: 'https://google.com',
+        },
+      },
+      buttons: [
+        {
+          title: 'ㅌㅅㅌ22',
+          link: {
+            mobileWebUrl: 'https://google.com'
+          }
+        }
+      ]
+    });
+  }
+  useEffect(()=>{
+    Kakao.cleanup();
+    Kakao.init('26b87e8c01f0c8e3cb2ca726c75e804f');
+  },[])
+
   useEffect(()=>{
     contentsRef.current.scrollIntoView();
   },[])
@@ -105,21 +133,23 @@ const Content = () => {
     <div id="content" ref={contentsRef}>
       {/* content title */}
       <div className="content-top">
-        <span className="title">ddddddddddd</span>
-        <span className="addr">강원 평창군</span>
-        <span className="desc">전나무 숲에서 즐기는 피톤치드 산림욕</span>
+        <span className="title">서울 맛집 여행</span>
+        <span className="addr">서울 강남구</span>
+        <span className="desc">서울에서 맛집 즐기기</span>
         <div className="menu">
           <div className="left">
             <p>
               <i className="fa-regular fa-heart"></i>
-              <span>11</span>
+              <span>0</span>
             </p>
             <p>
               <i className="fa-regular fa-eye"></i>
-              <span>40</span>
+              <span>3</span>
             </p>
             <p>
-              <i className="fa-regular fa-paper-plane"></i>
+              <i className="fa-regular fa-paper-plane"
+                onClick={shareKakao}
+              ></i>
               <span>share</span>
             </p>
           </div>

@@ -127,6 +127,13 @@ const NewLogin = ({login}) => {
         // 비동기 통신으로 post 방식으로 서버에 값을 보냄.
 
         alert('가입 성공');
+        let session = window.sessionStorage;
+        session.setItem("id",signId);
+        session.setItem("nick",signNick);
+        setUser([{
+            id: signId,
+            nick: signNick
+        }]);
 
         loginClose();
         // 로그인 창 닫기.

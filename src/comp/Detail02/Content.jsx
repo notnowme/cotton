@@ -92,7 +92,7 @@ const Content = () => {
   }
   const writeReply = () => {
     const replys = {
-      name: '다꼬리2',
+      name: '코튼캔디',
       date: new Intl.DateTimeFormat('ko', { dateStyle: 'medium' }).format(new Date()),
       content: textArea
     };
@@ -104,25 +104,22 @@ const Content = () => {
     title.innerHTML = '코스 상세 | COTTON CANDY';
   }, []);
   const contentsRef = useRef(null);
-  useEffect(()=>{
-    contentsRef.current.scrollIntoView();
-  },[])
   return (
     <div id="content" ref={contentsRef}>
       {/* content title */}
       <div className="content-top">
-        <span className="title">ddddddddddd</span>
-        <span className="addr">강원 평창군</span>
-        <span className="desc">전나무 숲에서 즐기는 피톤치드 산림욕</span>
+        <span className="title">자연 힐링</span>
+        <span className="addr">서울 강남구</span>
+        <span className="desc">서울에서 즐기는 힐링 여행</span>
         <div className="menu">
           <div className="left">
             <p>
               <i className="fa-regular fa-heart"></i>
-              <span>11</span>
+              <span>0</span>
             </p>
             <p>
               <i className="fa-regular fa-eye"></i>
-              <span>40</span>
+              <span>3</span>
             </p>
             <p>
               <i className="fa-regular fa-paper-plane"></i>
